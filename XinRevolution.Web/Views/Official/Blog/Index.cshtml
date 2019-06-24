@@ -1,0 +1,91 @@
+﻿@{
+    ViewBag.Transition = TransitionType.VERTICAL;
+}
+
+@* Blog *@
+<div class="grid-container h100 pt-content relative">
+    <!-- 主題素材 -->
+    <div class="theme">BLOGS</div>
+    <!-- <div class="test2"></div> -->
+
+
+    <div class="sign">
+        <nav>
+            <a class="prev" asp-controller="Home">PREV</a>
+            <a class="next" asp-controller="Work">NEXT</a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="column-15 pre-2 h100 z999">
+
+        @* Blog Unit *@
+        <div class="blog-unit">
+            <a class="blog-link" href="#">anchor for the blog</a>
+
+            <div class="blog-archive"> 2019.01</div>
+
+            <div class="blog-info">2018/01/01 New</div>
+
+            <h4 class="blog-title">新革命-焰世代</h4>
+
+            <div class="blog-content">
+                <img class="blog-img" src="/Official/images/news-test.png">
+                <p class="blog-article">
+                    Lorem Lorem commodo adipisicing anim ex. Laboris dolore Lorem Lorem veniam occaecat anim cupidatat
+                    ipsumet qui. Aute aliqua aliqua consequat irure ut elit dolor.
+                </p>
+            </div>
+
+            <div class="blog-share">
+                <div>Twitter</div>
+                <div>FB</div>
+                <div>IG</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Additional Filter -->
+    <div class="column-5 z999 date-group ">
+        <div class="date-div">
+            <div class="btn date center">ARCHIVES</div>
+            <ul>
+                <li>
+                    <span class="js-blog-btn-switch-date">2019 01</span>
+                    <ul class="js-blog-list">
+                        <li>內文1</li>
+                        <li>內文2</li>
+                        <li>內文3</li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="js-blog-btn-switch-date">2019 01</span>
+                    <ul class="js-blog-list">
+                        <li>內文1</li>
+                        <li>內文2</li>
+                        <li>內文3</li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="">2019 01</span>
+                    <ul class="hide">
+                        <li>內文1</li>
+                        <li>內文2</li>
+                        <li>內文3</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="date-div">
+            <div class="btn tag center">Tag1</div>
+            <div class="btn tag center">Tag2</div>
+            <div class="btn tag center">Tag3</div>
+            <div class="btn tag center">Tag4</div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script type="text/javascript" src="~/Official/js/blog.js"></script>
+}

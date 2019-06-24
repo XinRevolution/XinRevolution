@@ -1,0 +1,120 @@
+﻿@{
+    ViewBag.Transition = TransitionType.EXPAND;
+}
+
+@* 焰世代 - 季 *@
+<div>
+    <a asp-controller="FireGeneration" asp-action="Timeline">返回</a>
+
+    <div>
+        <div><img src="" /></div>
+
+        <div>
+            <div>Season Number</div>
+            <div>
+                <table>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <span class="node active" style="display:block;"></span>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td colspan="3">
+                            <div class="node-line"></div>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <div class="node"></div>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+
+                        <td colspan="4">
+                            <div class="node-line"></div>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <div class="node"></div>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td colspan="2">
+                            <div class="node-line"></div>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <div class="node"></div>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div>
+            <div>Season Title</div>
+
+            <div>
+                <img />
+                <div>chapter title</div>
+                <p>chapter content</p>
+            </div>
+        </div>
+    </div>
+
+    <partial name="_Navigation" />
+</div>
+
+@* Popup *@
+<div>
+    <div>
+        <div>Season Number</div>
+        <div>Season Title</div>
+        <div>返回</div>
+    </div>
+
+    <div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/Official/js/FireGeneration/season.js"></script>
+}

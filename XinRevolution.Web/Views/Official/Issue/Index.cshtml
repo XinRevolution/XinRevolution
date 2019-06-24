@@ -1,0 +1,128 @@
+﻿@{
+ViewBag.Transition = TransitionType.EXPAND;
+}
+<!-- 單元寬度待調整-->
+<!-- Issues -->
+<div class="grid-container pt-content h100 relative overflowAuto-y">
+    <div class="now">Issues</div>
+
+    <div class="sign">
+        <nav>
+            <a class="prev" asp-controller="Work">PREV</a>
+            <a class="next" href="#">NEXT</a>
+        </nav>
+    </div>
+
+    <div>切換按鈕</div>
+
+    <div class="block-plain column-18 pre-6">
+        <div class="issues-height block">
+
+            @* Issue 單元 *@
+            <div class="issues-div" >
+
+                <div class="issues-img">
+                    <img src="~/Official/images/issue-01.jpg" />
+                </div>
+                <div class="issues-content">
+                    <div class="rectangle-title light">title</div>
+
+                    <div class="issue-date">
+                        <div class="date">2018-12-16</div>
+                    </div>
+
+                    <div>content</div>
+
+                    <div>read more</div>
+                </div>
+            </div>
+
+              @* Issue 單元 *@
+            <div class="issues-div">
+
+                <div class="issues-img">
+                    <img src="~/Official/images/issue-01.jpg" />
+                </div>
+                <div class="issues-content">
+                    <div class="rectangle-title light">title</div>
+
+                    <div class="issue-date">
+                        <div class="date">2018-12-16</div>
+                    </div>
+
+                    <div>content</div>
+
+                    <div>read more</div>
+                </div>
+            </div>
+
+
+              @* Issue 單元 *@
+            <div class="issues-div">
+
+                <div class="issues-img">
+                    <img src="~/Official/images/issue-01.jpg" />
+                </div>
+                <div class="issues-content">
+                    <div class="rectangle-title light">title</div>
+
+                    <div class="issue-date">
+                        <div class="date">2018-12-16</div>
+                    </div>
+
+                    <div>content</div>
+
+                    <div>read more</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@* 跳出視窗 *@
+<div class="grid-container h100 relative overflowAuto-y">
+      <!-- 返回 -->
+  <div>back</div>
+  <!-- 左邊操作區 -->
+  <div class="column-6">
+      <!-- 議題標題 -->
+      <div>title</div>
+
+      <div>intro</div>
+
+      <div>sub title</div>
+
+      <div>image links (輪播套件)</div>
+
+      <!-- 分享至社群 -->
+      <div>Twitter</div>
+      <div>FB</div>
+      <div>IG</div>
+  </div>
+  <!--右邊議題區 -->
+  <div class="column-18 h100">
+      <!-- 議題群組 -->
+      <div class="issue-div">
+          <!-- 時間線 -->
+          <div class="time-group column-6">
+
+              <div class="time-node">title</div>
+
+              <div class="issue-date">
+                  <div class="date">2018-12-16</div>
+              </div>
+          </div>
+          <!-- 內容 -->
+          <div  class="issue-content column-12">
+              <p>文字描述</p>
+              <img src="" />
+          </div>
+      </div>
+  </div>
+</div>
+
+@section Scripts {
+@* 輪播套件 *@
+<script type="text/javascript" src="~/Official/js/issue.js"></script>
+}

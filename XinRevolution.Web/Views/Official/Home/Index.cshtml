@@ -1,0 +1,105 @@
+﻿@{
+    ViewBag.Transition = TransitionType.HORIZONTAL;
+}
+
+@* 形象首頁 *@
+<style>
+    .section-1 {
+        background-image: url("/Official/images/index.png");
+    }
+
+    .section-3 {
+        background-image: url("/Official/images/X-logo.svg");
+    }
+
+    .out {
+        height: 1300px;
+    }
+
+    .wrapper {
+        overflow-y: scroll;
+    }
+
+    .article {
+
+        margin: 0 auto;
+        height: 100vh;
+        padding: 40px;
+        font: 24px 'Arial';
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center center;
+        background-size: cover;
+        line-height: 28px;
+    }
+
+    .test {
+        top: -20%;
+    }
+
+    .off {
+        top: -80%;
+    }
+
+    .moon {
+        transition: all 1s ease;
+    }
+</style>
+
+@* Home *@
+<div class="js-ctrl-background h100" data-header="dark">
+    <div>Index</div>
+    
+    <div class="sign">
+        <nav>
+            <a class="prev" href="#">PREV</a>
+            <a class="next" asp-controller="Blog">NEXT</a>
+        </nav>
+    </div>
+
+    <!-- 主視覺 -->
+    <div class="master-vision">
+        <div class="">
+            <!-- <div class="wing"></div> -->
+            <div class="adj"></div>
+            <div class="moon"></div>
+            <div class="bg-red"></div>
+        </div>
+    </div>
+
+    <!-- 圓形準心 -->
+    <div class="concentric"></div>
+    <div class="index-circle"></div>
+
+    <!-- Index -->
+    <div class="grid-container pt-content h100 relative">
+        <div>
+            <div>內容</div>
+            <div class="logo-x icon-logo"></div>
+
+            <!-- 視差捲軸 測試 -->
+            <div class="out column-20 pre-2">
+                <div class="article section-1">
+                    TEST-1 <br>
+                    TEST-1 <br>
+                    TEST-1 <br>
+                </div>
+
+                <div class="article section-2">
+                    <img src="/Official/images/concept.jpg" alt="">
+                    <div> 心 革命</div>
+                    <div>
+                        Excepteur mollit officia qui laborum consectetur in non qui. Occaecat exercitation aliquip ullamco occaecat consequat quis veniam ea id do nulla veniam. Exercitation pariatur adipisicing ullamco anim fugiat sunt fugiat. Veniam veniam labore duis fugiat fugiat proident ut sint enim ipsum laborum. Proident dolore eu voluptate sit velit. Commodo sint in non dolore qui nostrud ut occaecat.
+                        Excepteur mollit officia qui laborum consectetur in non qui. Occaecat exercitation aliquip ullamco occaecat consequat quis veniam ea id do nulla veniam. Exercitation pariatur adipisicing ullamco anim fugiat sunt fugiat. Veniam veniam labore duis fugiat fugiat proident ut sint enim ipsum laborum. Proident dolore eu voluptate sit velit. Commodo sint in non dolore qui nostrud ut occaecat.
+                    </div>
+                </div>
+
+                <div class="article section-3">
+                    TEST-3 <br>
+                    TEST-3 <br>
+                    TEST-3 <br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

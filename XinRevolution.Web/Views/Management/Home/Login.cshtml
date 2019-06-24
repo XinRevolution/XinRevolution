@@ -1,0 +1,53 @@
+﻿@model UserMD
+@{
+    Layout = "";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>XinRevolution - Management</title>
+
+    <link rel="stylesheet" href="~/Management/lib/bootstrap/css/bootstrap.min.css" />
+
+    <script src="~/Common/lib/jquery/js/jquery.3.4.1.min.js"></script>
+    <script src="~/Common/lib/jquery-validation/js/jquery.validate.min.js"></script>
+    <script src="~/Common/lib/jquery-validation-unobtrusive/js/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Management/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Management/lib/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <form asp-area="Management" asp-controller="Home" asp-action="Login" method="post" class="col-6">
+                <div class="form-group row">
+                    <label asp-for="Account" class="col-sm-2 col-form-label"></label>
+                    <div class="col-sm-10">
+                        <input asp-for="Account" class="form-control" />
+                        <span asp-validation-for="Account" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label asp-for="Password" class="col-sm-2 col-form-label"></label>
+                    <div class="col-sm-10">
+                        <input asp-for="Password" class="form-control" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                </div>
+                
+                <div class="form-group row">
+                    <span class="text-danger">@ViewBag.ErrorMsg</span>
+                </div>
+                
+                <div class="form-group row">
+                    <button type="submit">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>XinRevolution</title>
+    <link rel="stylesheet" href="~/Official/css/hamburgers.css" />
+    <link rel="stylesheet" href="~/Official/css/style.css" />
+    <link rel="stylesheet" href="~/Official/css/myScss.css" />
+
+    <!-- fonts- "Libre Barcode 128" 、Pathway Gothic One、Homenaje、Roboto、Noto Sans TC、Share Tech、Open Sans-->
+    <link href="https://fonts.googleapis.com/css?family=Homenaje|Libre+Barcode+128|Noto+Sans+TC|Pathway+Gothic+One|Open+Sans:400,600i,700i,800i|Share+Tech|Share+Tech|Roboto&amp;subset=latin-ext"
+          rel="stylesheet">
+
+    @RenderSection("Styles", required: false)
+
+    <script src="~/Official/lib/jquery/dist/jquery.js"></script>
+    <script src="~/Official/js/util.js"></script>
+    <script src="~/Official/js/layout.js"></script>
+</head>
+
+<body>
+    @* 轉場動畫 *@
+    <div class='@ViewBag.Transition' id="js-layout-block-transition">XIN_REVOLUTION</div>
+
+    @* Header *@
+    <header class="header-div">
+        <!-- Menu Btn -->
+        <div class="btn left-top border-bottom">
+            <!-- <div class="btn menu" id="js-layout-btn-menu-show">menu</div> -->
+            <div class="hamburger hamburger--emphatic" id="js-layout-btn-menu-show">
+                <div class="hamburger-box">
+                    <div class="hamburger-inner"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- LOGO -->
+        <!-- x-logo 待換 -->
+        <div class="logo-header">
+            <a asp-controller="Home" class="navbar-brand">
+                <div class="x-logo"></div>
+            </a>
+        </div>
+
+        <!-- 右邊連結 -->
+        <div class="btn border-bottom right-top">
+            <a class="btn icon-account"></a>
+            <a class="btn icon-shopping-cart"></a>
+            <a class="btn icon-search"></a>
+        </div>
+    </header>
+
+    @* Content *@
+    <div class="wrapper overflow-auto-y">
+        <div class="h100 relative">
+            @* Main *@
+
+            @RenderBody()
+
+            @* Decoration *@
+            <div class="">
+                <div class="top-sight"></div>
+
+                <div class="bottom-sight">
+                    <embed class="circle-g" src="~/Official/images/circle-g .svg" type="image/svg+xml" />
+                </div>
+
+                <div class="grid-container">
+                    <div class="cross-div">
+                        <div class="column-6 "></div>
+                        <div class="column-6 "></div>
+                        <div class="column-6 "></div>
+                        <div class="column-6 "></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @* Footer *@
+    <footer>
+        <div class="btn border-top left-bottom">
+            <div class="btn btn-square" id="js-layout-btn-aboutUs-show">ABOUT_US</div>
+        </div>
+
+        <div class="right btn border-top right-bottom">
+            <nav>
+                <a class="btn icon-twitter"></a>
+                <a class="btn icon-fb" href="https://www.facebook.com/XinRevo/" target="_blank"></a>
+                <a class="btn icon-ig"></a>
+            </nav>
+        </div>
+
+        <div class="footer-div"></div>
+    </footer>
+
+    @* Menu *@
+    <div class="menu-div" id="js-layout-block-menu">
+        <nav class="grid-container ">
+            <div class="column-12 h100">
+                <a asp-area="Official" asp-controller="Home">INDEX</a>
+                <a asp-area="Official" asp-controller="Blog">BLOGS</a>
+                <a asp-area="Official" asp-controller="Work">WORKS</a>
+                <a asp-area="Official" asp-controller="Issue">ISSUES</a>
+            </div>
+
+            <div class="column-12 h100"></div>
+
+            <div class="close" id="js-layout-btn-menu-hide">X</div>
+        </nav>
+    </div>
+
+    @* About Us *@
+    <div class="aboutUs-div" id="js-layout-block-aboutUs">
+        <div class="content">
+            <div class="aboutUs-content grid-container">
+                <div>
+                    <div>照片</div>
+                    <div>資料</div>
+                </div>
+
+                <div class="close" id="js-layout-btn-aboutUs-hide">X</div>
+            </div>
+        </div>
+    </div>
+
+    @* 以下部分暫時不要更動 *@
+    @*<partial name="_CookieConsentPartial" />*@
+
+    @RenderSection("Scripts", required: false)
+</body>
+
+</html>
