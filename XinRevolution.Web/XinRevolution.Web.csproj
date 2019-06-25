@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
@@ -21,14 +21,20 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.9" />
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Models\ViewModel\" />
     <Folder Include="wwwroot\Official\css\" />
     <Folder Include="wwwroot\Official\images\" />
     <Folder Include="wwwroot\Official\js\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\XinRevolution.Entity\XinRevolution.Entity.csproj" />
   </ItemGroup>
 
   <ItemGroup>

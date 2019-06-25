@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace XinRevolution.Web.Models.Official.Constants
+namespace XinRevolution.Web.Models.Constants.Official
 {
     public static class TransitionType
     {

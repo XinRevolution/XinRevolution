@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using XinRevolution.Web.MetaData.Management;
+using XinRevolution.Web.Models.MetaData.Management;
 
 namespace XinRevolution.Web.Controllers.Management
 {

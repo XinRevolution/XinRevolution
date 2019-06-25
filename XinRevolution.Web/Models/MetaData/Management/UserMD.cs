@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace XinRevolution.Web.MetaData.Management
+namespace XinRevolution.Web.Models.MetaData.Management
 {
     public class UserMD
     {
