@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
+using XinRevolution.Entity.Context;
+using XinRevolution.Entity.Interfaces;
 using XinRevolution.Entity.Models;
 
 namespace XinRevolution.Entity.Repositories
@@ -11,38 +12,75 @@ namespace XinRevolution.Entity.Repositories
     {
         private readonly XinRevolutionDbContext _context;
 
-        public XinRevolutionDbContext Context { get { return this._context; } }
-
         public UserRepository(XinRevolutionDbContext context)
         {
             _context = context;
         }
 
-        public long Create(UserModel entity)
+        public XinRevolutionDbContext Context { get { return this._context; } }
+
+        public UserModel Create(UserModel entity)
         {
             Context.Users.Add(entity);
             Context.SaveChanges();
 
-            return entity.ID;
+            return entity;
         }
-
-        public void Update(UserModel entity)
+               
+        public UserModel Update(UserModel entity)
         {
-            var originUser = Context.Users.Single(x => x.ID == entity.ID);
+            var originUser = FindbyId(entity.Id);
+
+            if(originUser == default(UserModel))
+                throw new Exception($"無法取得 User 物件 ( Id = {entity.Id} )");
+
             Context.Entry(originUser).CurrentValues.SetValues(entity);
             Context.SaveChanges();
 
-            return;
+            return entity;
         }
 
-        public UserModel FindByKey(string id)
+        public bool DeleteById(long id)
         {
-            throw new NotImplementedException();
+            var entity = Context.Users.SingleOrDefault(x => x.Id == id);
+
+            if (entity == default(UserModel))
+                throw new Exception($"無法取得 User 物件 ( Id = {id} )");
+
+            Context.Users.Remove(entity);
+            Context.SaveChanges();
+
+            return true;
+        }
+
+        public bool DeleteByKey(string key)
+        {
+            var entity = Context.Users.SingleOrDefault(x => x.Account.Equals(key));
+            
+            if (entity == default(UserModel))
+                throw new Exception($"無法取得 User 物件 ( Accont = {key} )");
+
+            Context.Users.Remove(entity);
+            Context.SaveChanges();
+
+            return true;
+        }
+        
+        public UserModel FindbyId(long id)
+        {
+            var entity = Context.Users.SingleOrDefault(x => x.Id == id);
+
+            return entity;
+        }
+
+        public UserModel FindByKey(string key)
+        {
+            return Context.Users.SingleOrDefault(x => x.Account.Equals(key));
         }
 
         public IEnumerable<UserModel> Find(Expression<Func<UserModel, bool>> expression)
         {
-            throw new NotImplementedException();
+            return Context.Users.Where(expression);
         }
     }
 }

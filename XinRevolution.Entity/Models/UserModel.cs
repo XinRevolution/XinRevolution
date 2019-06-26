@@ -9,7 +9,7 @@ namespace XinRevolution.Entity.Models
     public class UserModel
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public long ID { get; set; }
+        public long Id { get; set; }
 
         [Key]
         [Required]
@@ -18,6 +18,7 @@ namespace XinRevolution.Entity.Models
         [Required]
         public string Password { get; set; }
 
+        [Required]
         public string Name { get; set; }
 
         public string Phone { get; set; }
