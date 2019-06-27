@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using XinRevolution.Entity.Models;
+using XinRevolution.Entity.Model;
 
 namespace XinRevolution.Entity.Context
 {

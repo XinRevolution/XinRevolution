@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28922.388
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{260F6E04-3032-4946-98BA-E80ED0FB8999}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataBase", "DataBase", "{260F6E04-3032-4946-98BA-E80ED0FB8999}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{352D58E6-6FCA-40CB-86CB-9BB605CD4E8C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XinRevolution.Web", "XinRevolution.Web\XinRevolution.Web.csproj", "{550031C6-C9DA-4F34-94C3-A9ED80A4628C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XinRevolution.Web", "XinRevolution.Web\XinRevolution.Web.csproj", "{550031C6-C9DA-4F34-94C3-A9ED80A4628C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XinRevolution.Entity", "XinRevolution.Entity\XinRevolution.Entity.csproj", "{AF441E0C-7AB6-4FBB-8C91-C49E3EF8C2E8}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libarary", "Libarary", "{BBDC5AE7-576F-4B90-94A5-10018E575ADF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XinRevolution.Repositories", "XinRevolution.Repositories\XinRevolution.Repositories.csproj", "{EC803A05-8267-4836-B189-D3F19A111DC4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XinRevolution.Entity", "XinRevolution.Entity\XinRevolution.Entity.csproj", "{3F3EB482-B30C-4453-A598-06C334E9922F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XinRevolution.Repository", "XinRevolution.Repository\XinRevolution.Repository.csproj", "{0D836C84-B96E-4B5A-9F62-0F989599A97E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XinRevolution.Repository", "XinRevolution.Repository\XinRevolution.Repository.csproj", "{79904C34-1F58-4331-A158-336FFEA90387}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,27 +25,22 @@ Global
 		{550031C6-C9DA-4F34-94C3-A9ED80A4628C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{550031C6-C9DA-4F34-94C3-A9ED80A4628C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{550031C6-C9DA-4F34-94C3-A9ED80A4628C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AF441E0C-7AB6-4FBB-8C91-C49E3EF8C2E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AF441E0C-7AB6-4FBB-8C91-C49E3EF8C2E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AF441E0C-7AB6-4FBB-8C91-C49E3EF8C2E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AF441E0C-7AB6-4FBB-8C91-C49E3EF8C2E8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EC803A05-8267-4836-B189-D3F19A111DC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EC803A05-8267-4836-B189-D3F19A111DC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EC803A05-8267-4836-B189-D3F19A111DC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EC803A05-8267-4836-B189-D3F19A111DC4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0D836C84-B96E-4B5A-9F62-0F989599A97E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0D836C84-B96E-4B5A-9F62-0F989599A97E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0D836C84-B96E-4B5A-9F62-0F989599A97E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0D836C84-B96E-4B5A-9F62-0F989599A97E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F3EB482-B30C-4453-A598-06C334E9922F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F3EB482-B30C-4453-A598-06C334E9922F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F3EB482-B30C-4453-A598-06C334E9922F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F3EB482-B30C-4453-A598-06C334E9922F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79904C34-1F58-4331-A158-336FFEA90387}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79904C34-1F58-4331-A158-336FFEA90387}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79904C34-1F58-4331-A158-336FFEA90387}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79904C34-1F58-4331-A158-336FFEA90387}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{550031C6-C9DA-4F34-94C3-A9ED80A4628C} = {352D58E6-6FCA-40CB-86CB-9BB605CD4E8C}
-		{AF441E0C-7AB6-4FBB-8C91-C49E3EF8C2E8} = {260F6E04-3032-4946-98BA-E80ED0FB8999}
-		{EC803A05-8267-4836-B189-D3F19A111DC4} = {260F6E04-3032-4946-98BA-E80ED0FB8999}
-		{0D836C84-B96E-4B5A-9F62-0F989599A97E} = {260F6E04-3032-4946-98BA-E80ED0FB8999}
+		{3F3EB482-B30C-4453-A598-06C334E9922F} = {260F6E04-3032-4946-98BA-E80ED0FB8999}
+		{79904C34-1F58-4331-A158-336FFEA90387} = {BBDC5AE7-576F-4B90-94A5-10018E575ADF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8783B719-46DD-483A-A1B3-A94939D242F6}

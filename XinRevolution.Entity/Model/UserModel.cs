@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text;
 
-namespace XinRevolution.Entity.Models
+namespace XinRevolution.Entity.Model
 {
     public class UserModel
     {
@@ -32,7 +32,7 @@ namespace XinRevolution.Entity.Models
 
         [Column(TypeName = "nvarchar(200)")]
         public string Address { get; set; }
-        
+
         [Column(TypeName = "nvarchar(50)")]
         public int Authority { get; set; }
 
