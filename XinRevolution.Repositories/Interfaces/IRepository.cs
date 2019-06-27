@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq.Expressions;
 using System.Text;
 
-namespace XinRevolution.Entity.Interfaces
+namespace XinRevolution.Repositories.Interfaces
 {
     public interface IRepository<TEntity, TKey> where TEntity : class
     {

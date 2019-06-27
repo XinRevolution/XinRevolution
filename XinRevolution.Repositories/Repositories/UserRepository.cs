@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using XinRevolution.Entity.Context;
-using XinRevolution.Entity.Interfaces;
 using XinRevolution.Entity.Models;
+using XinRevolution.Repositories.Interfaces;
 
 namespace XinRevolution.Entity.Repositories
 {

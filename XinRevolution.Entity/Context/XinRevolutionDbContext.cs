@@ -11,5 +11,7 @@ namespace XinRevolution.Entity.Context
         public XinRevolutionDbContext(DbContextOptions<XinRevolutionDbContext> options) : base(options) { }
 
         public DbSet<UserModel> Users { get; set; }
+
+        public DbSet<TagModel> Tags { get; set; }
     }
 }
