@@ -154,12 +154,12 @@
     }
 }
 // 時間軸-季
-.seasonDiv {
+.season-div {
     background: $black;
     @extend %full-screenBg;
 }
 
-.seasonInfo {
+.season-info {
     position: relative;
     top: 50%;
 
@@ -173,7 +173,7 @@
 
 // 焰世代-時間軸
 
-.storyDiv {
+.story-div {
     @include transition(all, 0.4s, ease, 0s);
     background: $black;
     padding: 0.5rem;
@@ -181,7 +181,7 @@
     height: 100%;
 
     //    Img
-    .storyImg {
+    .story-img {
         width: 7rem;
         height: 100%;
         background: #4EB5C7;
@@ -201,7 +201,7 @@
     }
 
     //    內容
-    .storyContent {
+    .story-content {
         display: inline-block;
         vertical-align: top;
         color: #fff;
@@ -289,7 +289,7 @@
             margin: 1rem;
         }
 
-        .storyImg {
+        .story-img {
             width: 15rem;
             display: block;
             margin: auto;
