@@ -5,6 +5,17 @@ using System.Text;
 
 namespace XinRevolution.Repository.Interface
 {
+    public interface IRepository<TEntity>
+    {
+        TEntity Create(TEntity entity);
+
+        bool Create(IEnumerable<TEntity> entities);
+
+        bool Delete(Expression<Func<TEntity, bool>> expression);
+
+        bool Find(Expression<Func<TEntity, bool>> expression);
+    }
+
     public interface IRepository<TEntity, TKey> where TEntity : class
     {
         TEntity Create(TEntity entity);

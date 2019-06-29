@@ -30,13 +30,10 @@ namespace XinRevolution.Entity.Model
         [Column(TypeName = "nvarchar(50)")]
         public string Mail { get; set; }
 
-        [Column(TypeName = "nvarchar(200)")]
+        [Column(TypeName = "nvarchar(100)")]
         public string Address { get; set; }
 
         [Column(TypeName = "nvarchar(50)")]
         public int Authority { get; set; }
-
-        [Column(TypeName = "smalldatetime")]
-        public DateTime ModifyDate { get; set; }
     }
 }

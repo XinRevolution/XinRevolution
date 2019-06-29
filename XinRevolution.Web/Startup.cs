@@ -79,6 +79,11 @@ namespace XinRevolution.Web
                     areaName: "Management",
                     template: "Management/{controller=Home}/{action=Login}/{id?}");
 
+                // to be removed after development
+                routes.MapRoute(
+                    name: "Temp",
+                    template: "{area=Management}/{controller=Home}/{action=Login}/{id?}");
+
                 routes.MapRoute(
                     name: "Default",
                     template: "{area=Official}/{controller=Home}/{action=Index}/{id?}");

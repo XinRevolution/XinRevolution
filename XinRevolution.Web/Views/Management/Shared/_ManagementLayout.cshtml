@@ -1,1 +1,47 @@
-﻿
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>XinRevolution - Management</title>
+
+    <link rel="stylesheet" href="~/Management/css/style.management.css" />
+    <link rel="stylesheet" href="~/Management/lib/bootstrap/css/bootstrap.min.css" />
+
+    <script src="~/Common/lib/jquery/js/jquery.3.4.1.min.js"></script>
+    <script src="~/Common/lib/jquery-validation/js/jquery.validate.min.js"></script>
+    <script src="~/Common/lib/jquery-validation-unobtrusive/js/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Management/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Management/lib/bootstrap/js/bootstrap.min.js"></script>
+
+    @RenderSection("styles", required: false)
+</head>
+<body>
+    <header class="navbar navbar-dark bg-dark">
+        <a asp-area="Management" asp-controller="User" class="navbar-brand">XinRevolution - Management</a>
+    </header>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-2">
+                <nav class="nav flex-column nav-pills">
+                    <a asp-area="Management" asp-controller="User" class="nav-item nav-link">使用者管理</a>
+                </nav>
+            </div>
+
+            <div class="col-10">
+                <div class="container-fluid">
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="navbar navbar-dark bg-dark fixed-bottom justify-content-center">
+        <div class="navbar-text">&copy; Motivators 2019 </div>
+    </footer>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -5,17 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="wwwroot\Management\css\**" />
-    <Compile Remove="wwwroot\Management\images\**" />
     <Compile Remove="wwwroot\Management\js\**" />
-    <Content Remove="wwwroot\Management\css\**" />
-    <Content Remove="wwwroot\Management\images\**" />
     <Content Remove="wwwroot\Management\js\**" />
-    <EmbeddedResource Remove="wwwroot\Management\css\**" />
-    <EmbeddedResource Remove="wwwroot\Management\images\**" />
     <EmbeddedResource Remove="wwwroot\Management\js\**" />
-    <None Remove="wwwroot\Management\css\**" />
-    <None Remove="wwwroot\Management\images\**" />
     <None Remove="wwwroot\Management\js\**" />
   </ItemGroup>
 

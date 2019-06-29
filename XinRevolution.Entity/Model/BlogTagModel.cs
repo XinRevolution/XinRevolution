@@ -6,18 +6,17 @@ using System.Text;
 
 namespace XinRevolution.Entity.Model
 {
-    public class TagModel
+    public class BlogTagModel
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long Id { get; set; }
 
-        [Key]
         [Required]
-        [Column(TypeName = "nvarchar(50)")]
-        public string TagName { get; set; }
+        [Column(TypeName = "bigint")]
+        public long BlogId { get; set; }
 
         [Required]
-        [Column(TypeName = "bit")]
-        public bool Enable { get; set; }
+        [Column(TypeName = "bigint")]
+        public long TagId { get; set; }
     }
 }

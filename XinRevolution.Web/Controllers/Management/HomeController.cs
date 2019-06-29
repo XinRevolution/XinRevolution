@@ -9,7 +9,7 @@ using XinRevolution.Web.Models.MetaData.Management;
 namespace XinRevolution.Web.Controllers.Management
 {
     [Area("Management")]
-    [Authorize]
+    //[Authorize]
     public class HomeController : Controller
     {
         [AllowAnonymous]
@@ -26,15 +26,10 @@ namespace XinRevolution.Web.Controllers.Management
         public IActionResult Login(UserMD user)
         {
             if (!string.IsNullOrEmpty(user.Account) && !string.IsNullOrEmpty(user.Password))
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "User");
 
             ViewBag.ErrorMsg = "請輸入帳號密碼";
             return View(user);
-        }
-
-        public IActionResult Index()
-        {
-            return View();
         }
     }
 }

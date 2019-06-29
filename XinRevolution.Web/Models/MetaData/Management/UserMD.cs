@@ -9,12 +9,12 @@ namespace XinRevolution.Web.Models.MetaData.Management
     public class UserMD
     {
         [Required(ErrorMessage ="請輸入帳號")]
-        [Display(Name = "帳號")]
+        [Display(Name = "帳號", Prompt = "請輸入帳號")]
         public string Account { get; set; }
 
         [Required(ErrorMessage = "請輸入密碼")]
         [DataType(DataType.Password)]
-        [Display(Name = "密碼")]
+        [Display(Name = "密碼", Prompt = "請輸入密碼")]
         public string Password { get; set; }
     }
 }

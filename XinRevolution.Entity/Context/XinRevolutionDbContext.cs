@@ -10,8 +10,19 @@ namespace XinRevolution.Entity.Context
     {
         public XinRevolutionDbContext(DbContextOptions<XinRevolutionDbContext> options) : base(options) { }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<BlogModel>().HasKey(c => new { c.Title, c.Date });
+        }
+
         public DbSet<UserModel> Users { get; set; }
 
         public DbSet<TagModel> Tags { get; set; }
+
+        public DbSet<BlogModel> Blogs { get; set; }
+
+        public DbSet<BlogContentModel> BlogContents { get; set; }
+
+        public DbSet<BlogTagModel> BlogTags { get; set; }
     }
 }
