@@ -12,11 +12,16 @@ namespace XinRevolution.Entity.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<BlogModel>().HasKey(c => new { c.Title, c.Date });
+            modelBuilder.Entity<UserModel>().HasKey(x => new { x.Account });
+
+            // 尚須整合
+            modelBuilder.Entity<BlogModel>().HasKey(x => new { x.Title, x.Date });
         }
 
         public DbSet<UserModel> Users { get; set; }
 
+
+        // 尚須整合
         public DbSet<TagModel> Tags { get; set; }
 
         public DbSet<BlogModel> Blogs { get; set; }

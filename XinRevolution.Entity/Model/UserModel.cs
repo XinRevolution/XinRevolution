@@ -11,7 +11,6 @@ namespace XinRevolution.Entity.Model
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long Id { get; set; }
 
-        [Key]
         [Required]
         [Column(TypeName = "nvarchar(50)")]
         public string Account { get; set; }
@@ -32,8 +31,5 @@ namespace XinRevolution.Entity.Model
 
         [Column(TypeName = "nvarchar(100)")]
         public string Address { get; set; }
-
-        [Column(TypeName = "nvarchar(50)")]
-        public int Authority { get; set; }
     }
 }

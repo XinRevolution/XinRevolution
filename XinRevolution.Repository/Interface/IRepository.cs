@@ -5,15 +5,15 @@ using System.Text;
 
 namespace XinRevolution.Repository.Interface
 {
-    public interface IRepository<TEntity>
+    public interface IRepository<TEntity> where TEntity : class
     {
         TEntity Create(TEntity entity);
 
-        bool Create(IEnumerable<TEntity> entities);
+        TEntity FindById(long id);
 
-        bool Delete(Expression<Func<TEntity, bool>> expression);
+        IEnumerable<TEntity> Find();
 
-        bool Find(Expression<Func<TEntity, bool>> expression);
+        IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> expression);
     }
 
     public interface IRepository<TEntity, TKey> where TEntity : class
@@ -29,23 +29,6 @@ namespace XinRevolution.Repository.Interface
         TEntity FindbyId(long id);
 
         TEntity FindByKey(TKey key);
-
-        IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> expression);
-    }
-
-    public interface IRepository<TEntity, TKey1, TKey2> where TEntity : class
-    {
-        TEntity Create(TEntity entity);
-
-        TEntity Update(TEntity entity);
-
-        bool DeleteById(long id);
-
-        bool DeleteByKey(TKey1 key1, TKey2 key2);
-
-        TEntity FindById(long id);
-
-        TEntity FindByKey(TKey1 key1, TKey2 key2);
 
         IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> expression);
     }

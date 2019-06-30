@@ -12,6 +12,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using XinRevolution.Entity.Context;
+using XinRevolution.Entity.Model;
+using XinRevolution.Repository.Interface;
+using XinRevolution.Repository.Repository;
 
 namespace XinRevolution.Web
 {
@@ -46,6 +49,8 @@ namespace XinRevolution.Web
             {
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
+
+            services.AddScoped<IRepository<UserModel>, UserRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
