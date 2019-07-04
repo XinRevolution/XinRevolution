@@ -1,19 +1,19 @@
 ﻿@{
-    ViewBag.Transition = TransitionType.EXPAND;
+ViewBag.Transition = TransitionType.EXPAND;
 }
 
 @* 焰世代 - 時間軸 *@
-<div  class="h100">
+<div class="">
     <partial name="_LayoutNavigation" />
 
-    <div class="h100">
-        <div class="h100"  id="js-timeline-block-slick">
-            <a class="story-div column-6"  asp-controller="FireGeneration" asp-action="Season" asp-route-id="1">
+    <div class="grid-container pt-content h100 relative">
+        <div class="h100" id="js-timeline-block-slick">
+            <a class="story-div column-6" asp-controller="FireGeneration" asp-action="Season" asp-route-id="1">
                 <div class="story-img">
                     <img src="~/Official/images/Nn.png" />
                 </div>
                 <div class="story-content">
-                    <div>00</div>
+                    <div class="number">00</div>
                     <div>title</div>
                     <div>
                         <table>
@@ -93,13 +93,12 @@
                     </div>
                 </div>
             </a>
-
-            <a class="story-div column-6"  asp-controller="FireGeneration" asp-action="Season" asp-route-id="1">
-                <div>
-                    <img src="" />
+            <a class="story-div column-6" asp-controller="FireGeneration" asp-action="Season" asp-route-id="1">
+                <div class="story-img">
+                    <img src="~/Official/images/Nn.png" />
                 </div>
-                <div>
-                    <div>00</div>
+                <div class="story-content">
+                    <div class="number">00</div>
                     <div>title</div>
                     <div>
                         <table>
@@ -179,13 +178,12 @@
                     </div>
                 </div>
             </a>
-
-            <a class="story-div column-6"  asp-controller="FireGeneration" asp-action="Season" asp-route-id="1">
-                <div>
-                    <img src="" />
+            <a class="story-div column-6" asp-controller="FireGeneration" asp-action="Season" asp-route-id="1">
+                <div class="story-img">
+                    <img src="~/Official/images/Nn.png" />
                 </div>
-                <div>
-                    <div>00</div>
+                <div class="story-content">
+                    <div class="number">00</div>
                     <div>title</div>
                     <div>
                         <table>
@@ -265,13 +263,12 @@
                     </div>
                 </div>
             </a>
-
-            <a class="story-div column-6"  asp-controller="FireGeneration" asp-action="Season" asp-route-id="1">
-                <div>
-                    <img src="" />
+             <a class="story-div column-6" asp-controller="FireGeneration" asp-action="Season" asp-route-id="1">
+                <div class="story-img">
+                    <img src="~/Official/images/Nn.png" />
                 </div>
-                <div>
-                    <div>00</div>
+                <div class="story-content">
+                    <div class="number">00</div>
                     <div>title</div>
                     <div>
                         <table>
@@ -358,12 +355,12 @@
     <partial name="_Navigation" />
 </div>
 
-@section Styles{ 
-    <link rel="stylesheet" type="text/css" href="~/Official/lib/slick/css/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="~/Official/lib/slick/css/slick-theme.css" />
+@section Styles{
+<link rel="stylesheet" type="text/css" href="~/Official/lib/slick/css/slick.css" />
+<link rel="stylesheet" type="text/css" href="~/Official/lib/slick/css/slick-theme.css" />
 }
 
 @section Scripts{
-    <script src="~/Official/lib/slick/js/slick.min.js"></script>
-    <script src="~/Official/js/FireGeneration/timeline.js"></script>
+<script src="~/Official/lib/slick/js/slick.min.js"></script>
+<script src="~/Official/js/FireGeneration/timeline.js"></script>
 }

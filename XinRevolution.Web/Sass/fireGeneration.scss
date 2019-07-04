@@ -209,7 +209,7 @@
         float: left;
         margin-left: 0.5rem;
 
-        .title {
+        .number {
             font-family: 'Homenaje';
             position: relative;
             font-size: 6rem;
@@ -219,7 +219,7 @@
                 content: '';
                 position: absolute;
                 width: 100%;
-                height: 4px;
+                height: 1px;
                 bottom: 0;
                 left: 0;
                 background: #fff;
