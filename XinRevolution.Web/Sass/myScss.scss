@@ -71,6 +71,7 @@ header {
     div {
         float: left;
     }
+
     &.bright {
         .x-logo {
             @extend .x-logo;
@@ -135,6 +136,13 @@ footer {
 // custom
 .h100 {
     height: 100%;
+    .slick-list{
+        height: 100%;
+        .slick-track{
+            height: 100%;
+            padding: 1rem;
+        }
+    }
 }
 
 .right {
