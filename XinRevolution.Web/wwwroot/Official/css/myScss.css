@@ -7418,6 +7418,11 @@ h4 {
   background: #fff;
 }
 
+.story-div .story-content .title {
+  text-align: center;
+  padding: 1rem;
+}
+
 .story-div table {
   margin: auto;
 }
