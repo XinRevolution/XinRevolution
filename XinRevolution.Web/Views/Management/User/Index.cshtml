@@ -1,4 +1,4 @@
-﻿@* @model .... *@
+﻿@model IEnumerable<UserModel>
 
 <div class="mb-5">
     <nav class="navbar navbar-dark bg-secondary">
@@ -9,7 +9,7 @@
     </nav>
 </div>
 
-<div class="">
+<div class="container-fluid">
     <table class="table table-striped table-bordered table-hover table-sm">
         <thead class="thead-dark">
             <tr>
@@ -18,11 +18,23 @@
                 <th>姓名</th>
                 <th>電話</th>
                 <th>電郵</th>
+                <th>地址</th>
                 <th>操作區</th>
             </tr>
         </thead>
         <tbody>
-
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Account</td>
+                    <td>@item.Name</td>
+                    <td>@item.Phone</td>
+                    <td>@item.EMail</td>
+                    <td>@item.Address</td>
+                    <td></td>
+                </tr>
+            }
         </tbody>
     </table>
 </div>

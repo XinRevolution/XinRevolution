@@ -27,7 +27,7 @@ namespace XinRevolution.Entity.Model
         public string Phone { get; set; }
 
         [Column(TypeName = "nvarchar(50)")]
-        public string Mail { get; set; }
+        public string EMail { get; set; }
 
         [Column(TypeName = "nvarchar(100)")]
         public string Address { get; set; }

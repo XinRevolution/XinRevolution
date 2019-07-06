@@ -15,6 +15,7 @@ using XinRevolution.Entity.Context;
 using XinRevolution.Entity.Model;
 using XinRevolution.Repository.Interface;
 using XinRevolution.Repository.Repository;
+using XinRevolution.Web.Services.Management;
 
 namespace XinRevolution.Web
 {
@@ -50,28 +51,21 @@ namespace XinRevolution.Web
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
 
-            services.AddScoped<IRepository<UserModel>, UserRepository>();
+            // Repository
+            services.AddScoped<IUserRepository<UserModel>, UserRepository>();
+
+            // Service
+            services.AddScoped<UserMnagementService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, XinRevolutionDbContext dbContext)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Official/Home/Error");
-                app.UseHsts();
-            }
-
+            app.UseHsts();
+            app.UseExceptionHandler("/Official/Home/Error");
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
-
-            dbContext.Database.EnsureCreated();
-
             app.UseMvc(routes =>
             {
                 routes.MapAreaRoute(
@@ -93,6 +87,8 @@ namespace XinRevolution.Web
                     name: "Default",
                     template: "{area=Official}/{controller=Home}/{action=Index}/{id?}");
             });
+
+            dbContext.Database.EnsureCreated();
         }
     }
 }
