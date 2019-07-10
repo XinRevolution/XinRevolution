@@ -153,22 +153,6 @@
     }
 }
 
-// 時間軸-季
-.season-div {
-    background: $black;
-    @extend %full-screenBg;
-}
-
-.season-info {
-    position: relative;
-    top: 50%;
-
-    .title,
-    p {
-        color: #fff;
-    }
-
-}
 
 
 // 焰世代-時間軸
@@ -295,33 +279,111 @@
         }
     }
 
-    // 展開狀態
-    &.expend {
-        padding: 0;
 
-        .story-content {
-            display: block;
-            vertical-align: top;
-            color: #fff;
-            width: 100%;
-            float: left;
-            margin: auto;
-            margin-top: 20%;
+}
+// 時間軸-季
+.season-div {
+    @include transition(all, 0.4s, ease, 0s);
+    height: 100%;
+    //    Img
+    .story-img {
+        height: 100%;
+        background: #4EB5C7;
+        overflow: hidden;
+        position: relative;
+        display: inline-block;
+        float: left;
+
+        img {
+            position: absolute;
+            width: 53rem;
+            max-width: max-content;
+            height: auto;
+            bottom: 0;
+            left: -13rem;
         }
+    }
 
-        .subtitle {
+    //    內容
+    .story-content {
+        display: inline-block;
+        vertical-align: top;
+        color: #fff;
+        width: calc(100% - 7.5rem);
+        float: left;
+        margin-left: 0.5rem;
+
+        .number {
+            font-family: 'Homenaje';
+            position: relative;
+            font-size: 6rem;
             text-align: center;
-            margin: 1rem;
+
+            &:after {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 1px;
+                bottom: 0;
+                left: 0;
+                background: #fff;
+            }
         }
 
-        .story-img {
-            width: 15rem;
-            display: block;
-            margin: auto;
-            float: none;
+        .title {
+            text-align: center;
+            padding: 1rem;
+        }
+    }
+
+
+
+    table {
+        margin: auto;
+
+        tr {
+            td {
+                // border: 1px solid #fff;
+                width: 20px;
+                height: 20px;
+                vertical-align: middle;
+            }
+
+            //  時間線
+            &:nth-child(even) {
+                td {
+                    overflow: hidden;
+
+                }
+
+                &:nth-child(2) {
+
+                    .node-line {
+                        transform: rotate(-35deg);
+                    }
+                }
+
+                &:nth-child(4) {
+
+                    .node-line {
+                        transform: rotate(50deg);
+                    }
+                }
+
+                &:nth-child(6) {
+
+                    .node-line {
+                        transform: rotate(-20deg);
+                    }
+                }
+            }
+
         }
     }
 }
+
+
+
 
 // 世界觀
 

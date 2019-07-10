@@ -58,7 +58,7 @@ h4 {
   margin-left: 0.5rem;
 }
 
-.characters-bg, .season-div {
+.characters-bg {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -654,20 +654,6 @@ h4 {
   margin: 1rem 0;
 }
 
-.season-div {
-  background: #292929;
-}
-
-.season-info {
-  position: relative;
-  top: 50%;
-}
-
-.season-info .title,
-.season-info p {
-  color: #fff;
-}
-
 .slick-track:hover .story-div {
   opacity: 0.2;
 }
@@ -777,30 +763,93 @@ h4 {
           transform: rotate(-20deg);
 }
 
-.story-div.expend {
-  padding: 0;
+.season-div {
+  transition: all 0.4s ease 0s;
+  -webkit-transition: all 0.4s ease 0s;
+  -moz-transition: all 0.4s ease 0s;
+  -o-transition: all 0.4s ease 0s;
+  -ms-transition: all 0.4s ease 0s;
+  height: 100%;
 }
 
-.story-div.expend .story-content {
-  display: block;
+.season-div .story-img {
+  height: 100%;
+  background: #4EB5C7;
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  float: left;
+}
+
+.season-div .story-img img {
+  position: absolute;
+  width: 53rem;
+  max-width: -webkit-max-content;
+  max-width: -moz-max-content;
+  max-width: max-content;
+  height: auto;
+  bottom: 0;
+  left: -13rem;
+}
+
+.season-div .story-content {
+  display: inline-block;
   vertical-align: top;
   color: #fff;
-  width: 100%;
+  width: calc(100% - 7.5rem);
   float: left;
-  margin: auto;
-  margin-top: 20%;
+  margin-left: 0.5rem;
 }
 
-.story-div.expend .subtitle {
+.season-div .story-content .number {
+  font-family: 'Homenaje';
+  position: relative;
+  font-size: 6rem;
   text-align: center;
-  margin: 1rem;
 }
 
-.story-div.expend .story-img {
-  width: 15rem;
-  display: block;
+.season-div .story-content .number:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background: #fff;
+}
+
+.season-div .story-content .title {
+  text-align: center;
+  padding: 1rem;
+}
+
+.season-div table {
   margin: auto;
-  float: none;
+}
+
+.season-div table tr td {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+}
+
+.season-div table tr:nth-child(even) td {
+  overflow: hidden;
+}
+
+.season-div table tr:nth-child(even):nth-child(2) .node-line {
+  -webkit-transform: rotate(-35deg);
+          transform: rotate(-35deg);
+}
+
+.season-div table tr:nth-child(even):nth-child(4) .node-line {
+  -webkit-transform: rotate(50deg);
+          transform: rotate(50deg);
+}
+
+.season-div table tr:nth-child(even):nth-child(6) .node-line {
+  -webkit-transform: rotate(-20deg);
+          transform: rotate(-20deg);
 }
 
 ％hand, .left-hand, .right-hand {
