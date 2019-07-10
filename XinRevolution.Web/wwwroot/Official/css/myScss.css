@@ -7741,6 +7741,10 @@ footer {
   background: #000;
 }
 
+.wrapper.bright * {
+  color: #fff;
+}
+
 .content-div, .content {
   height: 100%;
   padding-top: calc(0.5rem + 40px);
