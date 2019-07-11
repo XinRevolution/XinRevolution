@@ -7473,7 +7473,6 @@ h4 {
   color: #fff;
   width: calc(100% - 7.5rem);
   float: left;
-  margin-left: 0.5rem;
 }
 
 .season-div .story-content .number {
@@ -7727,11 +7726,11 @@ footer {
 }
 
 .wrapper {
-  transition: all 0.4s ease 0s;
-  -webkit-transition: all 0.4s ease 0s;
-  -moz-transition: all 0.4s ease 0s;
-  -o-transition: all 0.4s ease 0s;
-  -ms-transition: all 0.4s ease 0s;
+  transition: all 1s ease 0s;
+  -webkit-transition: all 1s ease 0s;
+  -moz-transition: all 1s ease 0s;
+  -o-transition: all 1s ease 0s;
+  -ms-transition: all 1s ease 0s;
   height: 100vh;
   position: relative;
   overflow: hidden;
