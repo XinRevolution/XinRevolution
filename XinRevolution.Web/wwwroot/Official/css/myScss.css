@@ -7471,7 +7471,6 @@ h4 {
   display: inline-block;
   vertical-align: top;
   color: #fff;
-  width: calc(100% - 7.5rem);
   float: left;
 }
 
@@ -7713,6 +7712,10 @@ footer {
   padding: 1rem;
 }
 
+.w100 {
+  width: 100%;
+}
+
 .right {
   float: right;
 }
@@ -7754,10 +7757,6 @@ footer {
 
 .pt-content {
   padding-top: calc(0.5rem + 40px);
-}
-
-.content {
-  width: 100%;
 }
 
 .grid-conta .overflow-auto-x {

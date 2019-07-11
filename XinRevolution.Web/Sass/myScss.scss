@@ -154,7 +154,9 @@ footer {
         }
     }
 }
-
+.w100{
+    width: 100%;
+}
 .right {
     float: right;
 }
@@ -198,7 +200,7 @@ footer {
 // 主要內容
 .content {
     @extend .content-div;
-    width: 100%;
+    // width: 100%;
 }
 
 .grid-conta // 主要內容-overflow

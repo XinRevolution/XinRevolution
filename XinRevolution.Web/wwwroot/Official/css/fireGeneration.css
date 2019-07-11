@@ -796,7 +796,6 @@ h4 {
   display: inline-block;
   vertical-align: top;
   color: #fff;
-  width: calc(100% - 7.5rem);
   float: left;
 }
 
