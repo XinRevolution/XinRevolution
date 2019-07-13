@@ -14,8 +14,11 @@ namespace XinRevolution.Entity.Context
         {
             // 定義 Primary Key
             modelBuilder.Entity<UserModel>().HasKey(x => new { x.Account });
+            modelBuilder.Entity<TagModel>().HasKey(x => new { x.TagName });
         }
 
         public DbSet<UserModel> Users { get; set; }
+
+        public DbSet<TagModel> Tags { get; set; }
     }
 }

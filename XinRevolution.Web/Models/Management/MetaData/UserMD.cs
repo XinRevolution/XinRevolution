@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using XinRevolution.Entity.Model;
 
-namespace XinRevolution.Web.Models.MetaData.Management
+namespace XinRevolution.Web.Models.Management.MetaData
 {
     public class UserMD
     {
@@ -14,7 +14,7 @@ namespace XinRevolution.Web.Models.MetaData.Management
         [HiddenInput]
         public long Id { get; set; }
 
-        [Required(ErrorMessage ="請輸入帳號")]
+        [Required(ErrorMessage = "請輸入帳號")]
         [Display(Name = "帳號", Prompt = "請輸入帳號")]
         public string Account { get; set; }
 

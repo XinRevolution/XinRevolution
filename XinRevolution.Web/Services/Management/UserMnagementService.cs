@@ -4,14 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using XinRevolution.Entity.Model;
 using XinRevolution.Repository.Interface;
-using XinRevolution.Web.Models.MetaData.Management;
+using XinRevolution.Web.Models.Management.MetaData;
 using XinRevolution.Web.Models.ViewModel.Management;
 
 namespace XinRevolution.Web.Services.Management
 {
     public class UserMnagementService
     {
-        private IUserRepository _repository;
+        private readonly IUserRepository _repository;
 
         public UserMnagementService(IUserRepository repository)
         {
@@ -54,9 +54,7 @@ namespace XinRevolution.Web.Services.Management
 
         public UserMD FindMetaData(long id = -1)
         {
-            var result = id == -1 ? new UserMD() : ToMetaData(_repository.FindById(id));
-
-            return result;
+            return id == -1 ? new UserMD() : ToMetaData(_repository.FindById(id));
         }
 
         public Result<UserMD> Create(UserMD data)

@@ -53,9 +53,11 @@ namespace XinRevolution.Web
 
             // Repository
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<ITagRepository, TagRepository>();
 
             // Service
             services.AddScoped<UserMnagementService>();
+            services.AddScoped<TagManagementService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
