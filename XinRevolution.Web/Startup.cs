@@ -52,7 +52,7 @@ namespace XinRevolution.Web
             });
 
             // Repository
-            services.AddScoped<IUserRepository<UserModel>, UserRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
 
             // Service
             services.AddScoped<UserMnagementService>();

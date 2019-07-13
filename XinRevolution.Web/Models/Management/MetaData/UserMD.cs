@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace XinRevolution.Web.Models.MetaData.Management
     public class UserMD
     {
         [Required]
+        [HiddenInput]
         public long Id { get; set; }
 
         [Required(ErrorMessage ="請輸入帳號")]

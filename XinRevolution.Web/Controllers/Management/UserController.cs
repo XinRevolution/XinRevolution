@@ -29,7 +29,7 @@ namespace XinRevolution.Web.Controllers.Management
 
         public IActionResult Create()
         {
-            var data = _service.FindMD();
+            var data = _service.FindMetaData();
 
             return View(data);
         }
@@ -37,39 +37,51 @@ namespace XinRevolution.Web.Controllers.Management
         [HttpPost]
         public IActionResult Create(UserMD data)
         {
-            var result = false;
+            var result = _service.Create(data);
 
-            if (ModelState.IsValid)
-            {
-                result = _service.Create(data);
+            if (result.Status)
+                return RedirectToAction("Index", "User", new { Area = "Management" });
 
-                if (result)
-                    return RedirectToAction("Index", "User");
-            } 
-
-            return View(data);
+            ViewBag.ErrorMsg = result.Message;
+            return View(result.Data);
         }
 
         public IActionResult Update(long id)
         {
-            return View();
+            var data = _service.FindMetaData(id);
+
+            return View(data);
         }
 
-        [HttpPost]
-        public IActionResult Update(UserMD user)
+        [HttpPut]
+        public IActionResult Update(UserMD data)
         {
-            return View();
+            var result = _service.Update(data);
+
+            if (result.Status)
+                return RedirectToAction("Index", "User", new { Area = "Management" });
+
+            ViewBag.ErrorMsg = result.Message;
+            return View(result.Data);
         }
 
         public IActionResult Delete(long id)
         {
-            return View();
+            var data = _service.FindMetaData(id);
+
+            return View(data);
         }
 
-        [HttpPost]
-        public IActionResult Delete(UserMD id)
+        [HttpDelete]
+        public IActionResult Delete(UserMD data)
         {
-            return View();
+            var result = _service.Delete(data);
+
+            if (result.Status)
+                return RedirectToAction("Index", "User", new { Area = "Management" });
+
+            ViewBag.ErrorMsg = result.Message;
+            return View(result.Data);
         }
     }
 }

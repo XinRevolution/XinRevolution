@@ -5,17 +5,24 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using XinRevolution.Web.Models.MetaData.Management;
+using XinRevolution.Web.Services.Management;
 
 namespace XinRevolution.Web.Controllers.Management
 {
     [Area("Management")]
-    //[Authorize]
     public class HomeController : Controller
     {
+        private readonly UserMnagementService _service;
+
+        public HomeController(UserMnagementService service)
+        {
+            _service = service;
+        }
+
         [AllowAnonymous]
         public IActionResult Login()
         {
-            UserMD data = new UserMD();
+            var data = _service.FindMetaData();
 
             return View(data);
         }
@@ -25,10 +32,12 @@ namespace XinRevolution.Web.Controllers.Management
         [AutoValidateAntiforgeryToken]
         public IActionResult Login(UserMD user)
         {
-            if (!string.IsNullOrEmpty(user.Account) && !string.IsNullOrEmpty(user.Password))
-                return RedirectToAction("Index", "User");
+            var result = _service.Login(user);
 
-            ViewBag.ErrorMsg = "請輸入帳號密碼";
+            if (result.Status)
+                return RedirectToAction("Index", "User", new { Area = "Management" });
+
+            ViewBag.ErrorMsg = result.Message;
             return View(user);
         }
     }
