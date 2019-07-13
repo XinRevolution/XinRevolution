@@ -11,54 +11,41 @@ namespace XinRevolution.Web.Services.Management
 {
     public class UserMnagementService
     {
-        private IUserRepository<UserModel> _repository;
+        private IUserRepository _repository;
 
-        public UserMnagementService(IUserRepository<UserModel> repository)
+        public UserMnagementService(IUserRepository repository)
         {
             _repository = repository;
         }
 
-        public List<UserModel> Find()
+        public Result<UserModel> Login(string account, string password)
         {
-            return _repository.FindAll().ToList();
-        }
-
-        public UserMD FindMD(long id = 0)
-        {
-            var data = _repository.FindByID(id);
-
-            return data == default(UserModel) ? new UserMD() : FromModel(data);
-        }
-
-        public Result<UserModel> Create(UserMD metaData)
-        {
-            Result<UserModel> result = new Result<UserModel>();
+            var result = new Result<UserModel>();
 
             try
             {
-                result.Data = _repository.Create()
+                var user = _repository.FindByKey(account);
+
+                if (user == default(UserModel))
+                    throw new Exception("帳號錯誤");
+
+                if (!user.Password.Equals(password, StringComparison.CurrentCultureIgnoreCase))
+                    throw new Exception("密碼錯誤");
+
+                result.Status = true;
+                result.Message = "登入成功";
+                result.Data = user;
             }
             catch(Exception ex)
             {
                 result.Status = false;
-                result.Message = ex.Message;
-                result.Data = null;
+                result.Message = $"登入失敗 : {ex.Message}";
             }
 
             return result;
         }
 
-        public bool Update(UserMD metaData)
-        {
-            return _repository.Update(ToModel(metaData));
-        }
-
-        public bool Delete(UserMD metaData)
-        {
-            return _repository.Delete(metaData.Id);
-        }
-
-        private UserMD FromModel(UserModel model)
+        private UserMD ToMetaData(UserModel model)
         {
             return new UserMD
             {

@@ -9,8 +9,6 @@ namespace XinRevolution.Repository.Repository
     {
         protected readonly XinRevolutionDbContext _context;
 
-        protected XinRevolutionDbContext Context { get { return _context; } }
-
         protected BaseRepository(XinRevolutionDbContext context)
         {
             _context = context;

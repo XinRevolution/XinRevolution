@@ -11,12 +11,12 @@ namespace XinRevolution.Repository.Interface
 
         IEnumerable<TEntity> FindAll(Expression<Func<TEntity, bool>> expression);
 
-        TEntity FindByID(long id);
+        TEntity FindById(long id);
 
-        TEntity Create(TEntity entity);
+        bool Create(TEntity entity);
 
-        TEntity Update(TEntity entity);
+        bool Update(TEntity entity);
 
-        long Delete(long id);
+        bool Delete(TEntity entity);
     }
 }

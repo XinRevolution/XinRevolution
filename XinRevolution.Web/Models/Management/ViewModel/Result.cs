@@ -16,7 +16,7 @@ namespace XinRevolution.Web.Models.ViewModel.Management
         public Result()
         {
             Status = false;
-            Message = "未執行任何操作";
+            Message = "尚未執行操作";
             Data = default(T);
         }
     }

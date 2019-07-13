@@ -9,7 +9,7 @@ using XinRevolution.Repository.Interface;
 
 namespace XinRevolution.Repository.Repository
 {
-    public class UserRepository : BaseRepository, IUserRepository<UserModel>
+    public class UserRepository : BaseRepository, IUserRepository
     {
         public UserRepository(XinRevolutionDbContext context) : base(context)
         {
@@ -17,56 +17,56 @@ namespace XinRevolution.Repository.Repository
 
         public IEnumerable<UserModel> FindAll()
         {
-            return Context.Users.ToList();
+            return _context.Users.ToList();
         }
 
         public IEnumerable<UserModel> FindAll(Expression<Func<UserModel, bool>> expression)
         {
-            return Context.Users.Where(expression).ToList();
+            return _context.Users.Where(expression).ToList();
         }
 
-        public UserModel FindByID(long id)
+        public UserModel FindById(long id)
         {
-            return Context.Users.SingleOrDefault(x => x.Id == id);
+            return _context.Users.SingleOrDefault(x => x.Id == id);
         }
 
         public UserModel FindByKey(string key)
         {
-            return Context.Users.SingleOrDefault(x => x.Account.Equals(key, StringComparison.CurrentCultureIgnoreCase));
+            return _context.Users.SingleOrDefault(x => x.Account.Equals(key));
         }
 
-        public UserModel Create(UserModel entity)
+        public bool Create(UserModel entity)
         {
-            Context.Users.Add(entity);
-            Context.SaveChanges();
+            _context.Users.Add(entity);
+            _context.SaveChanges();
 
-            return entity;
+            return true;
         }
 
-        public UserModel Update(UserModel entity)
+        public bool Update(UserModel entity)
         {
-            var origin = Context.Users.SingleOrDefault(x => x.Id == entity.Id);
+            var origin = _context.Users.SingleOrDefault(x => x.Id == entity.Id);
 
             if (origin == default(UserModel))
-                throw new Exception($"無法取得原始資料 [Id = {entity.Id}]");
+                throw new Exception($"無法取得原始資料 (User.Id = {entity.Id})");
 
-            Context.Entry(origin).CurrentValues.SetValues(entity);
-            Context.SaveChanges();
+            _context.Entry(origin).CurrentValues.SetValues(entity);
+            _context.SaveChanges();
 
-            return entity;
+            return true;
         }
 
-        public long Delete(long id)
+        public bool Delete(UserModel entity)
         {
-            var origin = Context.Users.SingleOrDefault(x => x.Id == id);
+            var origin = _context.Users.SingleOrDefault(x => x.Id == entity.Id);
 
             if (origin == default(UserModel))
-                throw new Exception($"無法取得原始資料 [Id = {id}]");
+                throw new Exception($"無法取得原始資料 (User.Id = {entity.Id})");
 
-            Context.Users.Remove(origin);
-            Context.SaveChanges();
+            _context.Users.Remove(origin);
+            _context.SaveChanges();
 
-            return id;
+            return true;
         }
     }
 }
