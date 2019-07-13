@@ -31,12 +31,16 @@
             <div class="col-2">
                 <nav class="nav flex-column">
                     <div><a asp-area="Management" asp-controller="User" class="nav-item nav-link">使用者管理</a></div>
+
                     <div class="dropdown">
                         <a class="btn dropdown-toggle" href="#" role="button" id="dropdownBlogManagement" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">部落格管理</a>
                         <div class="dropdown-menu" aria-labelledby="dropdownBlogManagement">
                             <a asp-area="Management" asp-controller="Tag" class="dropdown-item nav-item nav-link">標籤管理</a>
+                            <a asp-area="Management" asp-controller="Blog" class="dropdown-item nav-item nav-link">部落格管理</a>
                         </div>
                     </div>
+
+                    <div><a asp-area="Management" asp-controller="Issue" class="dropdown-item nav-item nav-link">議題管理</a></div>
                 </nav>
             </div>
 
