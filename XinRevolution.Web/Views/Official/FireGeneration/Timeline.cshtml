@@ -1,353 +1,358 @@
-﻿@{
-    ViewBag.Transition = TransitionType.EXPAND;
-}
+﻿<!-- @{
+ViewBag.Transition = TransitionType.EXPAND;
+} -->
 
 @* 焰世代 - 時間軸 *@
-<div>
+<div class="h100 ">
     <partial name="_LayoutNavigation" />
 
-    <div>
-        <div id="js-timeline-block-slick">
-            <a asp-controller="FireGeneration" asp-action="Season" asp-route-id="1">
-                <div>
-                    <img src="" />
-                </div>
-                <div>
-                    <div>00</div>
-                    <div>title</div>
-                    <div>
-                        <table>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <span class="node active" style="display:block;"></span>
-                                </td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td colspan="3">
-                                    <div class="node-line"></div>
-                                </td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <div class="node"></div>
-                                </td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
+    <div class="grid-container content w100 h100 relative">
+        <div class="h100 " id="js-timeline-block-slick">
+              <a class="column-6 h100 " asp-controller="FireGeneration" asp-action="Season" asp-route-id="1">
+                <div class="story-div ">
+                    <div class="story-img">
+                        <img src="~/Official/images/Nn.png" />
+                    </div>
+                    <div class="story-content">
+                        <div class="number">00</div>
+                        <div class="title">title</div>
+                        <div>
+                            <table>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <span class="node active" style="display:block;"></span>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td colspan="3">
+                                        <div class="node-line"></div>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <div class="node"></div>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
 
-                                <td colspan="4">
-                                    <div class="node-line"></div>
-                                </td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <div class="node"></div>
-                                </td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td colspan="2">
-                                    <div class="node-line"></div>
-                                </td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <div class="node"></div>
-                                </td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                        </table>
+                                    <td colspan="4">
+                                        <div class="node-line"></div>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <div class="node"></div>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td colspan="2">
+                                        <div class="node-line"></div>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <div class="node"></div>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </a>
+            <a class="column-6 h100 " asp-controller="FireGeneration" asp-action="Season" asp-route-id="1">
+                <div class="story-div ">
+                    <div class="story-img">
+                        <img src="~/Official/images/Nn.png" />
+                    </div>
+                    <div class="story-content">
+                        <div class="number">01</div>
+                        <div class="title">title</div>
+                        <div>
+                            <table>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <span class="node active" style="display:block;"></span>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td colspan="3">
+                                        <div class="node-line"></div>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <div class="node"></div>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
 
-            <a asp-controller="FireGeneration" asp-action="Season" asp-route-id="1">
-                <div>
-                    <img src="" />
-                </div>
-                <div>
-                    <div>00</div>
-                    <div>title</div>
-                    <div>
-                        <table>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <span class="node active" style="display:block;"></span>
-                                </td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td colspan="3">
-                                    <div class="node-line"></div>
-                                </td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <div class="node"></div>
-                                </td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-
-                                <td colspan="4">
-                                    <div class="node-line"></div>
-                                </td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <div class="node"></div>
-                                </td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td colspan="2">
-                                    <div class="node-line"></div>
-                                </td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <div class="node"></div>
-                                </td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                        </table>
+                                    <td colspan="4">
+                                        <div class="node-line"></div>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <div class="node"></div>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td colspan="2">
+                                        <div class="node-line"></div>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <div class="node"></div>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </a>
+             <a class="column-6 h100 " asp-controller="FireGeneration" asp-action="Season" asp-route-id="1">
+                <div class="story-div ">
+                    <div class="story-img">
+                        <img src="~/Official/images/Nn.png" />
+                    </div>
+                    <div class="story-content">
+                        <div class="number">02</div>
+                        <div class="title">title</div>
+                        <div>
+                            <table>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <span class="node active" style="display:block;"></span>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td colspan="3">
+                                        <div class="node-line"></div>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <div class="node"></div>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
 
-            <a asp-controller="FireGeneration" asp-action="Season" asp-route-id="1">
-                <div>
-                    <img src="" />
-                </div>
-                <div>
-                    <div>00</div>
-                    <div>title</div>
-                    <div>
-                        <table>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <span class="node active" style="display:block;"></span>
-                                </td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td colspan="3">
-                                    <div class="node-line"></div>
-                                </td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <div class="node"></div>
-                                </td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-
-                                <td colspan="4">
-                                    <div class="node-line"></div>
-                                </td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <div class="node"></div>
-                                </td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td colspan="2">
-                                    <div class="node-line"></div>
-                                </td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <div class="node"></div>
-                                </td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                        </table>
+                                    <td colspan="4">
+                                        <div class="node-line"></div>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <div class="node"></div>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td colspan="2">
+                                        <div class="node-line"></div>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <div class="node"></div>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </a>
+              <a class="column-6 h100 " asp-controller="FireGeneration" asp-action="Season" asp-route-id="1">
+                <div class="story-div ">
+                    <div class="story-img">
+                        <img src="~/Official/images/Nn.png" />
+                    </div>
+                    <div class="story-content">
+                        <div class="number">04</div>
+                        <div class="title">title</div>
+                        <div>
+                            <table>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <span class="node active" style="display:block;"></span>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td colspan="3">
+                                        <div class="node-line"></div>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <div class="node"></div>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
 
-            <a asp-controller="FireGeneration" asp-action="Season" asp-route-id="1">
-                <div>
-                    <img src="" />
-                </div>
-                <div>
-                    <div>00</div>
-                    <div>title</div>
-                    <div>
-                        <table>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <span class="node active" style="display:block;"></span>
-                                </td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td colspan="3">
-                                    <div class="node-line"></div>
-                                </td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <div class="node"></div>
-                                </td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-
-                                <td colspan="4">
-                                    <div class="node-line"></div>
-                                </td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <div class="node"></div>
-                                </td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td colspan="2">
-                                    <div class="node-line"></div>
-                                </td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <div class="node"></div>
-                                </td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                        </table>
+                                    <td colspan="4">
+                                        <div class="node-line"></div>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <div class="node"></div>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td colspan="2">
+                                        <div class="node-line"></div>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <div class="node"></div>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </a>
@@ -358,12 +363,12 @@
     <partial name="_Navigation" />
 </div>
 
-@section Styles{ 
-    <link rel="stylesheet" type="text/css" href="~/Official/lib/slick/css/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="~/Official/lib/slick/css/slick-theme.css" />
+@section Styles{
+<link rel="stylesheet" type="text/css" href="~/Official/lib/slick/css/slick.css" />
+<link rel="stylesheet" type="text/css" href="~/Official/lib/slick/css/slick-theme.css" />
 }
 
 @section Scripts{
-    <script src="~/Official/lib/slick/js/slick.min.js"></script>
-    <script src="~/Official/js/FireGeneration/timeline.js"></script>
+<script src="~/Official/lib/slick/js/slick.min.js"></script>
+<script src="~/Official/js/FireGeneration/timeline.js"></script>
 }

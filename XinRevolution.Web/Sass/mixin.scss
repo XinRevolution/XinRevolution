@@ -107,9 +107,6 @@ $width: 8rem;
 $height: 40px;
 $angle: 40px;
 
-
-
-
 /*-----------*/
 @mixin biseau-mixin($top:auto, $right:auto, $bottom:auto, $left:auto, $border-width:0 0 0 0, $border-color:transparent) {
   content: '';

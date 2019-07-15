@@ -1,16 +1,17 @@
-﻿@{
-    ViewBag.Transition = TransitionType.EXPAND;
-}
+﻿<!-- @{
+ViewBag.Transition = TransitionType.EXPAND;
+} -->
 
 @* 焰世代 - 季 *@
-<div>
-    <a asp-controller="FireGeneration" asp-action="Timeline">返回</a>
+<div class="grid-container  h100 js-ctrl-background" data-header="bright">
+    
 
-    <div>
-        <div><img src="" /></div>
+    <div class="season-div">
+         <div class="story-img column-5 pre-1 post-3"><img src="~/Official/images/Nn.png" /></div>
 
-        <div>
-            <div>Season Number</div>
+        <div class="story-content  content column-6">
+            <!-- Season Number -->
+            <div class="number">00</div>
             <div>
                 <table>
                     <tr>
@@ -89,22 +90,26 @@
             </div>
         </div>
 
-        <div>
+        <div class="column-6 pre-2 post-1 content">
+            <a class="right" asp-controller="FireGeneration" asp-action="Timeline">返回</a>
             <div>Season Title</div>
 
             <div>
-                <img />
+                <img src="~/Official/images/comic-02.png" />
                 <div>chapter title</div>
                 <p>chapter content</p>
             </div>
         </div>
+
+   
     </div>
+
 
     <partial name="_Navigation" />
 </div>
 
 @* Popup *@
-<div>
+<!-- <div>
     <div>
         <div>Season Number</div>
         <div>Season Title</div>
@@ -113,8 +118,8 @@
 
     <div>
     </div>
-</div>
+</div> -->
 
 @section Scripts{
-    <script src="~/Official/js/FireGeneration/season.js"></script>
+<script src="~/Official/js/FireGeneration/season.js"></script>
 }

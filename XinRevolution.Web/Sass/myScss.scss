@@ -40,16 +40,16 @@
     }
 }
 
-.display-none{
-    display:none;
+.display-none {
+    display: none;
 }
 
-html{
+html {
     overflow-y: hidden;
 }
 
 body {
-    background:linear-gradient(149deg, #dddcdc, #e2e2e2 29%, #bbb1b1);
+    background: linear-gradient(149deg, #dddcdc, #e2e2e2 29%, #bbb1b1);
     position: relative;
     overflow: hidden;
 }
@@ -71,6 +71,7 @@ header {
     div {
         float: left;
     }
+
     &.bright {
         .x-logo {
             @extend .x-logo;
@@ -79,7 +80,13 @@ header {
             background-position: center !important;
         }
 
-        .btn.rightTop {
+        .hamburger-inner,
+        .hamburger-inner::before,
+        .hamburger-inner::after {
+            background: #fff;
+        }
+
+        .btn.right-top {
             [class*="icon-"] {
                 color: #fff !important;
 
@@ -89,6 +96,7 @@ header {
             }
         }
     }
+
 }
 
 footer {
@@ -98,12 +106,13 @@ footer {
     z-index: 1900;
 }
 
-%footer-line{
+%footer-line {
     height: 1rem;
     position: fixed;
     width: 14rem;
     bottom: 0;
 }
+
 .footer-div {
     position: fixed;
     // height: 10px;
@@ -117,7 +126,7 @@ footer {
 
     &:before {
         content: '';
-        background: url("/Official/images/footer-line-l.svg") no-repeat center; 
+        background: url("/Official/images/footer-line-l.svg") no-repeat center;
         background-size: contain;
         @extend %footer-line;
         left: 8rem;
@@ -135,8 +144,19 @@ footer {
 // custom
 .h100 {
     height: 100%;
-}
 
+    .slick-list {
+        height: 100%;
+
+        .slick-track {
+            height: 100%;
+            padding: 1rem;
+        }
+    }
+}
+.w100{
+    width: 100%;
+}
 .right {
     float: right;
 }
@@ -145,19 +165,22 @@ footer {
     position: relative;
 }
 
-.fixed{
+.fixed {
     position: fixed;
 }
 
 
 .wrapper {
-    @include transition(all, 0.4s, ease, 0s);
+    @include transition(all, 1s, ease, 0s);
     height: 100vh;
     position: relative;
     overflow: hidden;
 
     &.bright {
         background: #000;
+        *{
+            color: #fff;
+        }
     }
 }
 
@@ -170,19 +193,18 @@ footer {
     z-index: 999;
 }
 
-.pt-content{
+.pt-content {
     padding-top: calc(0.5rem + 40px);
 }
 
 // 主要內容
 .content {
     @extend .content-div;
-    width: 100%;
+    // width: 100%;
 }
 
-.grid-conta
+.grid-conta // 主要內容-overflow
 
-// 主要內容-overflow
 .overflow-auto-x {
 
     overflow-x: overlay;
@@ -363,4 +385,3 @@ $sight-position:-20px;
     margin: auto;
 
 }
-
