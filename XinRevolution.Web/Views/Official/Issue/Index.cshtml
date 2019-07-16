@@ -19,7 +19,7 @@ ViewBag.Transition = TransitionType.EXPAND;
         <div class="issues-height block">
 
             @* Issue 單元 *@
-            <div class="issues-div" >
+            <div class="issues-div">
 
                 <div class="issues-img">
                     <img src="~/Official/images/issue-01.jpg" />
@@ -37,7 +37,7 @@ ViewBag.Transition = TransitionType.EXPAND;
                 </div>
             </div>
 
-              @* Issue 單元 *@
+            @* Issue 單元 *@
             <div class="issues-div">
 
                 <div class="issues-img">
@@ -57,7 +57,7 @@ ViewBag.Transition = TransitionType.EXPAND;
             </div>
 
 
-              @* Issue 單元 *@
+            @* Issue 單元 *@
             <div class="issues-div">
 
                 <div class="issues-img">
@@ -82,64 +82,71 @@ ViewBag.Transition = TransitionType.EXPAND;
 
 @* 跳出視窗 *@
 <div class="grid-container h100 relative overflowAuto-y ">
-     <!-- 返回 -->
-  <div>back</div>
-  <!-- 左邊操作區 -->
-  <div class="column-12">
-      <!-- 議題標題 -->
-      <div>title</div>
+    <!-- 返回 -->
+    <div>back</div>
+    <!-- 左邊操作區 -->
+    <div class="column-12">
+        <!-- 議題標題 -->
+        <div>title</div>
 
-      <div>intro</div>
+        <div>intro</div>
 
-      <div>sub title</div>
+        <div>sub title</div>
 
-      <div>image links (輪播套件)</div>
+        <div id="js-issue-block-slick">
+            <a class=" column-3"><img src="/Official/images/issue-01.jpg"></a>
+            <a class=" column-3"><img src="/Official/images/issue-01.jpg"></a>
+            <a class=" column-3"><img src="/Official/images/issue-01.jpg"></a>
+              <a class=" column-3"><img src="/Official/images/issue-01.jpg"></a>  
+        </div>
 
-      <!-- 分享至社群 -->
-      <div>Twitter</div>
-      <div>FB</div>
-      <div>IG</div>
-  </div>
-  <!--右邊議題區 -->
-  <div class="column-12 h100">
-      <!-- 議題群組 -->
-      <div class="issue-div">
-          <!-- 時間線 -->
-          <div class="time-group column-6">
+        <!-- 分享至社群 -->
+        <div class="community-g">
+            <a class="btn icon-twitter">Twitter</a>
+            <a class="btn icon-fb">FB</a>
+            <a class="btn icon-ig">IG</a>
+        </div>
+    </div>
+    <!--右邊議題區 -->
+    <div class="column-12 h100">
+        <!-- 議題群組 -->
+        <div class="issue-div">
+            <!-- 時間線 -->
+            <div class="time-group column-6">
 
-              <div class="time-node">title</div>
+                <div class="time-node">title</div>
 
-              <div class="issue-date">
-                  <div class="date">2018-12-16</div>
-              </div>
-          </div>
-          <!-- 內容 -->
-          <div  class="issue-content column-6">
-              <p>文字描述</p>
-              <img src="/Official/images/issue-01.jpg" />
-          </div>
-      </div>
-      <!-- 議題群組 -->
-      <div class="issue-div">
-          <!-- 時間線 -->
-          <div class="time-group column-6">
+                <div class="issue-date">
+                    <div class="date">2018-12-16</div>
+                </div>
+            </div>
+            <!-- 內容 -->
+            <div class="issue-content column-6">
+                <p>文字描述</p>
+                <img src="/Official/images/issue-01.jpg" />
+            </div>
+        </div>
+        <!-- 議題群組 -->
+        <div class="issue-div">
+            <!-- 時間線 -->
+            <div class="time-group column-6">
 
-              <div class="time-node">title</div>
+                <div class="time-node">title</div>
 
-              <div class="issue-date">
-                  <div class="date">2018-12-16</div>
-              </div>
-          </div>
-          <!-- 內容 -->
-          <div  class="issue-content column-6">
-              <p>文字描述</p>
-              <img src="/Official/images/issue-01.jpg" />
-          </div>
-      </div>
-  </div>
+                <div class="issue-date">
+                    <div class="date">2018-12-16</div>
+                </div>
+            </div>
+            <!-- 內容 -->
+            <div class="issue-content column-6">
+                <p>文字描述</p>
+                <img src="/Official/images/issue-01.jpg" />
+            </div>
+        </div>
+    </div>
 </div>
 
 @section Scripts {
-@* 輪播套件 *@
+<script src="~/Official/lib/slick/js/slick.min.js"></script>
 <script type="text/javascript" src="~/Official/js/issue.js"></script>
 }
