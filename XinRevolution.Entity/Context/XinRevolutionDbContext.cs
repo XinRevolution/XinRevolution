@@ -15,6 +15,7 @@ namespace XinRevolution.Entity.Context
             // 定義 Primary Key
             modelBuilder.Entity<UserModel>().HasKey(x => new { x.Account });
             modelBuilder.Entity<TagModel>().HasKey(x => new { x.TagName });
+            modelBuilder.Entity<IssueModel>().HasKey(x => new { x.IssueName });
 
             // 定義 Seed Data
             modelBuilder.Entity<UserModel>().HasData(new UserModel[] {
@@ -40,5 +41,7 @@ namespace XinRevolution.Entity.Context
         public DbSet<UserModel> Users { get; set; }
 
         public DbSet<TagModel> Tags { get; set; }
+
+        public DbSet<IssueModel> Issues { get; set; }
     }
 }
