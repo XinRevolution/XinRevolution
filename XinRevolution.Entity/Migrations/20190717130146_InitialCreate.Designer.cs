@@ -9,8 +9,8 @@ using XinRevolution.Entity.Context;
 namespace XinRevolution.Entity.Migrations
 {
     [DbContext(typeof(XinRevolutionDbContext))]
-    [Migration("20190714124326_UserAndTag")]
-    partial class UserAndTag
+    [Migration("20190717130146_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -70,7 +70,8 @@ namespace XinRevolution.Entity.Migrations
                     b.ToTable("Users");
 
                     b.HasData(
-                        new { Account = "mike.chen", Address = "尚未編輯", EMail = "tmal0909@gmail.com", Id = 0L, Name = "陳彥翔", Password = "12345678", Phone = "0916956546" }
+                        new { Account = "mike.chen", Address = "尚未編輯", EMail = "tmal0909@gmail.com", Id = 0L, Name = "陳彥翔", Password = "12345678", Phone = "0916956546" },
+                        new { Account = "mike.huang", Address = "尚未編輯", EMail = "ss5141318@gmail.com", Id = 0L, Name = "黃瀚緯", Password = "0933846966", Phone = "0933846966" }
                     );
                 });
 #pragma warning restore 612, 618

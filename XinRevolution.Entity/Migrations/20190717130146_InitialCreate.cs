@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace XinRevolution.Entity.Migrations
 {
-    public partial class UserAndTag : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -43,6 +43,11 @@ namespace XinRevolution.Entity.Migrations
                 table: "Users",
                 columns: new[] { "Account", "Address", "EMail", "Id", "Name", "Password", "Phone" },
                 values: new object[] { "mike.chen", "尚未編輯", "tmal0909@gmail.com", 0L, "陳彥翔", "12345678", "0916956546" });
+
+            migrationBuilder.InsertData(
+                table: "Users",
+                columns: new[] { "Account", "Address", "EMail", "Id", "Name", "Password", "Phone" },
+                values: new object[] { "mike.huang", "尚未編輯", "ss5141318@gmail.com", 0L, "黃瀚緯", "0933846966", "0933846966" });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
