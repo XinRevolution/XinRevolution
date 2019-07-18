@@ -30,6 +30,7 @@
                         <a asp-area="Management" asp-controller="IssueItem" asp-action="Index" asp-route-id="@item.Id" class="btn btn-secondary icon-comment"></a>
                         <a asp-area="Management" asp-controller="Issue" asp-action="Update" asp-route-id="@item.Id" class="btn btn-secondary icon-edit">編輯</a>
                         <a asp-area="Management" asp-controller="Issue" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-secondary icon-delete">刪除</a>
+                        <a asp-area="Management" asp-controller="IssueRelativeLink" asp-action="Index" asp-route-id="@item.Id" class="btn btn-secondary icon-link">刪除</a>
                     </td>
                 </tr>
             }

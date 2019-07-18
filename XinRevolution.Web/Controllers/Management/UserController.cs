@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using XinRevolution.Entity.Model;
-using XinRevolution.Repository.Interface;
+﻿using Microsoft.AspNetCore.Mvc;
 using XinRevolution.Web.Models.Management.MetaData;
 using XinRevolution.Web.Services.Management;
 
