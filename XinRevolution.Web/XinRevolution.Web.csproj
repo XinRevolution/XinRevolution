@@ -12,7 +12,6 @@
 
   <ItemGroup>
     <Folder Include="Filters\Management\" />
-    <Folder Include="Views\Issue\" />
     <Folder Include="wwwroot\Official\css\" />
     <Folder Include="wwwroot\Official\images\" />
     <Folder Include="wwwroot\Official\js\" />
@@ -24,6 +23,22 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Update="Views\Management\Issue\Create.cshtml">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Management\Issue\Delete.cshtml">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Management\Issue\Index.cshtml">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Management\Issue\Update.cshtml">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Views\Management\_ViewImports.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>

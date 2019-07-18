@@ -4,7 +4,7 @@
     <nav class="navbar navbar-dark bg-secondary">
         <a href="#" class="navbar-brand">使用者管理</a>
         <div class="form-inline">
-            <a asp-area="Management" asp-controller="User" asp-action="Create" class="btn btn-primary icon-add"></a>
+            <a asp-area="Management" asp-controller="User" asp-action="Create" class="btn btn-primary icon-create" title="新增"></a>
         </div>
     </nav>
 </div>
@@ -33,8 +33,8 @@
                     <td>@item.EMail</td>
                     <td>@item.Address</td>
                     <td>
-                        <a asp-area="Management" asp-controller="User" asp-action="Update" asp-route-id="@item.Id" class="btn btn-secondary icon-edit"></a>
-                        <a asp-area="Management" asp-controller="User" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-secondary icon-delete"></a>
+                        <a asp-area="Management" asp-controller="User" asp-action="Update" asp-route-id="@item.Id" class="btn btn-secondary icon-update" title="編輯"></a>
+                        <a asp-area="Management" asp-controller="User" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-secondary icon-delete" title="刪除"></a>
                     </td>
                 </tr>
             }

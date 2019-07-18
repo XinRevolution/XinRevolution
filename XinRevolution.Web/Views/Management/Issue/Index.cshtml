@@ -4,7 +4,7 @@
     <nav class="navbar navbar-dark bg-secondary">
         <a href="#" class="navbar-brand">議題管理</a>
         <div class="form-inline">
-            <a asp-area="Management" asp-controller="Issue" asp-action="Create" class="btn btn-primary icon-add"></a>
+            <a asp-area="Management" asp-controller="Issue" asp-action="Create" class="btn btn-primary icon-create" title="新增"></a>
         </div>
     </nav>
 </div>
@@ -15,7 +15,7 @@
             <tr>
                 <th>#</th>
                 <th>議題名稱</th>
-                <th>議題簡介</th>
+                <th>議題介紹</th>
                 <th>操作區</th>
             </tr>
         </thead>
@@ -27,10 +27,10 @@
                     <td>@item.IssueName</td>
                     <td>@item.Intro</td>
                     <td>
-                        <a asp-area="Management" asp-controller="IssueItem" asp-action="Index" asp-route-id="@item.Id" class="btn btn-secondary icon-comment"></a>
-                        <a asp-area="Management" asp-controller="Issue" asp-action="Update" asp-route-id="@item.Id" class="btn btn-secondary icon-edit">編輯</a>
-                        <a asp-area="Management" asp-controller="Issue" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-secondary icon-delete">刪除</a>
-                        <a asp-area="Management" asp-controller="IssueRelativeLink" asp-action="Index" asp-route-id="@item.Id" class="btn btn-secondary icon-link">刪除</a>
+                        <a asp-area="Management" asp-controller="IssueItem" asp-action="Index" asp-route-issueId="@item.Id" class="btn btn-secondary icon-detail" title="子議題查詢"></a>
+                        <a asp-area="Management" asp-controller="Issue" asp-action="Update" asp-route-id="@item.Id" class="btn btn-secondary icon-update" title="編輯"></a>
+                        <a asp-area="Management" asp-controller="Issue" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-secondary icon-delete" title="刪除"></a>
+                        <a asp-area="Management" asp-controller="IssueRelativeLink" asp-action="Index" asp-route-issueId="@item.Id" class="btn btn-secondary icon-relative" title="相關連結查詢"></a>
                     </td>
                 </tr>
             }

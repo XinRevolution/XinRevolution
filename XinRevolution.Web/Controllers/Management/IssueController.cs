@@ -20,7 +20,9 @@ namespace XinRevolution.Web.Controllers.Management
 
         public IActionResult Index()
         {
-            return View();
+            var data = _service.Find();
+
+            return View(data);
         }
 
         public IActionResult Create()

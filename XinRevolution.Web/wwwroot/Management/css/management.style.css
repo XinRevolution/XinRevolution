@@ -26,15 +26,15 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-back:before {
+.icon-home:before {
     content: "\e905";
 }
 
-.icon-link:before {
+.icon-relative:before {
     content: "\e900";
 }
 
-.icon-comment:before {
+.icon-detail:before {
     content: "\e901";
 }
 
@@ -42,10 +42,10 @@
     content: "\e902";
 }
 
-.icon-edit:before {
+.icon-update:before {
     content: "\e903";
 }
 
-.icon-add:before {
+.icon-create:before {
     content: "\e904";
 }

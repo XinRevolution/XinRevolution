@@ -54,6 +54,7 @@ namespace XinRevolution.Web
             // Repository
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<ITagRepository, TagRepository>();
+            services.AddScoped<IIssueRepository, IssueRepository>();
 
             // Service
             services.AddScoped<UserMnagementService>();

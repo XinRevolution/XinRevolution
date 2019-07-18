@@ -1,7 +1,40 @@
-﻿
-@{
-    ViewData["Title"] = "Delete";
-}
+﻿@model IssueMD
 
-<h2>Delete</h2>
+<div class="mb-5">
+    <nav class="navbar navbar-dark bg-secondary">
+        <a href="#" class="navbar-brand">議題管理 - 刪除</a>
+        <div class="form-inline">
+            <a asp-area="Management" asp-controller="Issue" asp-action="Index" class="btn btn-primary icon-home" title="返回"></a>
+        </div>
+    </nav>
+</div>
 
+<div class="container-fluid">
+    <form asp-area="Management" asp-controller="Issue" asp-action="Delete" method="post">
+        <input asp-for="Id" />
+
+        <div class="form-group row">
+            <label asp-for="IssueName" class="col-2 col-form-label"></label>
+            <div class="col-10">
+                <input asp-for="IssueName" class="form-control" readonly />
+                <span asp-validation-for="IssueName" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="Intro" class="col-2 col-form-label"></label>
+            <div class="col-10">
+                <input asp-for="Intro" class="form-control" readonly />
+                <span asp-validation-for="Intro" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group justify-content-center">
+            <span class="text-danger">@ViewBag.ErrorMsg</span>
+        </div>
+
+        <div class="form-group row justify-content-center">
+            <input type="submit" class="btn btn-primary" value="送出" />
+        </div>
+    </form>
+</div>
