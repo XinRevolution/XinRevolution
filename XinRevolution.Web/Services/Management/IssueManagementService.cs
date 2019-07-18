@@ -48,6 +48,7 @@ namespace XinRevolution.Web.Services.Management
 
             return result;
         }
+
         public Result<IssueMD> Update(IssueMD data)
         {
             var result = new Result<IssueMD>();

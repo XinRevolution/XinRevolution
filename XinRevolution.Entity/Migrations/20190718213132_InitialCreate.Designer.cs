@@ -9,7 +9,7 @@ using XinRevolution.Entity.Context;
 namespace XinRevolution.Entity.Migrations
 {
     [DbContext(typeof(XinRevolutionDbContext))]
-    [Migration("20190717130146_InitialCreate")]
+    [Migration("20190718213132_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -19,6 +19,59 @@ namespace XinRevolution.Entity.Migrations
                 .HasAnnotation("ProductVersion", "2.1.11-servicing-32099")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("XinRevolution.Entity.Model.IssueModel", b =>
+                {
+                    b.Property<string>("IssueName")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Intro")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(300)");
+
+                    b.HasKey("IssueName");
+
+                    b.ToTable("Issues");
+
+                    b.HasData(
+                        new { IssueName = "issue1", Id = 0L, Intro = "this is the first issue for demo purpose!" }
+                    );
+                });
+
+            modelBuilder.Entity("XinRevolution.Entity.Model.IssueRelativeLinkModel", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("FileName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<int>("IssueId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Note")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(300)");
+
+                    b.Property<string>("RelativeLink")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(300)");
+
+                    b.Property<string>("VirtualPath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(200)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("IssueRelativeLinks");
+                });
 
             modelBuilder.Entity("XinRevolution.Entity.Model.TagModel", b =>
                 {
@@ -31,11 +84,17 @@ namespace XinRevolution.Entity.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<bool>("Status")
-                        .HasColumnType("BIT");
+                        .HasColumnType("bit");
 
                     b.HasKey("TagName");
 
                     b.ToTable("Tags");
+
+                    b.HasData(
+                        new { TagName = "tag1", Id = 0L, Status = true },
+                        new { TagName = "tag2", Id = 0L, Status = true },
+                        new { TagName = "tag3", Id = 0L, Status = false }
+                    );
                 });
 
             modelBuilder.Entity("XinRevolution.Entity.Model.UserModel", b =>

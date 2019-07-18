@@ -16,7 +16,7 @@ namespace XinRevolution.Entity.Model
         public string TagName { get; set; }
 
         [Required]
-        [Column(TypeName = "BIT")]
+        [Column(TypeName = "bit")]
         public bool Status { get; set; }
     }
 }

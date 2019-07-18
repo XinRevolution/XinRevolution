@@ -35,6 +35,40 @@ namespace XinRevolution.Entity.Migrations
                     b.HasKey("IssueName");
 
                     b.ToTable("Issues");
+
+                    b.HasData(
+                        new { IssueName = "issue1", Id = 0L, Intro = "this is the first issue for demo purpose!" }
+                    );
+                });
+
+            modelBuilder.Entity("XinRevolution.Entity.Model.IssueRelativeLinkModel", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("FileName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<int>("IssueId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Note")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(300)");
+
+                    b.Property<string>("RelativeLink")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(300)");
+
+                    b.Property<string>("VirtualPath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(200)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("IssueRelativeLinks");
                 });
 
             modelBuilder.Entity("XinRevolution.Entity.Model.TagModel", b =>
@@ -48,11 +82,17 @@ namespace XinRevolution.Entity.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<bool>("Status")
-                        .HasColumnType("BIT");
+                        .HasColumnType("bit");
 
                     b.HasKey("TagName");
 
                     b.ToTable("Tags");
+
+                    b.HasData(
+                        new { TagName = "tag1", Id = 0L, Status = true },
+                        new { TagName = "tag2", Id = 0L, Status = true },
+                        new { TagName = "tag3", Id = 0L, Status = false }
+                    );
                 });
 
             modelBuilder.Entity("XinRevolution.Entity.Model.UserModel", b =>
