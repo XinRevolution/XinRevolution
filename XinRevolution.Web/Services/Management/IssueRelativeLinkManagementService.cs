@@ -44,7 +44,7 @@ namespace XinRevolution.Web.Services.Management
                 IssueId = model.IssueId,
                 RelativeLink = model.RelativeLink,
                 Note = model.Note,
-                FileName = model.FileName
+                FileName = model.FileName  
             };
         }
     }

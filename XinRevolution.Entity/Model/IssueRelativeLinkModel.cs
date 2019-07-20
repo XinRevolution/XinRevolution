@@ -16,19 +16,19 @@ namespace XinRevolution.Entity.Model
         public long IssueId { get; set; }
 
         [Required]
-        [Column(TypeName = "nvarchar(300)")]
-        public string RelativeLink { get; set; }
+        [Column(TypeName = "nvarchar(200)")]
+        public string IssueRelativeLinkResouceName { get; set; }
 
         [Required]
         [Column(TypeName = "nvarchar(300)")]
-        public string Note { get; set; }
+        public string IssueRelativeLinkUrl { get; set; }
+
+        [Required]
+        [Column(TypeName = "nvarchar(300)")]
+        public string IssueRelativeLinkNote { get; set; }
 
         [Required]
         [Column(TypeName = "nvarchar(200)")]
-        public string VirtualPath { get; set; }
-
-        [Required]
-        [Column(TypeName = "nvarchar(200)")]
-        public string FileName { get; set; }
+        public string IssueRelativeLinkResouceVirtualPath { get; set; }
     }
 }

@@ -18,6 +18,6 @@ namespace XinRevolution.Entity.Model
 
         [Required]
         [Column(TypeName = "nvarchar(300)")]
-        public string Intro { get; set; }
+        public string IssueIntro { get; set; }
     }
 }
