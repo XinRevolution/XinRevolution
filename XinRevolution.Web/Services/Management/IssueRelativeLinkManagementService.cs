@@ -36,13 +36,25 @@ namespace XinRevolution.Web.Services.Management
             return id == -1 ? new IssueRelativeLinkMD() : ToMetaData(_repository.FindById(id));
         }
 
-        // To be completed
         public IssueRelativeLinkMD ToMetaData(IssueRelativeLinkModel model)
         {
             return new IssueRelativeLinkMD
             {
+                IssueId = model.IssueId,
                 Id = model.Id,
-                IssueId = model.IssueId
+                ResourceName = model.ResourceName,
+                Url = model.Url,
+                Note = model.Note,
+                ResourceVirtualPath = model.ResourceVirtualPath,
+                UploadFileName = model.ResourceName
+            };
+        }
+
+        public IssueRelativeLinkModel ToModel(IssueRelativeLinkMD metaData)
+        {
+            return new IssueRelativeLinkModel
+            {
+
             };
         }
     }

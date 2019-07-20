@@ -18,6 +18,8 @@ namespace XinRevolution.Web.Models.Management.MetaData
         [HiddenInput]
         public long Id { get; set; }
 
+        [Required]
+        [HiddenInput]
         public string ResourceName { get; set; }
 
         [Required(ErrorMessage = "請輸入相關連結")]
@@ -28,9 +30,15 @@ namespace XinRevolution.Web.Models.Management.MetaData
         [Display(Name = "備註", Prompt = "請輸入備註")]
         public string Note { get; set; }
 
+        [Required]
+        [HiddenInput]
         public string ResourceVirtualPath { get; set; }
 
-        [Required]
+        [Display(Name = "選擇檔案", Prompt = "請選擇檔案")]
         public IFormFile UploadFile { get; set; }
+
+        [Required(ErrorMessage = "請上傳檔案")]
+        [Display(Name = "檔案", Prompt ="請選擇檔案")]
+        public string UploadFileName { get; set; }
     }
 }
