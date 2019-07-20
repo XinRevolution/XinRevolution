@@ -54,7 +54,8 @@ namespace XinRevolution.Web.Services.Management
         {
             return new IssueRelativeLinkModel
             {
-
+                IssueId = metaData.IssueId,
+                
             };
         }
     }
