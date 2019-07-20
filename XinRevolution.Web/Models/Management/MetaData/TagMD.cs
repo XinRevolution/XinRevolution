@@ -16,7 +16,7 @@ namespace XinRevolution.Web.Models.Management.MetaData
 
         [Required(ErrorMessage = "請輸入標籤名稱")]
         [Display(Name = "標籤名稱", Prompt = "請輸入標籤名稱")]
-        public string TagName { get; set; }
+        public string Name { get; set; }
 
         [Required(ErrorMessage = "請選擇狀態")]
         [Display(Name = "狀態", Prompt = "請選擇狀態")]

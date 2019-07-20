@@ -25,8 +25,8 @@
             {
                 <tr>
                     <td>@item.Id</td>
-                    <td>@item.FileName</td>
-                    <td>@item.RelativeLink</td>
+                    <td>@item.ResourceName</td>
+                    <td>@item.Url</td>
                     <td>@item.Note</td>
                     <td>
                         <a asp-area="Management" asp-controller="IssueRelativeLink" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-secondary icon-delete" title="刪除"></a>

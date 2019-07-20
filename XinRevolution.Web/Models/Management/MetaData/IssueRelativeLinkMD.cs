@@ -12,27 +12,25 @@ namespace XinRevolution.Web.Models.Management.MetaData
     {
         [Required]
         [HiddenInput]
-        public long Id { get; set; }
+        public long IssueId { get; set; }
 
         [Required]
         [HiddenInput]
-        public long IssueId { get; set; }
+        public long Id { get; set; }
+
+        public string ResourceName { get; set; }
 
         [Required(ErrorMessage = "請輸入相關連結")]
         [Display(Name = "相關連結", Prompt = "請輸入相關連結")]
-        public string RelativeLink { get; set; }
+        public string Url { get; set; }
 
         [Required(ErrorMessage = "請輸入備註")]
         [Display(Name = "備註", Prompt = "請輸入備註")]
         public string Note { get; set; }
 
-        public string VirtualPath { get; set; }
-
-        public string FileName { get; set; }
+        public string ResourceVirtualPath { get; set; }
 
         [Required]
         public IFormFile UploadFile { get; set; }
-
-        public string UploadFileName { get; set; }
     }
 }

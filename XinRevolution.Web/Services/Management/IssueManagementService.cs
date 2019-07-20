@@ -95,7 +95,7 @@ namespace XinRevolution.Web.Services.Management
             return new IssueMD
             {
                 Id = model.Id,
-                IssueName = model.IssueName,
+                Name = model.Name,
                 Intro = model.Intro
             };
         }
@@ -105,7 +105,7 @@ namespace XinRevolution.Web.Services.Management
             return new IssueModel
             {
                 Id = metaData.Id,
-                IssueName = metaData.IssueName,
+                Name = metaData.Name,
                 Intro = metaData.Intro
             };
         }

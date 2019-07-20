@@ -15,7 +15,7 @@ namespace XinRevolution.Web.Models.Management.MetaData
 
         [Required(ErrorMessage = "請輸入議題名稱")]
         [Display(Name = "議題名稱", Prompt = "請輸入議題名稱")]
-        public string IssueName { get; set; }
+        public string Name { get; set; }
 
         [Required(ErrorMessage = "請輸入議題簡介")]
         [Display(Name = "議題簡介", Prompt = "請輸入議題簡介")]

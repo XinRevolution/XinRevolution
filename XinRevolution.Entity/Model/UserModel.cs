@@ -21,7 +21,7 @@ namespace XinRevolution.Entity.Model
 
         [Required]
         [Column(TypeName = "nvarchar(50)")]
-        public string UserName { get; set; }
+        public string Name { get; set; }
 
         [Column(TypeName = "nvarchar(50)")]
         public string Phone { get; set; }

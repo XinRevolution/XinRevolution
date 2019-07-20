@@ -92,7 +92,7 @@ namespace XinRevolution.Web.Services.Management
             return new TagMD
             {
                 Id = model.Id,
-                TagName = model.TagName,
+                Name = model.Name,
                 Status = model.Status
             };
         } 
@@ -102,7 +102,7 @@ namespace XinRevolution.Web.Services.Management
             return new TagModel
             {
                 Id = metaData.Id,
-                TagName = metaData.TagName,
+                Name = metaData.Name,
                 Status = metaData.Status
             };
         }

@@ -14,10 +14,10 @@ namespace XinRevolution.Entity.Model
 
         [Required]
         [Column(TypeName = "nvarchar(50)")]
-        public string IssueName { get; set; }
+        public string Name { get; set; }
 
         [Required]
         [Column(TypeName = "nvarchar(300)")]
-        public string IssueIntro { get; set; }
+        public string Intro { get; set; }
     }
 }

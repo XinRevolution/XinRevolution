@@ -14,17 +14,16 @@ namespace XinRevolution.Entity.Context
         {
             // 定義 Primary Key
             modelBuilder.Entity<UserModel>().HasKey(x => new { x.Account });
-            modelBuilder.Entity<TagModel>().HasKey(x => new { x.TagName });
-            modelBuilder.Entity<IssueModel>().HasKey(x => new { x.IssueName });
+            modelBuilder.Entity<TagModel>().HasKey(x => new { x.Name });
+            modelBuilder.Entity<IssueModel>().HasKey(x => new { x.Name });
             modelBuilder.Entity<IssueRelativeLinkModel>().HasKey(x => new { x.Id });
-
 
             // 定義 Seed Data
             modelBuilder.Entity<UserModel>().HasData(new UserModel[] {
                 new UserModel{
                     Account = "mike.chen",
                     Password = "12345678",
-                    UserName = "陳彥翔",
+                    Name = "陳彥翔",
                     Phone = "0916956546",
                     EMail = "tmal0909@gmail.com",
                     Address = "尚未編輯"
@@ -32,35 +31,33 @@ namespace XinRevolution.Entity.Context
                 new UserModel{
                     Account = "mike.huang",
                     Password = "0933846966",
-                    UserName = "黃瀚緯",
+                    Name = "黃瀚緯",
                     Phone = "0933846966",
                     EMail = "ss5141318@gmail.com",
                     Address = "尚未編輯"
                 }
             });
-
             modelBuilder.Entity<TagModel>().HasData(new TagModel[] {
                 new TagModel
                 {
-                    TagName = "tag1",
-                    TagStatus = true
+                    Name = "tag1",
+                    Status = true
                 },
                 new TagModel
                 {
-                    TagName = "tag2",
-                    TagStatus = true
+                    Name = "tag2",
+                    Status = true
                 },
                 new TagModel
                 {
-                    TagName = "tag3",
-                    TagStatus = false
+                    Name = "tag3",
+                    Status = false
                 },
             });
-
             modelBuilder.Entity<IssueModel>().HasData(new IssueModel
             {
-                IssueName = "issue1",
-                IssueIntro = "this is the first issue for demo purpose!"
+                Name = "issue1",
+                Intro = "this is the first issue for demo purpose!"
             });
         }
 

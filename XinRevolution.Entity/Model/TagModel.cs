@@ -13,10 +13,10 @@ namespace XinRevolution.Entity.Model
 
         [Required]
         [Column(TypeName = "nvarchar(50)")]
-        public string TagName { get; set; }
+        public string Name { get; set; }
 
         [Required]
         [Column(TypeName = "bit")]
-        public bool TagStatus { get; set; }
+        public bool Status { get; set; }
     }
 }
