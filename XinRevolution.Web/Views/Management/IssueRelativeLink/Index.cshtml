@@ -1,0 +1,44 @@
+﻿@model IEnumerable<IssueRelativeLinkModel>
+
+<div class="mb-5">
+    <nav class="navbar navbar-dark bg-secondary">
+        <a href="#" class="navbar-brand">議題相關連結管理</a>
+        <div class="form-inline">
+            <a asp-area="Management" asp-controller="IssueRelativeLink" asp-action="Create" class="btn btn-primary icon-create" title="新增"></a>
+        </div>
+    </nav>
+</div>
+
+<div class="container-fluid">
+    <table class="table table-striped table-bordered table-hover table-sm">
+        <thead class="thead-dark">
+            <tr>
+                <th>#</th>
+                <th>檔案名稱</th>
+                <th>相關連結</th>
+                <th>備註</th>
+                <th>操作區</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.FileName</td>
+                    <td>@item.RelativeLink</td>
+                    <td>@item.Note</td>
+                    <td>
+                        <a asp-area="Management" asp-controller="IssueRelativeLink" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-secondary icon-delete" title="刪除"></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@section scripts{
+    <script>
+        initDataTable($('table'));
+    </script>
+}

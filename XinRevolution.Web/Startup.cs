@@ -45,6 +45,7 @@ namespace XinRevolution.Web
                 options.AreaViewLocationFormats.Add("/Views/{2}/Shared/{0}.cshtml");
                 options.AreaViewLocationFormats.Add("/Views/Common/{0}.cshtml");
             });
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddDbContext<XinRevolutionDbContext>(options =>
             {
@@ -55,12 +56,14 @@ namespace XinRevolution.Web
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<ITagRepository, TagRepository>();
             services.AddScoped<IIssueRepository, IssueRepository>();
+            services.AddScoped<IIssueRelativeLinkRepository, IssueRelativeLinkRepository>();
 
             // Service
+            services.AddScoped<FileManagementService>();
             services.AddScoped<UserMnagementService>();
             services.AddScoped<TagManagementService>();
             services.AddScoped<IssueManagementService>();
-            services.AddScoped<FileManagementService>();
+            services.AddScoped<IssueRelativeLinkManagementService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
