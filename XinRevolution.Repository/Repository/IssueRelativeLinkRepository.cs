@@ -45,16 +45,15 @@ namespace XinRevolution.Repository.Repository
 
         public bool Update(IssueRelativeLinkModel entity)
         {
-            //var origin = _context.IssueRelativeLinks.SingleOrDefault(x => x.Id == entity.Id);
+            var origin = _context.IssueRelativeLinks.SingleOrDefault(x => x.Id == entity.Id);
 
-            //if (origin == default(IssueRelativeLinkModel))
-            //    throw new Exception($"無法取得原始資料 (IssueRelativeLink.Id = {entity.Id})");
+            if (origin == default(IssueRelativeLinkModel))
+                throw new Exception($"無法取得原始資料 (IssueRelativeLink.Id = {entity.Id})");
 
-            //_context.Entry(origin).CurrentValues.SetValues(entity);
-            //_context.SaveChanges();
+            _context.Entry(origin).CurrentValues.SetValues(entity);
+            _context.SaveChanges();
 
-            //return true;
-            throw new Exception($"系統未提供此功能。");
+            return true;
         }
 
         public bool Delete(IssueRelativeLinkModel entity)

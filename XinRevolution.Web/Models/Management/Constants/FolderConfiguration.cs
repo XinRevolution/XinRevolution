@@ -7,6 +7,11 @@ namespace XinRevolution.Web.Models.Management.Constants
 {
     public static class FolderConfiguration
     {
-        public const string IssueRelativeLinkImages = "Upload\\IssueRelativeLink\\Images";
+        public const string IssueRelativeLinkImages = "Resources\\IssueRelativeLink\\Images";
+    }
+
+    public static class VirtualFolderConfiguration
+    {
+        public const string IssueRelativeLinkImages = "~/Resources/IssueRelativeLink/Images";
     }
 }

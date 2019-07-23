@@ -36,9 +36,5 @@ namespace XinRevolution.Web.Models.Management.MetaData
 
         [Display(Name = "選擇檔案", Prompt = "請選擇檔案")]
         public IFormFile UploadFile { get; set; }
-
-        [Required(ErrorMessage = "請上傳檔案")]
-        [Display(Name = "檔案", Prompt ="請選擇檔案")]
-        public string UploadFileName { get; set; }
     }
 }

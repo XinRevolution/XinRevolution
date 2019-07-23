@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -10,15 +11,19 @@ namespace XinRevolution.Web.Services.Management
 {
     public class FileManagementService
     {
-        public Result<string> Save(string folderPath, IFormFile file)
+        public IHostingEnvironment _enviroment;
+
+        public FileManagementService(IHostingEnvironment enviroment)
+        {
+            _enviroment = enviroment;
+        }
+
+        public Result<string> Save(string virtualFolder, IFormFile file)
         {
             Result<string> result = new Result<string>();
 
             try
             {
-                if (file == null || file.Length <= 0)
-                    throw new Exception($"檔案異常");
-
                 if (string.IsNullOrEmpty(folderPath))
                     throw new Exception($"資料夾路徑異常");
 
