@@ -24,7 +24,7 @@ namespace XinRevolution.Web.Services.Management
             _fileService = fileService;
             _repository = repository;
             _rootPath = enviroment.ContentRootPath;
-            _folderPath = Path.Combine(_rootPath, FolderConfiguration.IssueRelativeLinkImages);
+            _folderPath = Path.Combine(_rootPath, VirtualFolderConfiguration.IssueRelativeLinkImages);
         }
 
         public IEnumerable<IssueRelativeLinkModel> FindByIssueID(long issueId)
@@ -75,7 +75,7 @@ namespace XinRevolution.Web.Services.Management
 
         public Result<IssueRelativeLinkMD> Update(IssueRelativeLinkMD data)
         {
-            var result = new Result<IssueMD>();
+            var result = new Result<IssueRelativeLinkMD>();
 
             try
             {
@@ -94,7 +94,7 @@ namespace XinRevolution.Web.Services.Management
 
         public Result<IssueRelativeLinkMD> Delete(IssueRelativeLinkMD data)
         {
-            var result = new Result<IssueMD>();
+            var result = new Result<IssueRelativeLinkMD>();
 
             try
             {
@@ -123,7 +123,7 @@ namespace XinRevolution.Web.Services.Management
 
         private string GetVirtualPath(string fileName)
         {
-            return Path.Combine(_rootPath, FolderConfiguration.IssueRelativeLinkImages, fileName);
+            return Path.Combine(_rootPath, VirtualFolderConfiguration.IssueRelativeLinkImages, fileName);
         }
 
         public IssueRelativeLinkMD ToMetaData(IssueRelativeLinkModel model)
@@ -135,8 +135,7 @@ namespace XinRevolution.Web.Services.Management
                 ResourceName = model.ResourceName,
                 Url = model.Url,
                 Note = model.Note,
-                ResourceVirtualPath = model.ResourceVirtualPath,
-                UploadFileName = model.ResourceName
+                ResourceVirtualPath = model.ResourceVirtualPath
             };
         }
 

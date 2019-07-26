@@ -5,12 +5,7 @@ using System.Threading.Tasks;
 
 namespace XinRevolution.Web.Models.Management.Constants
 {
-    public static class FolderConfiguration
-    {
-        public const string IssueRelativeLinkImages = "Resources\\IssueRelativeLink\\Images";
-    }
-
-    public static class VirtualFolderConfiguration
+    public class PhysicalFolderConfiguration
     {
         public const string IssueRelativeLinkImages = "~/Resources/IssueRelativeLink/Images";
     }

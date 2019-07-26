@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Hosting.Internal;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,14 +11,7 @@ namespace XinRevolution.Web.Services.Management
 {
     public class FileManagementService
     {
-        public IHostingEnvironment _enviroment;
-
-        public FileManagementService(IHostingEnvironment enviroment)
-        {
-            _enviroment = enviroment;
-        }
-
-        public Result<string> Save(string virtualFolder, IFormFile file)
+        public Result<string> Save(string folderPath, IFormFile file)
         {
             Result<string> result = new Result<string>();
 
@@ -29,7 +22,7 @@ namespace XinRevolution.Web.Services.Management
 
                 if (!Directory.Exists(folderPath))
                     Directory.CreateDirectory(folderPath);
-                
+
                 var fileName = $"{new Guid().ToString()}.{Path.GetExtension(file.FileName)}";
                 var filePath = Path.Combine(folderPath, fileName);
 
@@ -52,22 +45,23 @@ namespace XinRevolution.Web.Services.Management
             return result;
         }
 
-        public Result<string> Remove(string filePath)
+        public void Remove(string filePath)
         {
-            Result<string> result = new Result<string>();
+            //Result<string> result = new Result<string>();
 
-            try
-            {
-                File.Delete(filePath);
-            }
-            catch(Exception ex)
-            {
-                result.Status = false;
-                result.Message = ex.Message;
-                result.Data = filePath;
-            }
+            //try
+            //{
+            //    File.Delete(filePath);
+            //}
+            //catch(Exception ex)
+            //{
+            //    result.Status = false;
+            //    result.Message = ex.Message;
+            //    result.Data = filePath;
+            //}
 
-            return result;
+            //return result;
+            throw new NotImplementedException();
         }
     }
 }
