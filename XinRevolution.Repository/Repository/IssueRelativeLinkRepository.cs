@@ -17,7 +17,7 @@ namespace XinRevolution.Repository.Repository
 
         public IEnumerable<IssueRelativeLinkModel> FindAll()
         {
-            return _context.IssueRelativeLinks.ToList();
+            throw new NotImplementedException();
         }
 
         public IEnumerable<IssueRelativeLinkModel> FindAll(Expression<Func<IssueRelativeLinkModel, bool>> expression)
@@ -71,12 +71,13 @@ namespace XinRevolution.Repository.Repository
 
         public bool DeleteByIssueID(long issueID)
         {
-            var entities = _context.IssueRelativeLinks.Where(x => x.IssueId == issueID);
+            //var entities = _context.IssueRelativeLinks.Where(x => x.IssueId == issueID);
 
-            _context.IssueRelativeLinks.RemoveRange(entities);
-            _context.SaveChanges();
+            //_context.IssueRelativeLinks.RemoveRange(entities);
+            //_context.SaveChanges();
 
-            return true;
+            //return true;
+            throw new NotImplementedException();
         }
     }
 }

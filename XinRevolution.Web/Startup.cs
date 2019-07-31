@@ -59,7 +59,6 @@ namespace XinRevolution.Web
             services.AddScoped<IIssueRelativeLinkRepository, IssueRelativeLinkRepository>();
 
             // Service
-            services.AddScoped<FileManagementService>();
             services.AddScoped<UserMnagementService>();
             services.AddScoped<TagManagementService>();
             services.AddScoped<IssueManagementService>();

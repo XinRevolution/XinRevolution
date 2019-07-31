@@ -30,5 +30,9 @@ namespace XinRevolution.Entity.Model
         [Required]
         [Column(TypeName = "nvarchar(200)")]
         public string ResourceVirtualPath { get; set; }
+        
+        [Required]
+        [Column(TypeName = "nvarchar(200)")]
+        public string ResourcePhysicalPath { get; set; }
     }
 }

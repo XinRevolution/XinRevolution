@@ -19,10 +19,8 @@ namespace XinRevolution.Controllers.Official
             return View();
         }
 
-        public IActionResult Character(string role)
+        public IActionResult Character(long id)
         {
-            ViewBag.PartialPath = string.Format("_{0}", role);
-
             return View();
         }
 

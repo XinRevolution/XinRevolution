@@ -30,9 +30,11 @@ namespace XinRevolution.Web.Models.Management.MetaData
         [Display(Name = "備註", Prompt = "請輸入備註")]
         public string Note { get; set; }
 
-        [Required]
         [HiddenInput]
         public string ResourceVirtualPath { get; set; }
+
+        [HiddenInput]
+        public string ResourcePhysicalPath { get; set; }
 
         [Display(Name = "選擇檔案", Prompt = "請選擇檔案")]
         public IFormFile UploadFile { get; set; }
