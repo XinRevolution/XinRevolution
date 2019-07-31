@@ -7369,14 +7369,12 @@ h4 {
   display: inline-block;
 }
 
-.characters-div a {
-  display: block;
-}
-
 .characters-div img {
   pointer-events: none;
   position: absolute;
   top: 0;
+  left: 0;
+  right: 0;
   bottom: 0;
   margin: auto;
 }
