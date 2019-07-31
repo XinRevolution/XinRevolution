@@ -646,8 +646,7 @@ h4 {
 
 .characters-bg {
   background: url("/Official/images/concept02.jpg") no-repeat center;
-  background-size: cover;
-  background-position-y: 30%;
+  background-size: contain;
 }
 
 .characters-div {
