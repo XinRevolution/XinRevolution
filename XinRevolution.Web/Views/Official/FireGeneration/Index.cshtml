@@ -1,5 +1,5 @@
 ﻿@{
-ViewBag.Transition = TransitionType.HORIZONTAL;
+    ViewBag.Transition = TransitionType.HORIZONTAL;
 }
 
 <style>
@@ -18,29 +18,69 @@ ViewBag.Transition = TransitionType.HORIZONTAL;
 </style>
 
 @* 焰世代 - 首頁 *@
+@*<div>
+        <partial name="_LayoutNavigation" />
+
+        <div class="characters-bg js-ctrl-background" data-header="bright">
+            <div class="grid-container h100 relative">
+                <a class="column-4  bear" asp-controller="FireGeneration" asp-action="Character" asp-route-role="Bear"></a>
+
+                <a class="column-4 fish" asp-controller="FireGeneration" asp-action="Character"
+                   asp-route-role="Fish"></a>
+
+                <a class="column-4 tiger" asp-controller="FireGeneration" asp-action="Character"
+                   asp-route-role="Tiger"></a>
+
+                <a class="column-4  dg" asp-controller="FireGeneration" asp-action="Character"
+                   asp-route-role="Dg"></a>
+
+                <a class="column-4  bee" asp-controller="FireGeneration" asp-action="Character"
+                   asp-route-role="Bee"></a>
+
+                <a class="column-4  free " asp-controller="FireGeneration" asp-action="Character"
+                   asp-route-role="HawkEagle"></a>
+            </div>
+        </div>
+
+        <partial name="_Navigation" />
+    </div>*@
+
 <div>
-    <partial name="_LayoutNavigation" />
+    <div>
+        <div class="background">
+            <img src="" />
+        </div>
 
-    <div class="characters-bg js-ctrl-background" data-header="bright">
-        <div class="grid-container h100 relative">
-            <a class="column-4  bear" asp-controller="FireGeneration" asp-action="Character" asp-route-role="Bear"></a>
+        <div style="position:relative">
+            <div class="inline-block">
+                <a asp-area="Official" asp-controller="FireGeneration" asp-action="Character" asp-route-id="1"></a>
+                <img class="default" src="~/Official/images/bear.png" />
+                <img class="onhover" src="" />
+            </div>
 
-            <a class="column-4 fish" asp-controller="FireGeneration" asp-action="Character"
-                asp-route-role="Fish"></a>
+            <div class="inline-block">
+                <a asp-area="Official" asp-controller="FireGeneration" asp-action="Character" asp-route-id="2"></a>
+                <img class="default" src="~/Official/images/bee.png" />
+                <img class="onhover" src="" />
+            </div>
 
-            <a class="column-4 tiger" asp-controller="FireGeneration" asp-action="Character"
-                asp-route-role="Tiger"></a>
+            <div>
+                <button>1</button>
+                <img class="default" src="" />
+                <img class="onhover" src="" />
+            </div>
 
-            <a class="column-4  dg" asp-controller="FireGeneration" asp-action="Character"
-                asp-route-role="Dg"></a>
+            <div>
+                <button>1</button>
+                <img class="default" src="" />
+                <img class="onhover" src="" />
+            </div>
 
-            <a class="column-4  bee" asp-controller="FireGeneration" asp-action="Character"
-                asp-route-role="Bee"></a>
-
-            <a class="column-4  free " asp-controller="FireGeneration" asp-action="Character"
-                asp-route-role="HawkEagle"></a>
+            <div>
+                <button>1</button>
+                <img class="default" src="" />
+                <img class="onhover" src="" />
+            </div>
         </div>
     </div>
-
-    <partial name="_Navigation" />
 </div>
