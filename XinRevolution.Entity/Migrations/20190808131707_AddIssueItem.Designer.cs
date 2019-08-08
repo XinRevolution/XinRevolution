@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using XinRevolution.Entity.Context;
 
 namespace XinRevolution.Entity.Migrations
 {
     [DbContext(typeof(XinRevolutionDbContext))]
-    partial class XinRevolutionDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190808131707_AddIssueItem")]
+    partial class AddIssueItem
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

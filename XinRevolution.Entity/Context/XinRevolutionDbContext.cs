@@ -35,7 +35,7 @@ namespace XinRevolution.Entity.Context
 
 
             // 定義 Relation & Foreign Key
-            //modelBuilder.Entity<IssueRelativeLinkModel>().HasOne(x => x.Issue).WithMany(x => x.IssueRelativeLinks).HasForeignKey(x => x.IssueId);
+            modelBuilder.Entity<IssueRelativeLinkModel>().HasOne(x => x.Issue).WithMany(x => x.IssueRelativeLinks).HasForeignKey(x => x.IssueId);
             //modelBuilder.Entity<IssueItemModel>().HasOne(x => x.Issue).WithMany(x => x.IssueItems).HasForeignKey(x => x.IssueId);
 
 
