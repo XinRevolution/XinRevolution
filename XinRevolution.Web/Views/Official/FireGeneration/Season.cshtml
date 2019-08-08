@@ -1,17 +1,16 @@
-﻿<!-- @{
-ViewBag.Transition = TransitionType.EXPAND;
-} -->
+﻿@{
+    ViewBag.Transition = TransitionType.EXPAND;
+}
 
 @* 焰世代 - 季 *@
 <div class="grid-container  h100 js-ctrl-background" data-header="bright">
-    
 
     <div class="season-div">
-         <div class="story-img column-5 pre-1 post-3"><img src="~/Official/images/Nn.png" /></div>
+        <div class="story-img column-5 pre-1 post-3"><img src="~/Official/images/Nn.png" /></div>
 
         <div class="story-content  content column-6">
-            <!-- Season Number -->
             <div class="number">00</div>
+
             <div>
                 <table>
                     <tr>
@@ -19,7 +18,7 @@ ViewBag.Transition = TransitionType.EXPAND;
                         <td></td>
                         <td></td>
                         <td>
-                            <span class="node active" style="display:block;"></span>
+                            <span class="node active js-node" style="display:block;"></span>
                         </td>
                         <td></td>
                         <td></td>
@@ -91,20 +90,18 @@ ViewBag.Transition = TransitionType.EXPAND;
         </div>
 
         <div class="column-6 pre-2 post-1 content">
-            <a class="right" asp-controller="FireGeneration" asp-action="Timeline">返回</a>
+            <a class="right" asp-area="Official" asp-controller="FireGeneration" asp-action="StoryLine">返回</a>
+            
             <div>Season Title</div>
 
             <div>
                 <img src="~/Official/images/comic-02.png" />
+                <hr />
                 <div>chapter title</div>
                 <p>chapter content</p>
             </div>
         </div>
-
-   
     </div>
-
-
     <partial name="_Navigation" />
 </div>
 
@@ -121,5 +118,5 @@ ViewBag.Transition = TransitionType.EXPAND;
 </div> -->
 
 @section Scripts{
-<script src="~/Official/js/FireGeneration/season.js"></script>
+    <script src="~/Official/js/FireGeneration/season.js"></script>
 }

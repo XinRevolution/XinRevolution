@@ -9,22 +9,32 @@ namespace XinRevolution.Controllers.Official
     [Area("Official")]
     public class FireGenerationController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Intro()
         {
             return View();
         }
 
-        public IActionResult Intro()
+        public IActionResult Index()
         {
             return View();
         }
 
         public IActionResult Character(long id)
         {
+            return PartialView("_Character");
+        }
+
+        public IActionResult Conception()
+        {
             return View();
         }
 
-        public IActionResult Timeline()
+        public IActionResult ConceptionContent(long id)
+        {
+            return PartialView("_ConceptionContent");
+        }
+
+        public IActionResult StoryLine()
         {
             return View();
         }
@@ -37,27 +47,6 @@ namespace XinRevolution.Controllers.Official
         public IActionResult Comic(string comic)
         {
             return PartialView(comic);
-        }
-
-        public IActionResult Questionnaire(long id)
-        {
-            return PartialView("_Questionnaire");
-        }
-
-        [HttpPost]
-        public IActionResult Questionnaire()
-        {
-            return Json(new { });
-        }
-
-        public IActionResult Conception()
-        {
-            return View();
-        }
-
-        public IActionResult ConceptionContent(long id)
-        {
-            return PartialView();
         }
     }
 }

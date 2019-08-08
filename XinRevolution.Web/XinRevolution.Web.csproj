@@ -8,14 +8,13 @@
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2" PrivateAssets="All" />
     <PackageReference Include="Microsoft.Azure.Storage.Blob" Version="10.0.3" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.9" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Filters\Management\" />
     <Folder Include="wwwroot\Official\css\" />
     <Folder Include="wwwroot\Official\images\" />
-    <Folder Include="wwwroot\Official\js\" />
   </ItemGroup>
 
   <ItemGroup>

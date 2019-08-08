@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Transition = TransitionType.EXPAND;
+}
+
+@* 焰世代 - 時間軸 *@
+<div class="h100 ">
+    <partial name="_LayoutNavigation" />
+
+    <div class="grid-container content w100 h100 relative">
+        
+        <div class="h100 " id="js-timeline-block-slick">
+            <a class="column-6 h100 " asp-controller="FireGeneration" asp-action="Season" asp-route-id="1">
+                <div class="story-div ">
+                    <div class="story-img">
+                        <img src="~/Official/images/Nn.png" />
+                    </div>
+
+                    <div class="story-content">
+                        <div class="number">00</div>
+                        <div class="title">title</div>
+                        <div class="time">time</div>
+                    </div>
+                </div>
+            </a>
+
+            <a class="column-6 h100" asp-area="Official" asp-controller="FireGeneration" asp-action="Season" asp-route-id="1">
+                <div class="story-div ">
+                    <div class="story-img">
+                        <img src="~/Official/images/Nn.png" />
+                    </div>
+
+                    <div class="story-content">
+                        <div class="number">00</div>
+                        <div class="title">title</div>
+                        <div class="time">time</div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+    </div>
+
+    <partial name="_Navigation" />
+</div>
+
+@section Styles{
+    <link rel="stylesheet" type="text/css" href="~/Official/lib/slick/css/slick.css" />
+    <link rel="stylesheet" type="text/css" href="~/Official/lib/slick/css/slick-theme.css" />
+}
+
+@section Scripts{
+    <script src="~/Official/lib/slick/js/slick.min.js"></script>
+    <script src="~/Official/js/FireGeneration/timeline.js"></script>
+}
