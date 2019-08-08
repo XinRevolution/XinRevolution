@@ -1,5 +1,47 @@
 @import 'mixin.scss';
 
+// 視差捲軸-待測試
+.section-1 {
+    background-image: url("/Official/images/index.png");
+}
+
+.section-3 {
+    background-image: url("/Official/images/X-logo.svg");
+}
+
+.out {
+    height: 1300px;
+}
+
+.wrapper {
+    overflow-y: scroll;
+}
+
+.article {
+
+    margin: 0 auto;
+    height: 100vh;
+    padding: 40px;
+    font: 24px 'Arial';
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+    line-height: 28px;
+}
+
+.test {
+    top: -20%;
+}
+
+.off {
+    top: -80%;
+}
+
+.moon {
+    transition: all 1s ease;
+}
+
 // 主視覺
 .master-vision {
     position: absolute;

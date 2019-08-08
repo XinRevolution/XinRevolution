@@ -645,9 +645,39 @@ h4 {
 }
 
 .characters-bg {
-  background: url("/Official/images/concept02.jpg") no-repeat;
-  background-size: cover;
-  background-position-y: 30%;
+  background: url("/Official/images/concept02.jpg") no-repeat center;
+  background-size: contain;
+}
+
+.characters-div {
+  display: inline-block;
+}
+
+.characters-div:hover img.onhover {
+  opacity: 1;
+}
+
+.characters-div:hover img.default {
+  opacity: 0;
+}
+
+.characters-div img {
+  transition: all 0.4s ease 0s;
+  -webkit-transition: all 0.4s ease 0s;
+  -moz-transition: all 0.4s ease 0s;
+  -o-transition: all 0.4s ease 0s;
+  -ms-transition: all 0.4s ease 0s;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.characters-div img.onhover {
+  opacity: 0;
 }
 
 .fire-intro p {

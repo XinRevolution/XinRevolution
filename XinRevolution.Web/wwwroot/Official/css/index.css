@@ -314,6 +314,47 @@ h4 {
           transform: translateX(50px) translateY(50px) rotateY(20deg);
 }
 
+.section-1 {
+  background-image: url("/Official/images/index.png");
+}
+
+.section-3 {
+  background-image: url("/Official/images/X-logo.svg");
+}
+
+.out {
+  height: 1300px;
+}
+
+.wrapper {
+  overflow-y: scroll;
+}
+
+.article {
+  margin: 0 auto;
+  height: 100vh;
+  padding: 40px;
+  font: 24px 'Arial';
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;
+  line-height: 28px;
+}
+
+.test {
+  top: -20%;
+}
+
+.off {
+  top: -80%;
+}
+
+.moon {
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
 .master-vision {
   position: absolute;
   top: 0;
