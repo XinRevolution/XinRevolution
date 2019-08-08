@@ -9,7 +9,7 @@ namespace XinRevolution.Entity.Model
 {
     public class IssueModel
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Column(TypeName = "int")]
         public long Id { get; set; }
 
         [Required]
@@ -19,5 +19,9 @@ namespace XinRevolution.Entity.Model
         [Required]
         [Column(TypeName = "nvarchar(300)")]
         public string Intro { get; set; }
+
+        public List<IssueRelativeLinkModel> IssueRelativeLinks { get; set; }
+
+        //public List<IssueItemModel> IssueItems { get; set; }
     }
 }

@@ -14,53 +14,45 @@ namespace XinRevolution.Entity.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.1.11-servicing-32099")
+                .HasAnnotation("ProductVersion", "2.2.6-servicing-10079")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("XinRevolution.Entity.Model.IssueModel", b =>
                 {
-                    b.Property<string>("Name")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
 
                     b.Property<string>("Intro")
                         .IsRequired()
                         .HasColumnType("nvarchar(300)");
 
-                    b.HasKey("Name");
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("Id");
 
                     b.ToTable("Issues");
-
-                    b.HasData(
-                        new { Name = "issue1", Id = 0L, Intro = "this is the first issue for demo purpose!" }
-                    );
                 });
 
             modelBuilder.Entity("XinRevolution.Entity.Model.IssueRelativeLinkModel", b =>
                 {
-                    b.Property<long>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
 
                     b.Property<int>("IssueId")
                         .HasColumnType("int");
 
                     b.Property<string>("Note")
                         .IsRequired()
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Reference")
+                        .IsRequired()
                         .HasColumnType("nvarchar(300)");
-
-                    b.Property<string>("ResourceName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(200)");
-
-                    b.Property<string>("ResourceVirtualPath")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("Url")
                         .IsRequired()
@@ -68,31 +60,9 @@ namespace XinRevolution.Entity.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("IssueId");
+
                     b.ToTable("IssueRelativeLinks");
-                });
-
-            modelBuilder.Entity("XinRevolution.Entity.Model.TagModel", b =>
-                {
-                    b.Property<string>("Name")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<bool>("Status")
-                        .HasColumnType("bit");
-
-                    b.HasKey("Name");
-
-                    b.ToTable("Tags");
-
-                    b.HasData(
-                        new { Name = "tag1", Id = 0L, Status = true },
-                        new { Name = "tag2", Id = 0L, Status = true },
-                        new { Name = "tag3", Id = 0L, Status = false }
-                    );
                 });
 
             modelBuilder.Entity("XinRevolution.Entity.Model.UserModel", b =>
@@ -107,9 +77,9 @@ namespace XinRevolution.Entity.Migrations
                     b.Property<string>("EMail")
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<long>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -127,9 +97,34 @@ namespace XinRevolution.Entity.Migrations
                     b.ToTable("Users");
 
                     b.HasData(
-                        new { Account = "mike.chen", Address = "尚未編輯", EMail = "tmal0909@gmail.com", Id = 0L, Name = "陳彥翔", Password = "12345678", Phone = "0916956546" },
-                        new { Account = "mike.huang", Address = "尚未編輯", EMail = "ss5141318@gmail.com", Id = 0L, Name = "黃瀚緯", Password = "0933846966", Phone = "0933846966" }
-                    );
+                        new
+                        {
+                            Account = "mike.chen",
+                            Address = "尚未編輯",
+                            EMail = "tmal0909@gmail.com",
+                            Id = 1,
+                            Name = "陳彥翔",
+                            Password = "12345678",
+                            Phone = "0916956546"
+                        },
+                        new
+                        {
+                            Account = "mike.huang",
+                            Address = "尚未編輯",
+                            EMail = "ss5141318@gmail.com",
+                            Id = 2,
+                            Name = "黃瀚緯",
+                            Password = "0933846966",
+                            Phone = "0933846966"
+                        });
+                });
+
+            modelBuilder.Entity("XinRevolution.Entity.Model.IssueRelativeLinkModel", b =>
+                {
+                    b.HasOne("XinRevolution.Entity.Model.IssueModel", "Issue")
+                        .WithMany("IssueRelativeLinks")
+                        .HasForeignKey("IssueId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

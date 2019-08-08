@@ -8,7 +8,7 @@ namespace XinRevolution.Entity.Model
 {
     public class UserModel
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Column(TypeName = "int")]
         public long Id { get; set; }
 
         [Required]
