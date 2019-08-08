@@ -14,13 +14,10 @@ namespace XinRevolution.Web.Services.Management
     public class IssueRelativeLinkManagementService
     {
         private readonly IIssueRelativeLinkRepository _repository;
-        private readonly string _rootPath;
-        private readonly string _folderPath;
 
-        public IssueRelativeLinkManagementService(IIssueRelativeLinkRepository repository, IHostingEnvironment enviroment)
+        public IssueRelativeLinkManagementService(IIssueRelativeLinkRepository repository)
         {
             _repository = repository;
-            _rootPath = enviroment.ContentRootPath;
         }
 
         public IEnumerable<IssueRelativeLinkModel> FindByIssueID(long issueId)

@@ -10,17 +10,39 @@ namespace XinRevolution.Entity.Context
     {
         public XinRevolutionDbContext(DbContextOptions<XinRevolutionDbContext> options) : base(options) { }
 
+        public DbSet<UserModel> Users { get; set; }
+
+        public DbSet<IssueModel> Issues { get; set; }
+
+        public DbSet<IssueRelativeLinkModel> IssueRelativeLinks { get; set; }
+
+        //public DbSet<IssueItemModel> IssueItems { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // 定義 Primary Key
             modelBuilder.Entity<UserModel>().HasKey(x => new { x.Account });
-            modelBuilder.Entity<TagModel>().HasKey(x => new { x.Name });
-            modelBuilder.Entity<IssueModel>().HasKey(x => new { x.Name });
+            modelBuilder.Entity<IssueModel>().HasKey(x => new { x.Id });
             modelBuilder.Entity<IssueRelativeLinkModel>().HasKey(x => new { x.Id });
+            //modelBuilder.Entity<IssueItemModel>().HasKey(x => new { x.Title, x.Date });
+            
+
+            // 定義 Identity
+            modelBuilder.Entity<UserModel>().Property(x => x.Id).ValueGeneratedOnAdd();
+            modelBuilder.Entity<IssueModel>().Property(x => x.Id).ValueGeneratedOnAdd();
+            modelBuilder.Entity<IssueRelativeLinkModel>().Property(x => x.Id).ValueGeneratedOnAdd();
+            //modelBuilder.Entity<IssueItemModel>().Property(x => x.Id).ValueGeneratedOnAdd();
+
+
+            // 定義 Relation & Foreign Key
+            //modelBuilder.Entity<IssueRelativeLinkModel>().HasOne(x => x.Issue).WithMany(x => x.IssueRelativeLinks).HasForeignKey(x => x.IssueId);
+            //modelBuilder.Entity<IssueItemModel>().HasOne(x => x.Issue).WithMany(x => x.IssueItems).HasForeignKey(x => x.IssueId);
+
 
             // 定義 Seed Data
             modelBuilder.Entity<UserModel>().HasData(new UserModel[] {
                 new UserModel{
+                    Id = 1,
                     Account = "mike.chen",
                     Password = "12345678",
                     Name = "陳彥翔",
@@ -29,6 +51,7 @@ namespace XinRevolution.Entity.Context
                     Address = "尚未編輯"
                 },
                 new UserModel{
+                    Id = 2,
                     Account = "mike.huang",
                     Password = "0933846966",
                     Name = "黃瀚緯",
@@ -37,36 +60,6 @@ namespace XinRevolution.Entity.Context
                     Address = "尚未編輯"
                 }
             });
-            modelBuilder.Entity<TagModel>().HasData(new TagModel[] {
-                new TagModel
-                {
-                    Name = "tag1",
-                    Status = true
-                },
-                new TagModel
-                {
-                    Name = "tag2",
-                    Status = true
-                },
-                new TagModel
-                {
-                    Name = "tag3",
-                    Status = false
-                },
-            });
-            modelBuilder.Entity<IssueModel>().HasData(new IssueModel
-            {
-                Name = "issue1",
-                Intro = "this is the first issue for demo purpose!"
-            });
         }
-
-        public DbSet<UserModel> Users { get; set; }
-
-        public DbSet<TagModel> Tags { get; set; }
-
-        public DbSet<IssueModel> Issues { get; set; }
-
-        public DbSet<IssueRelativeLinkModel> IssueRelativeLinks { get; set; }
     }
 }

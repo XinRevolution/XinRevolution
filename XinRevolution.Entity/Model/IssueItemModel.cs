@@ -6,25 +6,28 @@ using System.Text;
 
 namespace XinRevolution.Entity.Model
 {
-    public class IssueRelativeLinkModel
+    public class IssueItemModel
     {
         [Column(TypeName = "int")]
         public long Id { get; set; }
 
         [Required]
-        [Column(TypeName = "nvarchar(300)")]
-        public string Url { get; set; }
+        [Column(TypeName = "nvarchar(50)")]
+        public string Title { get; set; }
 
         [Required]
-        [Column(TypeName = "nvarchar(100)")]
-        public string Note { get; set; }
+        [Column(TypeName = "date")]
+        public DateTime Date { get; set; }
 
         [Required]
-        [Column(TypeName = "nvarchar(300)")]
+        [Column(TypeName = "nvarchar(1000)")]
+        public string Content { get; set; }
+
+        [Required]
+        [Column(TypeName = "300")]
         public string Reference { get; set; }
 
         [Required]
-        [Column(TypeName = "int")]
         public long IssueId { get; set; }
 
         public IssueModel Issue { get; set; }

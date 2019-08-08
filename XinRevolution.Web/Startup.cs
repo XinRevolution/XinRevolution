@@ -49,14 +49,14 @@ namespace XinRevolution.Web
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddDbContext<XinRevolutionDbContext>(options =>
             {
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+                options.UseSqlServer(Configuration.GetConnectionString("Database"));
             });
 
             // Repository
             services.AddScoped<IUserRepository, UserRepository>();
-            services.AddScoped<ITagRepository, TagRepository>();
             services.AddScoped<IIssueRepository, IssueRepository>();
             services.AddScoped<IIssueRelativeLinkRepository, IssueRelativeLinkRepository>();
+            //services.AddScoped<ITagRepository, TagRepository>();
 
             // Service
             services.AddScoped<UserMnagementService>();
