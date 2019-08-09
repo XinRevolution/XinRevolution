@@ -8,8 +8,8 @@ namespace XinRevolution.Entity.Model
 {
     public class TagModel
     {
-        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Column(TypeName = "int")]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Column(TypeName = "int", Order = 0)]
         public long Id { get; set; }
 
         [Required]
