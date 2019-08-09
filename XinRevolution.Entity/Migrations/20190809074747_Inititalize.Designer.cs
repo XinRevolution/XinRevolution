@@ -10,8 +10,8 @@ using XinRevolution.Entity.Context;
 namespace XinRevolution.Entity.Migrations
 {
     [DbContext(typeof(XinRevolutionDbContext))]
-    [Migration("20190809061108_AddBlogAneTag")]
-    partial class AddBlogAneTag
+    [Migration("20190809074747_Inititalize")]
+    partial class Inititalize
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
