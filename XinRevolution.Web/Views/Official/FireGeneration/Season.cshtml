@@ -18,7 +18,7 @@
                         <td></td>
                         <td></td>
                         <td>
-                            <span class="node active js-node" style="display:block;"></span>
+                            <div class="js-node node active js-node" data-id="1"></div>
                         </td>
                         <td></td>
                         <td></td>
@@ -40,7 +40,7 @@
                         <td></td>
                         <td></td>
                         <td>
-                            <div class="node"></div>
+                            <div class="js-node node" data-id="2"></div>
                         </td>
                         <td></td>
                     </tr>
@@ -94,28 +94,12 @@
             
             <div>Season Title</div>
 
-            <div>
-                <img src="~/Official/images/comic-02.png" />
-                <hr />
-                <div>chapter title</div>
-                <p>chapter content</p>
-            </div>
+            <div id="js-season-block-intro"></div>
         </div>
     </div>
+
     <partial name="_Navigation" />
 </div>
-
-@* Popup *@
-<!-- <div>
-    <div>
-        <div>Season Number</div>
-        <div>Season Title</div>
-        <div>返回</div>
-    </div>
-
-    <div>
-    </div>
-</div> -->
 
 @section Scripts{
     <script src="~/Official/js/FireGeneration/season.js"></script>

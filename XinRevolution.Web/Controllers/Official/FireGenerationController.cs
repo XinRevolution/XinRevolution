@@ -44,9 +44,14 @@ namespace XinRevolution.Controllers.Official
             return View();
         }
 
-        public IActionResult Comic(string comic)
+        public IActionResult Chapter()
         {
-            return PartialView(comic);
+            return PartialView("_Chapter");
+        }
+
+        public IActionResult Comic()
+        {
+            return PartialView("_Comic");
         }
     }
 }
