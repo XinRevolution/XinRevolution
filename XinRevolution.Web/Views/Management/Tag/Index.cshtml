@@ -22,7 +22,7 @@
         <tbody>
             @foreach (var item in Model)
             {
-                var status = item.Status ? "開啟" : "關閉";
+                var status = item.Enable ? "開啟" : "關閉";
 
                 <tr>
                     <td>@item.Id</td>

@@ -10,8 +10,8 @@ using XinRevolution.Entity.Context;
 namespace XinRevolution.Entity.Migrations
 {
     [DbContext(typeof(XinRevolutionDbContext))]
-    [Migration("20190808131707_AddIssueItem")]
-    partial class AddIssueItem
+    [Migration("20190809061108_AddBlogAneTag")]
+    partial class AddBlogAneTag
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,6 +20,68 @@ namespace XinRevolution.Entity.Migrations
                 .HasAnnotation("ProductVersion", "2.2.6-servicing-10079")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("XinRevolution.Entity.Model.BlogContent", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("BlogId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Reference")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<short>("Type")
+                        .HasColumnType("smallint");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BlogId");
+
+                    b.ToTable("BlogContents");
+                });
+
+            modelBuilder.Entity("XinRevolution.Entity.Model.BlogModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("date");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.HasAlternateKey("Name");
+
+                    b.ToTable("Blogs");
+                });
+
+            modelBuilder.Entity("XinRevolution.Entity.Model.BlogTagModel", b =>
+                {
+                    b.Property<int>("BlogId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TagId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.HasKey("BlogId", "TagId");
+
+                    b.HasIndex("TagId");
+
+                    b.ToTable("BlogTags");
+                });
 
             modelBuilder.Entity("XinRevolution.Entity.Model.IssueItemModel", b =>
                 {
@@ -42,13 +104,13 @@ namespace XinRevolution.Entity.Migrations
 
                     b.Property<string>("Reference")
                         .IsRequired()
-                        .HasColumnType("300");
+                        .HasColumnType("nvarchar(300)");
 
                     b.HasKey("Title", "Date");
 
                     b.HasIndex("IssueId");
 
-                    b.ToTable("IssueItemModel");
+                    b.ToTable("IssueItems");
                 });
 
             modelBuilder.Entity("XinRevolution.Entity.Model.IssueModel", b =>
@@ -96,6 +158,46 @@ namespace XinRevolution.Entity.Migrations
                     b.HasIndex("IssueId");
 
                     b.ToTable("IssueRelativeLinks");
+                });
+
+            modelBuilder.Entity("XinRevolution.Entity.Model.TagModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Enable")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.HasAlternateKey("Name");
+
+                    b.ToTable("Tags");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Enable = true,
+                            Name = "tag1"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Enable = true,
+                            Name = "tag2"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Enable = false,
+                            Name = "tag3"
+                        });
                 });
 
             modelBuilder.Entity("XinRevolution.Entity.Model.UserModel", b =>
@@ -150,6 +252,27 @@ namespace XinRevolution.Entity.Migrations
                             Password = "0933846966",
                             Phone = "0933846966"
                         });
+                });
+
+            modelBuilder.Entity("XinRevolution.Entity.Model.BlogContent", b =>
+                {
+                    b.HasOne("XinRevolution.Entity.Model.BlogModel", "Blog")
+                        .WithMany("BlogContents")
+                        .HasForeignKey("BlogId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("XinRevolution.Entity.Model.BlogTagModel", b =>
+                {
+                    b.HasOne("XinRevolution.Entity.Model.BlogModel", "Blog")
+                        .WithMany("BlogTags")
+                        .HasForeignKey("BlogId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("XinRevolution.Entity.Model.TagModel", "Tag")
+                        .WithMany("BlogTags")
+                        .HasForeignKey("TagId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("XinRevolution.Entity.Model.IssueItemModel", b =>

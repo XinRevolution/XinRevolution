@@ -6,7 +6,7 @@ using System.Text;
 
 namespace XinRevolution.Entity.Model
 {
-    public class TagModel
+    public class BlogModel
     {
         //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column(TypeName = "int")]
@@ -17,9 +17,11 @@ namespace XinRevolution.Entity.Model
         public string Name { get; set; }
 
         [Required]
-        [Column(TypeName = "bit")]
-        public bool Enable { get; set; }
+        [Column(TypeName = "date")]
+        public DateTime Date { get; set; }
 
         public List<BlogTagModel> BlogTags { get; set; }
+
+        public List<BlogContent> BlogContents { get; set; }
     }
 }

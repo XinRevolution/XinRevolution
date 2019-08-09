@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace XinRevolution.Entity.Migrations
 {
@@ -37,6 +38,28 @@ namespace XinRevolution.Entity.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "IssueItems",
+                columns: table => new
+                {
+                    Title = table.Column<string>(type: "nvarchar(50)", nullable: false),
+                    Date = table.Column<DateTime>(type: "date", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false),
+                    Content = table.Column<string>(type: "nvarchar(1000)", nullable: false),
+                    Reference = table.Column<string>(type: "nvarchar(300)", nullable: false),
+                    IssueId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_IssueItems", x => new { x.Title, x.Date });
+                    table.ForeignKey(
+                        name: "FK_IssueItems_Issues_IssueId",
+                        column: x => x.IssueId,
+                        principalTable: "Issues",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "IssueRelativeLinks",
                 columns: table => new
                 {
@@ -68,6 +91,11 @@ namespace XinRevolution.Entity.Migrations
                 values: new object[] { "mike.huang", "尚未編輯", "ss5141318@gmail.com", 2, "黃瀚緯", "0933846966", "0933846966" });
 
             migrationBuilder.CreateIndex(
+                name: "IX_IssueItems_IssueId",
+                table: "IssueItems",
+                column: "IssueId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_IssueRelativeLinks_IssueId",
                 table: "IssueRelativeLinks",
                 column: "IssueId");
@@ -75,6 +103,9 @@ namespace XinRevolution.Entity.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "IssueItems");
+
             migrationBuilder.DropTable(
                 name: "IssueRelativeLinks");
 

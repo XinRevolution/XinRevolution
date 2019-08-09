@@ -8,6 +8,7 @@ namespace XinRevolution.Entity.Model
 {
     public class IssueRelativeLinkModel
     {
+        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column(TypeName = "int")]
         public long Id { get; set; }
 

@@ -93,7 +93,7 @@ namespace XinRevolution.Web.Services.Management
             {
                 Id = model.Id,
                 Name = model.Name,
-                Status = model.Status
+                Status = model.Enable
             };
         } 
 
@@ -103,7 +103,7 @@ namespace XinRevolution.Web.Services.Management
             {
                 Id = metaData.Id,
                 Name = metaData.Name,
-                Status = metaData.Status
+                Enable = metaData.Status
             };
         }
     }
