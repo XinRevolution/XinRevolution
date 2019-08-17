@@ -28,7 +28,6 @@ namespace XinRevolution.Web
             Configuration = configuration;
         }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.Configure<CookiePolicyOptions>(options =>
@@ -51,12 +50,17 @@ namespace XinRevolution.Web
                 options.UseSqlServer(Configuration.GetConnectionString("Database"));
             });
 
+            // Management Service
+            services.AddScoped<BlobManagementService>();
+
+            // To Be Rewrite
             // Repository
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IIssueRepository, IssueRepository>();
             services.AddScoped<IIssueRelativeLinkRepository, IssueRelativeLinkRepository>();
             //services.AddScoped<ITagRepository, TagRepository>();
 
+            // To Be Rewrite
             // Service
             services.AddScoped<UserMnagementService>();
             services.AddScoped<TagManagementService>();
@@ -64,7 +68,6 @@ namespace XinRevolution.Web
             services.AddScoped<IssueRelativeLinkManagementService>();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, XinRevolutionDbContext dbContext)
         {
             app.UseHsts();
@@ -84,10 +87,10 @@ namespace XinRevolution.Web
                     areaName: "Management",
                     template: "Management/{controller=Home}/{action=Login}/{id?}");
 
-                // to be removed after development
-                //routes.MapRoute(
-                //    name: "Temp",
-                //    template: "{area=Management}/{controller=Home}/{action=Login}/{id?}");
+                // To Be Removed
+                routes.MapRoute(
+                    name: "Temp",
+                    template: "{area=Management}/{controller=Home}/{action=Login}/{id?}");
 
                 routes.MapRoute(
                     name: "Default",

@@ -12,5 +12,12 @@ namespace XinRevolution.Web.Models.Management
         public string Message { get; set; }
 
         public T Data { get; set; }
+
+        public OperationResult()
+        {
+            Status = false;
+            Message = $"尚未執行操作";
+            Data = default(T);
+        }
     }
 }
