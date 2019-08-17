@@ -12,7 +12,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Constants\Official\" />
     <Folder Include="Filters\Management\" />
+    <Folder Include="MetaData\" />
+    <Folder Include="ViewModels\" />
     <Folder Include="wwwroot\Official\css\" />
     <Folder Include="wwwroot\Official\images\" />
   </ItemGroup>
