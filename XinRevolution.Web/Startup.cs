@@ -13,8 +13,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using XinRevolution.Entity.Context;
 using XinRevolution.Entity.Model;
-using XinRevolution.Repository.Interface;
-using XinRevolution.Repository.Repository;
 using XinRevolution.Web.Services.Management;
 
 namespace XinRevolution.Web
@@ -52,23 +50,9 @@ namespace XinRevolution.Web
 
             // Management Service
             services.AddScoped<BlobManagementService>();
-
-            // To Be Rewrite
-            // Repository
-            services.AddScoped<IUserRepository, UserRepository>();
-            services.AddScoped<IIssueRepository, IssueRepository>();
-            services.AddScoped<IIssueRelativeLinkRepository, IssueRelativeLinkRepository>();
-            //services.AddScoped<ITagRepository, TagRepository>();
-
-            // To Be Rewrite
-            // Service
-            services.AddScoped<UserMnagementService>();
-            services.AddScoped<TagManagementService>();
-            services.AddScoped<IssueManagementService>();
-            services.AddScoped<IssueRelativeLinkManagementService>();
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, XinRevolutionDbContext dbContext)
+        public void Configure(IApplicationBuilder app, XinRevolutionDbContext dbContext)
         {
             app.UseHsts();
             app.UseExceptionHandler("/Official/Home/Error");
@@ -77,20 +61,19 @@ namespace XinRevolution.Web
             app.UseCookiePolicy();
             app.UseMvc(routes =>
             {
+                //routes.MapRoute(
+                //    name: "Temp",
+                //    template: "{area=Management}/{controller=Home}/{action=Login}/{id?}");
+
                 routes.MapAreaRoute(
                     name: "Official",
                     areaName: "Official",
                     template: "Official/{controller=Home}/{action=Index}/{id?}");
-
+                
                 routes.MapAreaRoute(
                     name: "Management",
                     areaName: "Management",
                     template: "Management/{controller=Home}/{action=Login}/{id?}");
-
-                // To Be Removed
-                routes.MapRoute(
-                    name: "Temp",
-                    template: "{area=Management}/{controller=Home}/{action=Login}/{id?}");
 
                 routes.MapRoute(
                     name: "Default",
