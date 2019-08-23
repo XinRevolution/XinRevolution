@@ -2,45 +2,6 @@
     ViewBag.Transition = TransitionType.HORIZONTAL;
 }
 
-<style>
-    .nameDiv {
-        margin-bottom: 0.5rem;
-    }
-
-    .characterInfo {
-        top: 50%;
-        position: relative;
-    }
-
-    td {
-        border: 1px solid #000;
-    }
-</style>
-
-@* 焰世代 - 首頁 *@
-@*<div>
-        <partial name="_LayoutNavigation" />
-
-        <div class="characters-bg js-ctrl-background" data-header="bright">
-            <div class="grid-container h100 relative">
-                <a class="column-4  bear" asp-controller="FireGeneration" asp-action="Character" asp-route-role="Bear"></a>
-
-                <a class="column-4 fish" asp-controller="FireGeneration" asp-action="Character" asp-route-role="Fish"></a>
-
-                <a class="column-4 tiger" asp-controller="FireGeneration" asp-action="Character" asp-route-role="Tiger"></a>
-
-                <a class="column-4  dg" asp-controller="FireGeneration" asp-action="Character" asp-route-role="Dg"></a>
-
-                <a class="column-4  bee" asp-controller="FireGeneration" asp-action="Character" asp-route-role="Bee"></a>
-
-                <a class="column-4  free " asp-controller="FireGeneration" asp-action="Character"
-                    asp-route-role="HawkEagle"></a>
-            </div>
-        </div>
-
-        <partial name="_Navigation" />
-    </div>*@
-
 <div>
     <partial name="_LayoutNavigation" />
     <div>
@@ -49,7 +10,7 @@
         </div>
 
         <div class="characters-bg js-ctrl-background" data-header="bright">
-            <div class="grid-container h100 relative content">
+            <div class="grid-container h100  content">
 
 
                 <div class="characters-div">
