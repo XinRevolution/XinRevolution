@@ -13,7 +13,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using XinRevolution.Entity.Context;
 using XinRevolution.Entity.Model;
-using XinRevolution.Web.Services.Management;
 
 namespace XinRevolution.Web
 {
@@ -42,14 +41,11 @@ namespace XinRevolution.Web
                 options.AreaViewLocationFormats.Add("/Views/Common/{0}.cshtml");
             });
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddDbContext<XinRevolutionDbContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("Database"));
             });
-
-            // Management Service
-            services.AddScoped<BlobManagementService>();
         }
 
         public void Configure(IApplicationBuilder app, XinRevolutionDbContext dbContext)
