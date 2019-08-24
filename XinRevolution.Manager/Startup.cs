@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using XinRevolution.Entity.Context;
+using XinRevolution.Entity;
 
 namespace XinRevolution.Manager
 {
