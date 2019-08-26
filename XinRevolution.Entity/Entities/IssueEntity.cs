@@ -1,28 +1,30 @@
-﻿using Castle.MicroKernel.SubSystems.Conversion;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
-namespace XinRevolution.Entity.Model
+namespace XinRevolution.Entity.Entities
 {
-    public class IssueModel
+    public class IssueEntity
     {
+        [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Required]
         [Column(TypeName = "int", Order = 0)]
-        public long Id { get; set; }
+        public int Id { get; set; }
+
 
         [Required]
-        [Column(TypeName = "nvarchar(50)")]
+        [Column(TypeName = "nvarchar(20)")]
         public string Name { get; set; }
 
         [Required]
-        [Column(TypeName = "nvarchar(300)")]
+        [Column(TypeName = "nvarchar(500)")]
         public string Intro { get; set; }
 
-        public List<IssueRelativeLinkModel> IssueRelativeLinks { get; set; }
+        public List<IssueItemEntity> IssueItems { get; set; }
 
-        public List<IssueItemModel> IssueItems { get; set; }
+        public List<IssueRelativeLinkEntity> IssueRelativeLinks { get; set; }
     }
 }

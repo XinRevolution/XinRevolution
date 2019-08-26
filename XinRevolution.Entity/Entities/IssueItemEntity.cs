@@ -4,34 +4,37 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
-namespace XinRevolution.Entity.Model
+namespace XinRevolution.Entity.Entities
 {
-    public class IssueItemModel
+    public class IssueItemEntity
     {
+        [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Required]
         [Column(TypeName = "int", Order = 0)]
-        public long Id { get; set; }
+        public int Id { get; set; }
+
 
         [Required]
-        [Column(TypeName = "nvarchar(50)")]
+        [Column(TypeName = "nvarchar(20)")]
         public string Title { get; set; }
 
         [Required]
-        [Column(TypeName = "date")]
-        public DateTime Date { get; set; }
+        [Column(TypeName = "datetime")]
+        public DateTime ReleaseDate { get; set; }
 
         [Required]
-        [Column(TypeName = "nvarchar(1000)")]
+        [Column(TypeName = "nvarchar(500)")]
         public string Content { get; set; }
 
         [Required]
-        [Column(TypeName = "nvarchar(300)")]
-        public string Reference { get; set; }
+        [Column(TypeName = "nvarchar(200)")]
+        public string ResourceUrl { get; set; }
 
         [Required]
         [Column(TypeName = "int")]
-        public long IssueId { get; set; }
+        public int IssueId { get; set; }
 
-        public IssueModel Issue { get; set; }
+        public IssueEntity Issue { get; set; }
     }
 }
