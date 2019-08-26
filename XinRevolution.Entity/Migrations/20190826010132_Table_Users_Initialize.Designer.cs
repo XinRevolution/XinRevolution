@@ -9,7 +9,7 @@ using XinRevolution.Entity;
 namespace XinRevolution.Entity.Migrations
 {
     [DbContext(typeof(XinRevolutionDbContext))]
-    [Migration("20190824135815_Table_Users_Initialize")]
+    [Migration("20190826010132_Table_Users_Initialize")]
     partial class Table_Users_Initialize
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -49,13 +49,25 @@ namespace XinRevolution.Entity.Migrations
 
                     b.Property<string>("Phone")
                         .IsRequired()
-                        .HasColumnType("nvarchar(20)");
+                        .HasColumnType("nvarchar(10)");
 
                     b.HasKey("Id");
 
                     b.HasAlternateKey("Account");
 
                     b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Account = "mike.chen",
+                            Address = "新北市汐止區",
+                            Mail = "tmal0909@gmail.com",
+                            Name = "Mike",
+                            Password = "A12345678a",
+                            Phone = "0916956546"
+                        });
                 });
 #pragma warning restore 612, 618
         }

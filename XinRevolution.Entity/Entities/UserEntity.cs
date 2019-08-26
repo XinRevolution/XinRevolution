@@ -9,6 +9,8 @@ namespace XinRevolution.Entity.Entities
     public class UserEntity
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Required]
         [Column(TypeName = "int", Order = 0)]
         public int Id { get; set; }
 
@@ -26,7 +28,7 @@ namespace XinRevolution.Entity.Entities
         public string Name { get; set; }
 
         [Required]
-        [Column(TypeName = "nvarchar(20)")]
+        [Column(TypeName = "nvarchar(10)")]
         public string Phone { get; set; }
 
         [Required]

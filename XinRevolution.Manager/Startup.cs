@@ -47,6 +47,7 @@ namespace XinRevolution.Manager
             });
 
             dbContext.Database.EnsureCreated();
+            dbContext.Database.Migrate();
         }
     }
 }
