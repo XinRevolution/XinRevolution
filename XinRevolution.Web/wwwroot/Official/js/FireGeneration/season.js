@@ -15,7 +15,7 @@
             url: '/Official/FireGeneration/Comic',
             success: function (view) {
                 $('#js-layout-popup-content').html(view);
-                $('#js-layout-block-popUp').removeClass('display-none');
+                $('#js-layout-block-popUp').addClass('active');
             }
         });
     });
