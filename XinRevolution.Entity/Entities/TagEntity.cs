@@ -4,22 +4,25 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
-namespace XinRevolution.Entity.Model
+namespace XinRevolution.Entity.Entities
 {
-    public class TagModel
+    public class TagEntity
     {
+        [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Required]
         [Column(TypeName = "int", Order = 0)]
-        public long Id { get; set; }
+        public int Id { get; set; }
+
 
         [Required]
-        [Column(TypeName = "nvarchar(50)")]
+        [Column(TypeName = "nvarchar(20)")]
         public string Name { get; set; }
 
         [Required]
         [Column(TypeName = "bit")]
         public bool Enable { get; set; }
 
-        public List<BlogTagModel> BlogTags { get; set; }
+        public List<BlogTagEntity> BlogTags { get; set; }
     }
 }
