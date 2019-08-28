@@ -19,73 +19,6 @@ namespace XinRevolution.Entity.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("XinRevolution.Entity.Entities.BlogEntity", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(20)");
-
-                    b.Property<DateTime>("ReleaseDate")
-                        .HasColumnType("datetime");
-
-                    b.HasKey("Id");
-
-                    b.HasAlternateKey("Name");
-
-                    b.ToTable("Blogs");
-                });
-
-            modelBuilder.Entity("XinRevolution.Entity.Entities.BlogPostEntity", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("BlogId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ReferenceContent")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(500)");
-
-                    b.Property<short>("ReferenceType")
-                        .HasColumnType("smallint");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("BlogId");
-
-                    b.ToTable("BlogPosts");
-                });
-
-            modelBuilder.Entity("XinRevolution.Entity.Entities.BlogTagEntity", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("BlogId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TagId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasAlternateKey("BlogId", "TagId");
-
-                    b.HasIndex("TagId");
-
-                    b.ToTable("BlogTags");
-                });
-
             modelBuilder.Entity("XinRevolution.Entity.Entities.IssueEntity", b =>
                 {
                     b.Property<int>("Id")
@@ -135,7 +68,7 @@ namespace XinRevolution.Entity.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasAlternateKey("Title", "ReleaseDate");
+                    b.HasAlternateKey("Title");
 
                     b.HasIndex("IssueId");
 
@@ -169,41 +102,6 @@ namespace XinRevolution.Entity.Migrations
                     b.HasIndex("IssueId");
 
                     b.ToTable("IssueRelativeLinks");
-                });
-
-            modelBuilder.Entity("XinRevolution.Entity.Entities.TagEntity", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<bool>("Enable")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(20)");
-
-                    b.HasKey("Id");
-
-                    b.HasAlternateKey("Name");
-
-                    b.ToTable("Tags");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Enable = true,
-                            Name = "Tag1"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Enable = false,
-                            Name = "Tag2"
-                        });
                 });
 
             modelBuilder.Entity("XinRevolution.Entity.Entities.UserEntity", b =>
@@ -250,41 +148,10 @@ namespace XinRevolution.Entity.Migrations
                             Account = "mike.chen",
                             Address = "新北市汐止區",
                             Mail = "tmal0909@gmail.com",
-                            Name = "Mike.Chen",
+                            Name = "Mike",
                             Password = "A12345678a",
                             Phone = "0916956546"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Account = "mike.huang",
-                            Address = "temp address",
-                            Mail = "temp mail",
-                            Name = "Mike.Huang",
-                            Password = "12345678",
-                            Phone = "temp phone"
                         });
-                });
-
-            modelBuilder.Entity("XinRevolution.Entity.Entities.BlogPostEntity", b =>
-                {
-                    b.HasOne("XinRevolution.Entity.Entities.BlogEntity", "Blog")
-                        .WithMany("BlogPosts")
-                        .HasForeignKey("BlogId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("XinRevolution.Entity.Entities.BlogTagEntity", b =>
-                {
-                    b.HasOne("XinRevolution.Entity.Entities.BlogEntity", "Blog")
-                        .WithMany("BlogTags")
-                        .HasForeignKey("BlogId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("XinRevolution.Entity.Entities.TagEntity", "Tag")
-                        .WithMany("BlogTags")
-                        .HasForeignKey("TagId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("XinRevolution.Entity.Entities.IssueItemEntity", b =>

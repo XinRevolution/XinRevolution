@@ -3,31 +3,27 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
-using XinRevolution.Entity.Enum;
 
-namespace XinRevolution.Entity.Entities
+namespace XinRevolution.Entity.Model
 {
-    public class BlogPostEntity
+    public class BlogContent
     {
-        [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Required]
         [Column(TypeName = "int", Order = 0)]
-        public int Id { get; set; }
-
-
+        public long Id { get; set; }
+        
         [Required]
         [Column(TypeName = "smallint")]
-        public BlogPostReferenceTypeEnum ReferenceType { get; set; }
+        public int Type { get; set; }
 
         [Required]
         [Column(TypeName = "nvarchar(500)")]
-        public string ReferenceContent { get; set; }
+        public string Reference { get; set; }
 
         [Required]
         [Column(TypeName = "int")]
-        public int BlogId { get; set; }
+        public long BlogId { get; set; }
 
-        public BlogEntity Blog { get; set; }
+        public BlogModel Blog { get; set; }
     }
 }

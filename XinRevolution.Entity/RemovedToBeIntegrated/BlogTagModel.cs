@@ -4,27 +4,24 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
-namespace XinRevolution.Entity.Entities
+namespace XinRevolution.Entity.Model
 {
-    public class BlogTagEntity
+    public class BlogTagModel
     {
-        [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Required]
         [Column(TypeName = "int", Order = 0)]
-        public int Id { get; set; }
-
-
-        [Required]
-        [Column(TypeName = "int")]
-        public int BlogId { get; set; }
-
-        public BlogEntity Blog { get; set; }
+        public long Id { get; set; }
 
         [Required]
         [Column(TypeName = "int")]
-        public int TagId { get; set; }
+        public long BlogId { get; set; }
 
-        public TagEntity Tag { get; set; }
+        [Required]
+        [Column(TypeName = "int")]
+        public long TagId { get; set; }
+
+        public BlogModel Blog { get; set; }
+
+        public TagModel Tag { get; set; }
     }
 }
