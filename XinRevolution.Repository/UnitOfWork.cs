@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using XinRevolution.Entity;
@@ -10,6 +11,7 @@ namespace XinRevolution.Repository
     public class UnitOfWork : IUnitOfWork<XinRevolutionDbContext>
     {
         public XinRevolutionDbContext Context { get; set; }
+        public Hashtable Repositories { get; set; }
 
         public UnitOfWork(XinRevolutionDbContext DbContext)
         {
@@ -18,7 +20,19 @@ namespace XinRevolution.Repository
 
         public IRepository<TEntity> GetRepository<TEntity>() where TEntity : class
         {
-            return new GenericRepository<TEntity>(this);
+            if (Repositories == null)
+                Repositories = new Hashtable();
+
+            var key = typeof(TEntity).Name;
+
+            if (Repositories.ContainsKey(key))
+                return (IRepository<TEntity>)Repositories[key];
+
+            var repository = new GenericRepository<TEntity>(this);
+
+            Repositories.Add(key, repository);
+
+            return repository;
         }
 
         public int Commit()
