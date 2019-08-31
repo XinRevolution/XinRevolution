@@ -3,21 +3,18 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using XinRevolution.Entity;
-using XinRevolution.Repository.Interfaces;
+using XinRevolution.UnitOfWork.Interfaces;
 
-namespace XinRevolution.Repository
+namespace XinRevolution.UnitOfWork
 {
-    public class GenericRepository<TEntity> : IRepository<TEntity> where TEntity : class
+    public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
     {
-        private readonly IUnitOfWork<XinRevolutionDbContext> _unitOfWork;
+        private readonly IUnitOfWork<DbContext> _unitOfWork;
 
-        public GenericRepository(IUnitOfWork<XinRevolutionDbContext> unitOfWork)
+        public GenericRepository(IUnitOfWork<DbContext> unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
-
 
         public IEnumerable<TEntity> Find()
         {
@@ -34,7 +31,6 @@ namespace XinRevolution.Repository
             return _unitOfWork.Context.Set<TEntity>().SingleOrDefault(condition);
         }
 
-
         public TEntity Add(TEntity entity)
         {
             _unitOfWork.Context.Set<TEntity>().Add(entity);
@@ -46,7 +42,6 @@ namespace XinRevolution.Repository
         {
             _unitOfWork.Context.Set<TEntity>().AddRange(entities);
         }
-
 
         public void Delete(TEntity entity)
         {
@@ -64,17 +59,10 @@ namespace XinRevolution.Repository
                 _unitOfWork.Context.Set<TEntity>().RemoveRange(existEntities);
         }
 
-
         public void Update(TEntity entity)
         {
             _unitOfWork.Context.Entry(entity).State = EntityState.Modified;
             _unitOfWork.Context.Set<TEntity>().Attach(entity);
-        }
-
-
-        public void Dispose()
-        {
-            GC.SuppressFinalize(this);
         }
     }
 }

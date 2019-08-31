@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
-using System.Text;
 
-namespace XinRevolution.Repository.Interfaces
+namespace XinRevolution.UnitOfWork.Interfaces
 {
-    public interface IRepository<TEntity> : IDisposable where TEntity : class
+    public interface IGenericRepository<TEntity> where TEntity : class
     {
         IEnumerable<TEntity> Find();
 
@@ -13,19 +12,13 @@ namespace XinRevolution.Repository.Interfaces
 
         TEntity Single(Expression<Func<TEntity, bool>> condition);
 
-
-
         TEntity Add(TEntity entity);
 
         void Add(IEnumerable<TEntity> entities);
 
-
-
         void Delete(TEntity entity);
 
         void Delete(Expression<Func<TEntity, bool>> condition);
-
-
 
         void Update(TEntity entity);
     }

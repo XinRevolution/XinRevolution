@@ -4,21 +4,21 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using XinRevolution.Entity;
-using XinRevolution.Repository.Interfaces;
+using XinRevolution.UnitOfWork.Interfaces;
 
-namespace XinRevolution.Repository
+namespace XinRevolution.UnitOfWork
 {
-    public class UnitOfWork : IUnitOfWork<XinRevolutionDbContext>
+    public class UnitOfWork : IUnitOfWork<DbContext>
     {
-        public XinRevolutionDbContext Context { get; set; }
+        public DbContext Context { get; set; }
         public Hashtable Repositories { get; set; }
 
-        public UnitOfWork(XinRevolutionDbContext DbContext)
+        public UnitOfWork(XinRevolutionDbContext context)
         {
-            Context = DbContext;
+            Context = context;
         }
 
-        public IRepository<TEntity> GetRepository<TEntity>() where TEntity : class
+        public IGenericRepository<TEntity> GetRepository<TEntity>() where TEntity : class
         {
             if (Repositories == null)
                 Repositories = new Hashtable();
@@ -26,7 +26,7 @@ namespace XinRevolution.Repository
             var key = typeof(TEntity).Name;
 
             if (Repositories.ContainsKey(key))
-                return (IRepository<TEntity>)Repositories[key];
+                return (IGenericRepository<TEntity>)Repositories[key];
 
             var repository = new GenericRepository<TEntity>(this);
 
@@ -43,7 +43,7 @@ namespace XinRevolution.Repository
         public void Dispose()
         {
             Context.Dispose();
-            GC.SuppressFinalize(this);
+            GC.SuppressFinalize(true);
         }
     }
 }
