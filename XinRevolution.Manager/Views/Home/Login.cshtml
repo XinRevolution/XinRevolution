@@ -1,7 +1,52 @@
-﻿
+﻿@model UserMD
+
 @{
-    ViewData["Title"] = "Login";
+    Layout = null;
 }
 
-<h1>Login</h1>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <title>XinRevolution - Manager</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/js/site.js"></script>
+</head>
+<body>
+    <section class="login-background">
+        <div class="login-overlay">
+            <div class="login-header">
+                <img src="~/images/" />
+            </div>
+
+            <div class="login-content">
+                <form asp-controller="Home" asp-action="Login" method="post">
+                    <div>
+                        <input asp-for="Account" />
+                        <span asp-validation-for="Account"></span>
+                    </div>
+                    <div>
+                        <input asp-for="Password" />
+                        <span class="text-danger" asp-validation-for="Account"></span>
+                    </div>
+                    <div>
+                        <span class="text-danger">@ViewBag.ErrMessage</span>
+                    </div>
+                    <div>
+                        <input type="submit" value="送出"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

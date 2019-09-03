@@ -1,12 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Text;
 using XinRevolution.Entity;
-using XinRevolution.UnitOfWork.Interfaces;
+using XinRevolution.Repository.Interfaces;
 
-namespace XinRevolution.UnitOfWork
+namespace XinRevolution.Repository
 {
     public class UnitOfWork : IUnitOfWork<DbContext>
     {

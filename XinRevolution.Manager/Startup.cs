@@ -5,6 +5,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using XinRevolution.Entity;
+using XinRevolution.Manager.Services;
+using XinRevolution.Repository;
 
 namespace XinRevolution.Manager
 {
@@ -30,6 +32,8 @@ namespace XinRevolution.Manager
             {
                 options.UseSqlServer(Configuration.GetConnectionString("Database"));
             });
+            services.AddScoped<UnitOfWork>();
+            services.AddScoped<UserService>();
         }
 
         public void Configure(IApplicationBuilder app, XinRevolutionDbContext dbContext)

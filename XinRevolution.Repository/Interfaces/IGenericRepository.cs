@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq.Expressions;
 
-namespace XinRevolution.UnitOfWork.Interfaces
+namespace XinRevolution.Repository.Interfaces
 {
     public interface IGenericRepository<TEntity> where TEntity : class
     {

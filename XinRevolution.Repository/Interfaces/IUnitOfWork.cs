@@ -2,7 +2,7 @@
 using System;
 using System.Collections;
 
-namespace XinRevolution.UnitOfWork.Interfaces
+namespace XinRevolution.Repository.Interfaces
 {
     public interface IUnitOfWork<TContext> : IDisposable where TContext : DbContext
     {

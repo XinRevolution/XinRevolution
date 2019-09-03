@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using XinRevolution.UnitOfWork.Interfaces;
+using XinRevolution.Repository.Interfaces;
 
-namespace XinRevolution.UnitOfWork
+namespace XinRevolution.Repository
 {
     public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
     {
