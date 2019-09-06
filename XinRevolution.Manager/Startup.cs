@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using XinRevolution.Entity;
 using XinRevolution.Manager.Services;
 using XinRevolution.Repository;
+using XinRevolution.Repository.Interfaces;
 
 namespace XinRevolution.Manager
 {
@@ -32,7 +33,7 @@ namespace XinRevolution.Manager
             {
                 options.UseSqlServer(Configuration.GetConnectionString("Database"));
             });
-            services.AddScoped<UnitOfWork>();
+            services.AddScoped<IUnitOfWork<DbContext>, UnitOfWork>();
             services.AddScoped<UserService>();
         }
 

@@ -25,24 +25,24 @@
     <section class="login-background">
         <div class="login-overlay">
             <div class="login-header">
-                <img src="~/images/" />
+                <img class="login-logo" src="~/images/login-logo.svg" />
             </div>
 
             <div class="login-content">
                 <form asp-controller="Home" asp-action="Login" method="post">
                     <div>
-                        <input asp-for="Account" />
+                        <input class="login-input" asp-for="Account" />
                         <span asp-validation-for="Account"></span>
                     </div>
                     <div>
-                        <input asp-for="Password" />
+                        <input class="login-input" asp-for="Password" />
                         <span class="text-danger" asp-validation-for="Account"></span>
                     </div>
                     <div>
                         <span class="text-danger">@ViewBag.ErrMessage</span>
                     </div>
                     <div>
-                        <input type="submit" value="送出"/>
+                        <input type="submit" value="送出" />
                     </div>
                 </form>
             </div>

@@ -1,16 +1,18 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using XinRevolution.Entity.Entities;
 using XinRevolution.Manager.MetaData;
 using XinRevolution.Manager.Models;
 using XinRevolution.Repository;
+using XinRevolution.Repository.Interfaces;
 
 namespace XinRevolution.Manager.Services
 {
     public class UserService
     {
-        private readonly UnitOfWork _unitOfWork;
+        private readonly IUnitOfWork<DbContext> _unitOfWork;
 
-        public UserService(UnitOfWork unitOfWork)
+        public UserService(IUnitOfWork<DbContext> unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
