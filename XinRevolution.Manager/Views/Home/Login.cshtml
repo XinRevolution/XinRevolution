@@ -24,25 +24,27 @@
 <body>
     <section class="login-background">
         <div class="login-overlay">
-            <div class="login-header">
+            <div class="login-container">
                 <img class="login-logo" src="~/images/login-logo.svg" />
-            </div>
 
-            <div class="login-content">
-                <form asp-controller="Home" asp-action="Login" method="post">
+                <form class="login-form" asp-controller="Home" asp-action="Login" method="post">
                     <div>
                         <input class="login-input" asp-for="Account" />
-                        <span asp-validation-for="Account"></span>
+                        <div>
+                            <span class="text-danger" asp-validation-for="Account"></span>
+                        </div>
                     </div>
                     <div>
                         <input class="login-input" asp-for="Password" />
-                        <span class="text-danger" asp-validation-for="Account"></span>
+                        <div>
+                            <span class="text-danger" asp-validation-for="Password"></span>
+                        </div>
                     </div>
                     <div>
                         <span class="text-danger">@ViewBag.ErrMessage</span>
                     </div>
                     <div>
-                        <input type="submit" value="送出" />
+                        <input class="login-btn" type="submit" value="送出" />
                     </div>
                 </form>
             </div>
