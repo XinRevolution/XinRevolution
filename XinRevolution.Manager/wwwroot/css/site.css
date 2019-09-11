@@ -7,7 +7,7 @@ html, body {
     height: 100vh;
     margin: 0px;
     padding: 0px;
-    overflow-y: auto;
+    overflow-y: hidden;
 }
 
 .login-background {
@@ -56,7 +56,7 @@ html, body {
     border-radius: 5px;
     color: #fff;
     font-weight: 700;
-    letter-spacing : 2px;
+    letter-spacing: 2px;
     width: 70%;
     margin: 10px;
     padding: 5px;
@@ -75,3 +75,37 @@ html, body {
     .login-btn:hover {
         opacity: 1;
     }
+
+
+.header {
+    background: linear-gradient(45deg, black, #696060de);
+    color: #ceefed;
+    font-weight: 900;
+    font-size: 15px;
+    padding: 8px 30px;
+}
+
+.frame {
+    height: calc(100% - 76px);
+}
+
+    .frame .menu {
+        width: 25%;
+        height: 100%;
+        float: left;
+    }
+
+    .frame .content {
+        width: 75%;
+        height: 100%;
+        overflow-y: auto;
+    }
+
+.footer {
+    text-align: center;
+    background: linear-gradient(45deg, #696060de, black);
+    color: #ceefed;
+    font-weight: 900;
+    font-size: 15px;
+    padding: 8px 30px;
+}
