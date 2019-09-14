@@ -7,6 +7,7 @@
     <title>XinRevolution - Manager</title>
 
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="~/css/site.css" />
 
     <script src="~/lib/jquery/dist/jquery.js"></script>
@@ -22,14 +23,53 @@
 
     <section class="frame">
         <aside class="menu">
-            <ul class="menu-list">
-                <li><a asp-controller="User">使用者管理</a></li>
-                <li><a asp-controller=""</li>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">使用者管理</a>
+                </li>
+                <li class="nav-item">
+                    <div class="accordion" id="menu-accordion-blog">
+                        <div class="accordion-head" id="menu-accordion-blog-head">
+                            <a href="#" data-toggle="collapse" data-target="#menu-accordion-blog-content" aria-expanded="false" aria-controls="menu-accordion-blog-content">部落格管理</a>
+                        </div>
+
+                        <div class="collapse acoordion-content" id="menu-accordion-blog-content" aria-labelledby="menu-accordion-blog-head" data-parent="#menu-accordion-blog">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link">標籤管理</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link">部落格管理</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="accordion" id="menu-accordion-issue">
+                        <div class="accordion-head" id="menu-accordion-issue-head">
+                            <a href="#" data-toggle="collapse" data-target="#menu-accordion-issue-content" aria-expanded="false" aria-controls="menu-accordion-issue-content">議題管理</a>
+                        </div>
+
+                        <div class="collapse accordion-content" id="menu-accordion-issue-content" aria-labelledby="menu-accordion-issue-head" data-parent="#menu-accordion-issue">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link">議題管理</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link">子議題管理</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
             </ul>
         </aside>
 
         <article class="content">
-            @RenderBody()
+            <div class="container-fluid">
+                @RenderBody()
+            </div>
         </article>
     </section>
 

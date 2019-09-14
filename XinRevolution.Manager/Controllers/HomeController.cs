@@ -49,10 +49,5 @@ namespace XinRevolution.Manager.Controllers
 
             return RedirectToAction("Login", "Home");
         }
-
-        public IActionResult Error()
-        {
-            return View();
-        }
     }
 }

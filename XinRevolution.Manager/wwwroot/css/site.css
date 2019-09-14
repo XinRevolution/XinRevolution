@@ -90,15 +90,24 @@ html, body {
 }
 
     .frame .menu {
-        width: 25%;
+        width: 200px;
         height: 100%;
         float: left;
+        padding: 10px;
     }
 
+        .frame .menu .accordion {
+            padding: 0.5rem 1rem;
+        }
+
+            .frame .menu .accordion .acoordion-content {
+                margin-top: 10px;
+            }
+
     .frame .content {
-        width: 75%;
         height: 100%;
         overflow-y: auto;
+        padding: 10px;
     }
 
 .footer {

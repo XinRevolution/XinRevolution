@@ -33,13 +33,15 @@ namespace XinRevolution.Manager
             {
                 options.UseSqlServer(Configuration.GetConnectionString("Database"));
             });
+
+            // DI
             services.AddScoped<IUnitOfWork<DbContext>, UnitOfWork>();
             services.AddScoped<UserService>();
         }
 
         public void Configure(IApplicationBuilder app, XinRevolutionDbContext dbContext)
         {
-            app.UseExceptionHandler("/Home/Error");
+            //app.UseExceptionHandler("/Home/Error");
             app.UseHsts();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
