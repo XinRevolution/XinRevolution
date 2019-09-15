@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace XinRevolution.Manager.MetaData
     public class UserMD
     {
         [Required(ErrorMessage = "請攜帶資料列鍵值")]
-        [Range(1, int.MaxValue, ErrorMessage = "資料列鍵值錯誤")]
+        [HiddenInput]
         public int Id { get; set; }
 
         [Required(ErrorMessage = "請輸入帳號")]

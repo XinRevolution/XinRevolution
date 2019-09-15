@@ -1,1 +1,39 @@
-﻿<div>User.Index</div>
+﻿@model List<UserEntity>
+
+<div class="card">
+    <div class="card-body">
+        <div class="card-title">
+            <span class="float-left">使用者管理</span>
+            <a class="float-right" asp-controller="User" asp-action="Create">新增</a>
+        </div>
+
+        <div class="card-text">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>帳號</th>
+                        <th>姓名</th>
+                        <th>電話</th>
+                        <th>地址</th>
+                        <th>相關操作區</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Account</td>
+                            <td>@item.Name</td>
+                            <td>@item.Phone</td>
+                            <td>@item.Address</td>
+                            <td>
+                                <a asp-controller="User" asp-action="Update" asp-route-id="@item.Id">編輯</a>
+                                <a asp-controller="User" asp-action="Delete" asp-route-id="@item.Id">刪除</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
