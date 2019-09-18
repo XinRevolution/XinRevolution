@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using XinRevolution.Manager.MetaData;
-using XinRevolution.Manager.Models;
 using XinRevolution.Manager.Services;
 
 namespace XinRevolution.Manager.Controllers
@@ -21,12 +15,20 @@ namespace XinRevolution.Manager.Controllers
 
         public IActionResult Login()
         {
-            UserMD data = new UserMD();
+            var result = _service.FindMetaData();
 
-            return View(data);
+            if (!result.Status)
+            {
+                ViewBag.ErrMessage = result.Message;
+
+                return View("Error");
+            }
+
+            return View(result.Data);
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Login(UserMD data)
         {
             var result = _service.Login(data);

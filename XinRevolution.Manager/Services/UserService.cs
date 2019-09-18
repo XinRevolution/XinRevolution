@@ -21,41 +21,74 @@ namespace XinRevolution.Manager.Services
         public OperationResult<UserEntity> Login(UserMD data)
         {
             var result = new OperationResult<UserEntity>();
-            var user = _unitOfWork.GetRepository<UserEntity>().Single(x => x.Account.Equals(data.Account, StringComparison.CurrentCultureIgnoreCase));
 
-            if (user == default(UserEntity))
+            try
+            {
+                var entity = _unitOfWork.GetRepository<UserEntity>().Single(x => x.Account.Equals(data.Account, StringComparison.CurrentCultureIgnoreCase));
+
+                if (entity == default(UserEntity))
+                    throw new Exception($"帳號錯誤");
+
+                if (!entity.Password.Equals(data.Password, StringComparison.CurrentCultureIgnoreCase))
+                    throw new Exception($"密碼錯誤");
+
+                result.Status = true;
+                result.Message = $"操作成功";
+                result.Data = entity;
+            }
+            catch (Exception ex)
             {
                 result.Status = false;
-                result.Message = $"帳號錯誤";
-
-                return result;
+                result.Message = $"操作失敗 - {ex.Message}";
+                result.Data = null;
             }
-
-            if (!user.Password.Equals(data.Password, StringComparison.CurrentCultureIgnoreCase))
-            {
-                result.Status = false;
-                result.Message = $"密碼錯誤";
-
-                return result;
-            }
-
-            result.Status = true;
-            result.Message = $"登入成功";
-            result.Data = user;
 
             return result;
         }
 
-        public UserMD FindMetaData(int id)
+        public OperationResult<UserMD> FindMetaData(int id = -1)
         {
-            var result = ToMetaData(_unitOfWork.GetRepository<UserEntity>().Single(x => x.Id == id));
+            var result = new OperationResult<UserMD>();
+
+            try
+            {
+                var entity = id == -1? new UserEntity() : _unitOfWork.GetRepository<UserEntity>().Single(x => x.Id == id);
+
+                if (entity == default(UserEntity))
+                    throw new Exception($"無法取得使用者資料");
+
+                result.Status = true;
+                result.Message = $"操作成功";
+                result.Data = ToMetaData(entity);
+            }
+            catch (Exception ex)
+            {
+                result.Status = false;
+                result.Message = $"操作失敗 - {ex.Message}";
+                result.Data = null;
+            }
 
             return result;
         }
 
-        public List<UserEntity> FindAll()
+        public OperationResult<List<UserEntity>> FindAll()
         {
-            var result = _unitOfWork.GetRepository<UserEntity>().Find().ToList();
+            var result = new OperationResult<List<UserEntity>>();
+
+            try
+            {
+                var entities = _unitOfWork.GetRepository<UserEntity>().Find().ToList();
+
+                result.Status = true;
+                result.Message = $"操作成功";
+                result.Data = entities;
+            }
+            catch (Exception ex)
+            {
+                result.Status = false;
+                result.Message = $"操作失敗 - {ex.Message}";
+                result.Data = null;
+            }
 
             return result;
         }
@@ -74,10 +107,10 @@ namespace XinRevolution.Manager.Services
                 result.Status = true;
                 result.Message = $"操作成功";
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 result.Status = false;
-                result.Message = $"操作失敗 ({ex.Message})";
+                result.Message = $"操作失敗 - {ex.Message}";
                 result.Data = data;
             }
 
@@ -97,11 +130,12 @@ namespace XinRevolution.Manager.Services
 
                 result.Status = true;
                 result.Message = $"操作成功";
+                result.Data = data;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 result.Status = false;
-                result.Message = $"操作失敗 ({ex.Message})";
+                result.Message = $"操作失敗 - {ex.Message}";
                 result.Data = data;
             }
 
@@ -121,11 +155,12 @@ namespace XinRevolution.Manager.Services
 
                 result.Status = true;
                 result.Message = $"操作成功";
+                result.Data = data;
             }
             catch (Exception ex)
             {
                 result.Status = false;
-                result.Message = $"操作失敗 ({ex.Message})";
+                result.Message = $"操作失敗 - {ex.Message}";
                 result.Data = data;
             }
 

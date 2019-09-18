@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using XinRevolution.Manager.MetaData;
 using XinRevolution.Manager.Services;
 
@@ -19,45 +15,106 @@ namespace XinRevolution.Manager.Controllers
 
         public IActionResult Index()
         {
-            var data = _service.FindAll();
+            var result = _service.FindAll();
 
-            return View(data);
+            if (!result.Status)
+            {
+                ViewBag.ErrMessage = result.Message;
+
+                return View("Error");
+            }
+
+            return View(result.Data);
         }
 
         public IActionResult Create()
         {
-            return View();
+            var result = _service.FindMetaData();
+
+            if (!result.Status)
+            {
+                ViewBag.ErrMessage = result.Message;
+
+                return View("Error");
+            }
+
+            return View(result.Data);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(UserMD data)
         {
-            return View();
+            var result = _service.Create(data);
+
+            if (!result.Status)
+            {
+                ViewBag.ErrMessage = result.Message;
+
+                return View(result.Data);
+            }
+
+            return RedirectToAction("Index");
         }
 
         public IActionResult Update(int id)
         {
-            return View();
+            var result = _service.FindMetaData(id);
+
+            if (!result.Status)
+            {
+                ViewBag.ErrMessage = result.Message;
+
+                return View("Error");
+            }
+
+            return View(result.Data);
         }
 
         [HttpPut]
         [ValidateAntiForgeryToken]
         public IActionResult Update(UserMD data)
         {
-            return View();
+            var result = _service.Update(data);
+
+            if (!result.Status)
+            {
+                ViewBag.ErrMessage = result.Message;
+
+                return View(result.Data);
+            }
+
+            return RedirectToAction("Index");
         }
 
         public IActionResult Delete(int id)
         {
-            return View();
+            var result = _service.FindMetaData(id);
+
+            if (!result.Status)
+            {
+                ViewBag.ErrMessage = result.Message;
+
+                return View("Error");
+            }
+
+            return View(result.Data);
         }
 
         [HttpDelete]
         [ValidateAntiForgeryToken]
         public IActionResult Delete(UserMD data)
         {
-            return View();
+            var result = _service.Delete(data);
+
+            if (!result.Status)
+            {
+                ViewBag.ErrMessage = result.Message;
+
+                return View(result.Data);
+            }
+
+            return RedirectToAction("Index");
         }
     }
 }
