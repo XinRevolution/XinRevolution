@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections;
+using XinRevolution.Entity.Entities;
 
 namespace XinRevolution.Repository.Interfaces
 {
@@ -10,7 +11,7 @@ namespace XinRevolution.Repository.Interfaces
 
         Hashtable Repositories { get; set; }
 
-        IGenericRepository<TEntity> GetRepository<TEntity>() where TEntity : class;
+        IGenericRepository<TEntity> GetRepository<TEntity>() where TEntity : BaseEntity;
 
         int Commit();
     }

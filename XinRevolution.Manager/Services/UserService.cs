@@ -9,13 +9,11 @@ using XinRevolution.Repository.Interfaces;
 
 namespace XinRevolution.Manager.Services
 {
-    public class UserService
+    public class UserService : BaseService<UserEntity, UserMD>
     {
-        private readonly IUnitOfWork<DbContext> _unitOfWork;
-
-        public UserService(IUnitOfWork<DbContext> unitOfWork)
+        public UserService(IUnitOfWork<DbContext> unitOfWork) : base(unitOfWork)
         {
-            _unitOfWork = unitOfWork;
+
         }
 
         public OperationResult<UserEntity> Login(UserMD data)
@@ -39,165 +37,38 @@ namespace XinRevolution.Manager.Services
             catch (Exception ex)
             {
                 result.Status = false;
-                result.Message = $"操作失敗 - {ex.Message}";
+                result.Message = $"操作失敗 : {ex.Message}";
                 result.Data = null;
             }
 
             return result;
         }
-
-        public OperationResult<UserMD> FindMetaData(int id = -1)
+        
+        protected override UserMD ToMetaData(UserEntity entity)
         {
-            var result = new OperationResult<UserMD>();
-
-            try
-            {
-                var entity = id == -1? new UserEntity() : _unitOfWork.GetRepository<UserEntity>().Single(x => x.Id == id);
-
-                if (entity == default(UserEntity))
-                    throw new Exception($"無法取得使用者資料");
-
-                result.Status = true;
-                result.Message = $"操作成功";
-                result.Data = ToMetaData(entity);
-            }
-            catch (Exception ex)
-            {
-                result.Status = false;
-                result.Message = $"操作失敗 - {ex.Message}";
-                result.Data = null;
-            }
-
-            return result;
-        }
-
-        public OperationResult<List<UserEntity>> FindAll()
-        {
-            var result = new OperationResult<List<UserEntity>>();
-
-            try
-            {
-                var entities = _unitOfWork.GetRepository<UserEntity>().Find().ToList();
-
-                result.Status = true;
-                result.Message = $"操作成功";
-                result.Data = entities;
-            }
-            catch (Exception ex)
-            {
-                result.Status = false;
-                result.Message = $"操作失敗 - {ex.Message}";
-                result.Data = null;
-            }
-
-            return result;
-        }
-
-        public OperationResult<UserMD> Create(UserMD data)
-        {
-            var result = new OperationResult<UserMD>();
-
-            try
-            {
-                _unitOfWork.GetRepository<UserEntity>().Add(ToEntity(data));
-
-                if (_unitOfWork.Commit() <= 0)
-                    throw new Exception($"無法新增資料列");
-
-                result.Status = true;
-                result.Message = $"操作成功";
-            }
-            catch (Exception ex)
-            {
-                result.Status = false;
-                result.Message = $"操作失敗 - {ex.Message}";
-                result.Data = data;
-            }
-
-            return result;
-        }
-
-        public OperationResult<UserMD> Update(UserMD data)
-        {
-            var result = new OperationResult<UserMD>();
-
-            try
-            {
-                _unitOfWork.GetRepository<UserEntity>().Update(ToEntity(data));
-
-                if (_unitOfWork.Commit() <= 0)
-                    throw new Exception($"無法更新資料列");
-
-                result.Status = true;
-                result.Message = $"操作成功";
-                result.Data = data;
-            }
-            catch (Exception ex)
-            {
-                result.Status = false;
-                result.Message = $"操作失敗 - {ex.Message}";
-                result.Data = data;
-            }
-
-            return result;
-        }
-
-        public OperationResult<UserMD> Delete(UserMD data)
-        {
-            var result = new OperationResult<UserMD>();
-
-            try
-            {
-                _unitOfWork.GetRepository<UserEntity>().Delete(ToEntity(data));
-
-                if (_unitOfWork.Commit() <= 0)
-                    throw new Exception($"無法刪除資料列");
-
-                result.Status = true;
-                result.Message = $"操作成功";
-                result.Data = data;
-            }
-            catch (Exception ex)
-            {
-                result.Status = false;
-                result.Message = $"操作失敗 - {ex.Message}";
-                result.Data = data;
-            }
-
-            return result;
-        }
-
-        private UserMD ToMetaData(UserEntity data)
-        {
-            if (data == null)
-                return null;
-
             return new UserMD
             {
-                Id = data.Id,
-                Account = data.Account,
-                Password = data.Password,
-                Name = data.Name,
-                Phone = data.Phone,
-                Address = data.Address,
-                Mail = data.Mail
+                Id = entity.Id,
+                Account = entity.Account,
+                Password = entity.Password,
+                Name = entity.Name,
+                Phone = entity.Phone,
+                Address = entity.Address,
+                Mail = entity.Mail
             };
         }
 
-        private UserEntity ToEntity(UserMD data)
+        protected override UserEntity ToEntity(UserMD metaData)
         {
-            if (data == null)
-                return null;
-
             return new UserEntity
             {
-                Id = data.Id,
-                Account = data.Account,
-                Password = data.Password,
-                Name = data.Name,
-                Phone = data.Phone,
-                Address = data.Address,
-                Mail = data.Mail
+                Id = metaData.Id,
+                Account = metaData.Account,
+                Password = metaData.Password,
+                Name = metaData.Name,
+                Phone = metaData.Phone,
+                Address = metaData.Address,
+                Mail = metaData.Mail
             };
         }
     }

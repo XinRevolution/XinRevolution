@@ -3,11 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using XinRevolution.Entity.Entities;
 using XinRevolution.Repository.Interfaces;
 
 namespace XinRevolution.Repository
 {
-    public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
+    public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : BaseEntity
     {
         private readonly IUnitOfWork<DbContext> _unitOfWork;
 
@@ -45,7 +46,7 @@ namespace XinRevolution.Repository
 
         public void Delete(TEntity entity)
         {
-            var existEntity = _unitOfWork.Context.Set<TEntity>().Find(entity);
+            var existEntity = _unitOfWork.Context.Set<TEntity>().SingleOrDefault(x => x.Id == entity.Id);
 
             if (existEntity != default(TEntity))
                 _unitOfWork.Context.Set<TEntity>().Remove(existEntity);
@@ -61,8 +62,10 @@ namespace XinRevolution.Repository
 
         public void Update(TEntity entity)
         {
-            _unitOfWork.Context.Entry(entity).State = EntityState.Modified;
-            _unitOfWork.Context.Set<TEntity>().Attach(entity);
+            var existEntity = _unitOfWork.Context.Set<TEntity>().SingleOrDefault(x => x.Id == entity.Id);
+
+            if (existEntity != default(TEntity))
+                _unitOfWork.Context.Entry(existEntity).CurrentValues.SetValues(entity);
         }
     }
 }

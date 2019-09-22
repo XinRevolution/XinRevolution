@@ -6,24 +6,18 @@ using System.Text;
 
 namespace XinRevolution.Entity.Entities
 {
-    public class IssueRelativeLinkEntity
+    public class IssueRelativeLinkEntity : BaseEntity
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Required]
-        [Column(TypeName = "int", Order = 0)]
-        public int Id { get; set; }
-
         [Required]
         [Column(TypeName = "nvarchar(20)")]
         public string Note { get; set; }
 
         [Required]
-        [Column(TypeName = "nvarchar(200)")]
+        [Column(TypeName = "nvarchar(500)")]
         public string LinkUrl { get; set; }
 
         [Required]
-        [Column(TypeName = "nvarchar(200)")]
+        [Column(TypeName = "nvarchar(500)")]
         public string ResourceUrl { get; set; }
 
         [Required]

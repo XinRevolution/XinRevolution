@@ -10,8 +10,8 @@ using XinRevolution.Entity;
 namespace XinRevolution.Entity.Migrations
 {
     [DbContext(typeof(XinRevolutionDbContext))]
-    [Migration("20190826171356_Table_Blog_Initialize")]
-    partial class Table_Blog_Initialize
+    [Migration("20190922085309_Initialize")]
+    partial class Initialize
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

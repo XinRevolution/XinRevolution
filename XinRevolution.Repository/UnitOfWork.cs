@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using XinRevolution.Entity;
+using XinRevolution.Entity.Entities;
 using XinRevolution.Repository.Interfaces;
 
 namespace XinRevolution.Repository
@@ -16,7 +17,7 @@ namespace XinRevolution.Repository
             Context = context;
         }
 
-        public IGenericRepository<TEntity> GetRepository<TEntity>() where TEntity : class
+        public IGenericRepository<TEntity> GetRepository<TEntity>() where TEntity : BaseEntity
         {
             if (Repositories == null)
                 Repositories = new Hashtable();

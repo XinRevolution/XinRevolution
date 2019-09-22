@@ -1,14 +1,18 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
 using XinRevolution.Manager.MetaData;
 using XinRevolution.Manager.Services;
 
 namespace XinRevolution.Manager.Controllers
 {
-    public class UserController : Controller
+    public class IssueController : Controller
     {
-        private readonly UserService _service;
+        private readonly IssueService _service;
 
-        public UserController(UserService service)
+        public IssueController(IssueService service)
         {
             _service = service;
         }
@@ -26,7 +30,6 @@ namespace XinRevolution.Manager.Controllers
 
             return View(result.Data);
         }
-
         public IActionResult Create()
         {
             var result = _service.FindMetaData();
@@ -43,7 +46,7 @@ namespace XinRevolution.Manager.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(UserMD data)
+        public IActionResult Create(IssueMD data)
         {
             var result = _service.Create(data);
 
@@ -73,7 +76,7 @@ namespace XinRevolution.Manager.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Update(UserMD data)
+        public IActionResult Update(IssueMD data)
         {
             var result = _service.Update(data);
 
@@ -103,7 +106,7 @@ namespace XinRevolution.Manager.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Delete(UserMD data)
+        public IActionResult Delete(IssueMD data)
         {
             var result = _service.Delete(data);
 

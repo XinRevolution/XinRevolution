@@ -6,15 +6,8 @@ using System.Text;
 
 namespace XinRevolution.Entity.Entities
 {
-    public class IssueItemEntity
+    public class IssueItemEntity : BaseEntity
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Required]
-        [Column(TypeName = "int", Order = 0)]
-        public int Id { get; set; }
-
-
         [Required]
         [Column(TypeName = "nvarchar(20)")]
         public string Title { get; set; }
@@ -28,7 +21,7 @@ namespace XinRevolution.Entity.Entities
         public string Content { get; set; }
 
         [Required]
-        [Column(TypeName = "nvarchar(200)")]
+        [Column(TypeName = "nvarchar(500)")]
         public string ResourceUrl { get; set; }
 
         [Required]

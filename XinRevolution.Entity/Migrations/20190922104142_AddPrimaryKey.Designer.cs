@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using XinRevolution.Entity;
 
 namespace XinRevolution.Entity.Migrations
 {
     [DbContext(typeof(XinRevolutionDbContext))]
-    partial class XinRevolutionDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190922104142_AddPrimaryKey")]
+    partial class AddPrimaryKey
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -127,7 +129,7 @@ namespace XinRevolution.Entity.Migrations
 
                     b.Property<string>("ResourceUrl")
                         .IsRequired()
-                        .HasColumnType("nvarchar(500)");
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -154,7 +156,7 @@ namespace XinRevolution.Entity.Migrations
 
                     b.Property<string>("LinkUrl")
                         .IsRequired()
-                        .HasColumnType("nvarchar(500)");
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("Note")
                         .IsRequired()
@@ -162,7 +164,7 @@ namespace XinRevolution.Entity.Migrations
 
                     b.Property<string>("ResourceUrl")
                         .IsRequired()
-                        .HasColumnType("nvarchar(500)");
+                        .HasColumnType("nvarchar(200)");
 
                     b.HasKey("Id");
 

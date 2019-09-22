@@ -7,15 +7,8 @@ using XinRevolution.Entity.Enum;
 
 namespace XinRevolution.Entity.Entities
 {
-    public class BlogPostEntity
+    public class BlogPostEntity : BaseEntity
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Required]
-        [Column(TypeName = "int", Order = 0)]
-        public int Id { get; set; }
-
-
         [Required]
         [Column(TypeName = "smallint")]
         public BlogPostReferenceTypeEnum ReferenceType { get; set; }

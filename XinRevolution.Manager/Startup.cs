@@ -35,8 +35,10 @@ namespace XinRevolution.Manager
             });
 
             // DI
+            services.AddScoped<StorageService>();
             services.AddScoped<IUnitOfWork<DbContext>, UnitOfWork>();
             services.AddScoped<UserService>();
+            services.AddScoped<IssueService>();
         }
 
         public void Configure(IApplicationBuilder app, XinRevolutionDbContext dbContext)

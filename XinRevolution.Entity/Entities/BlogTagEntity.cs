@@ -6,15 +6,8 @@ using System.Text;
 
 namespace XinRevolution.Entity.Entities
 {
-    public class BlogTagEntity
+    public class BlogTagEntity : BaseEntity
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Required]
-        [Column(TypeName = "int", Order = 0)]
-        public int Id { get; set; }
-
-
         [Required]
         [Column(TypeName = "int")]
         public int BlogId { get; set; }

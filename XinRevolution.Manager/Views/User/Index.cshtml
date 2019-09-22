@@ -1,76 +1,44 @@
 ﻿@model List<UserEntity>
 
-    <div>
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item active" aria-current="page">使用者管理</li>
-            </ol>
-        </nav>
-    </div>
+<div>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">使用者管理</li>
+        </ol>
+    </nav>
+</div>
 
-    <div>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>帳號</th>
-                    <th>姓名</th>
-                    <th>電話</th>
-                    <th>地址</th>
-                    <th>相關操作區</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>帳號</th>
+                <th>姓名</th>
+                <th>電話</th>
+                <th>地址</th>
+                <th>相關操作區</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
                 <tr>
                     <td>@item.Account</td>
                     <td>@item.Name</td>
                     <td>@item.Phone</td>
                     <td>@item.Address</td>
                     <td>
-                        <a class="icon-update" asp-controller="User" asp-action="Update" asp-route-id="@item.Id"></a>
-                        <a class="icon-delete" asp-controller="User" asp-action="Delete" asp-route-id="@item.Id"></a>
+                        <a class="icon-update" title="編輯" asp-controller="User" asp-action="Update" asp-route-id="@item.Id"></a>
+                        <a class="icon-delete" title="刪除" asp-controller="User" asp-action="Delete" asp-route-id="@item.Id"></a>
                     </td>
                 </tr>
-                }
-            </tbody>
-        </table>
-    </div>
-
-    @section Scripts{
-    <script>
-        //initDataTable($('table'));
-
-        var table = $('table').DataTable({
-            language: {
-                "emptyTable": "無資料...",
-                "processing": "處理中...",
-                "loadingRecords": "載入中...",
-                "lengthMenu": "顯示 _MENU_ 項結果",
-                "zeroRecords": "沒有符合的結果",
-                "info": "顯示第 _START_ 至 _END_ 項結果，共 _TOTAL_ 項",
-                "infoEmpty": "顯示第 0 至 0 項結果，共 0 項",
-                "infoFiltered": "(從 _MAX_ 項結果中過濾)",
-                "infoPostFix": "",
-                "search": "搜尋:",
-                "paginate": {
-                    "first": "第一頁",
-                    "previous": "上一頁",
-                    "next": "下一頁",
-                    "last": "最後一頁"
-                },
-                "aria": {
-                    "sortAscending": ": 升冪排列",
-                    "sortDescending": ": 降冪排列"
-                }
             }
-        });
+        </tbody>
+    </table>
+</div>
 
-        table.button().add(0, {
-            action: function (e, dt, button, config) {
-                dt.ajax.reload();
-            },
-            text: 'Reload table'
-        });
+@section Scripts{
+    <script>
+        initDataTable($('table'), "/User/Create");
     </script>
-    }
+}
