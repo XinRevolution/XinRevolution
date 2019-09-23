@@ -10,11 +10,11 @@ namespace XinRevolution.Manager.Services
 {
     public class IssueService : BaseService<IssueEntity, IssueMD>
     {
-        private readonly StorageService _storageService;
+        private readonly StorageService _service;
 
-        public IssueService(IUnitOfWork<DbContext> unitOfWork, StorageService storageService) : base(unitOfWork)
+        public IssueService(IUnitOfWork<DbContext> unitOfWork, StorageService service) : base(unitOfWork)
         {
-            _storageService = storageService;
+            _service = service;
         }
 
         public override OperationResult<IssueMD> Delete(IssueMD metaData)
@@ -26,12 +26,12 @@ namespace XinRevolution.Manager.Services
                 // 刪除相關連結
                 var relativeLinks = _unitOfWork.GetRepository<IssueRelativeLinkEntity>().Find(x => x.IssueId == metaData.Id);
                 _unitOfWork.GetRepository<IssueRelativeLinkEntity>().Delete(x => x.IssueId == metaData.Id);
-                _storageService.Delete(relativeLinks.Select(x => x.ResourceUrl));
+                _service.Delete(relativeLinks.Select(x => x.ResourceUrl));
 
                 // 刪除子議題
                 var issueItems = _unitOfWork.GetRepository<IssueItemEntity>().Find(x => x.IssueId == metaData.Id);
                 _unitOfWork.GetRepository<IssueItemEntity>().Delete(x => x.IssueId == metaData.Id);
-                _storageService.Delete(issueItems.Select(x => x.ResourceUrl));
+                _service.Delete(issueItems.Select(x => x.ResourceUrl));
 
                 // 刪除議題
                 _unitOfWork.GetRepository<IssueEntity>().Delete(ToEntity(metaData));
