@@ -1,56 +1,143 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
-
-a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+﻿/* General */
+* {
+    font-family: monospace;
 }
 
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  font-size: 14px;
-}
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+html, body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0px;
+    padding: 0px;
+    overflow-y: hidden;
 }
 
-.border-top {
-  border-top: 1px solid #e5e5e5;
-}
-.border-bottom {
-  border-bottom: 1px solid #e5e5e5;
+/* DataTable */
+.dataTables_button {
+    display: inline-block;
 }
 
-.box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+    .dataTables_button .icon-create {
+        font-size: 23px;
+    }
+
+/* Bootstrap */
+.breadcrumb {
+    font-size: 1rem;
+    font-weight: bold;
 }
 
-button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
+.col-form-label {
+    font-size: 1rem;
 }
 
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  position: relative;
-  min-height: 100%;
+
+/* Login */
+.login-background {
+    background-image: url(../images/login-background.jpg);
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+.login-overlay {
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 40%;
+    height: 50%;
+    position: relative;
 }
+
+.login-container {
+    width: 75%;
+    height: 75%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: 20px;
+}
+
+.login-logo {
+    width: 50px;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 50px;
+}
+
+.login-form {
+    margin: 20px auto;
+    text-align: center;
+}
+
+.login-input {
+    background-color: rgba(0,0,0, 0.5);
+    border-radius: 5px;
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: 2px;
+    width: 70%;
+    margin: 10px;
+    padding: 5px;
+}
+
+.login-btn {
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+    color: #fff1f1;
+    width: 80px;
+    margin-top: 20px;
+    padding: 5px;
+    opacity: 0.7;
+}
+
+    .login-btn:hover {
+        opacity: 1;
+    }
+
+
+/* Layout */
+.header {
+    background: linear-gradient(45deg, black, #696060de);
+    color: #ceefed;
+    font-weight: 900;
+    font-size: 15px;
+    padding: 8px 30px;
+}
+
+.frame {
+    height: calc(100% - 76px);
+}
+
+    .frame .menu {
+        width: 200px;
+        height: 100%;
+        float: left;
+        padding: 10px;
+    }
+
+        .frame .menu .accordion {
+            padding: 0.5rem 1rem;
+        }
+
+            .frame .menu .accordion .acoordion-content {
+                margin-top: 10px;
+            }
+
+    .frame .content {
+        height: 100%;
+        overflow-y: auto;
+        padding: 10px;
+    }
+
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  /* Set the fixed height of the footer here */
-  height: 60px;
-  line-height: 60px; /* Vertically center the text there */
+    text-align: center;
+    background: linear-gradient(45deg, #696060de, black);
+    color: #ceefed;
+    font-weight: 900;
+    font-size: 15px;
+    padding: 8px 30px;
 }

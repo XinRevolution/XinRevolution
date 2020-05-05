@@ -12,7 +12,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using XinRevolution.Entity;
-using XinRevolution.Entity.Model;
 
 namespace XinRevolution.Web
 {

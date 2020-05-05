@@ -60,7 +60,7 @@ namespace XinRevolution.Entity.Migrations
 
                     b.Property<string>("ResourceUrl")
                         .IsRequired()
-                        .HasColumnType("nvarchar(200)");
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -87,7 +87,7 @@ namespace XinRevolution.Entity.Migrations
 
                     b.Property<string>("LinkUrl")
                         .IsRequired()
-                        .HasColumnType("nvarchar(200)");
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<string>("Note")
                         .IsRequired()
@@ -95,7 +95,7 @@ namespace XinRevolution.Entity.Migrations
 
                     b.Property<string>("ResourceUrl")
                         .IsRequired()
-                        .HasColumnType("nvarchar(200)");
+                        .HasColumnType("nvarchar(500)");
 
                     b.HasKey("Id");
 

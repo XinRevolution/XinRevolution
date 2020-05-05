@@ -1,0 +1,44 @@
+﻿@model List<UserEntity>
+
+<div>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">使用者管理</li>
+        </ol>
+    </nav>
+</div>
+
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>帳號</th>
+                <th>姓名</th>
+                <th>電話</th>
+                <th>地址</th>
+                <th>相關操作區</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Account</td>
+                    <td>@item.Name</td>
+                    <td>@item.Phone</td>
+                    <td>@item.Address</td>
+                    <td>
+                        <a class="icon-update" title="編輯" asp-controller="User" asp-action="Update" asp-route-id="@item.Id"></a>
+                        <a class="icon-delete" title="刪除" asp-controller="User" asp-action="Delete" asp-route-id="@item.Id"></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script>
+        initDataTable($('table'), "/User/Create");
+    </script>
+}

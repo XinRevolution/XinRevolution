@@ -5,6 +5,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using XinRevolution.Entity;
+using XinRevolution.Manager.Services;
+using XinRevolution.Repository;
+using XinRevolution.Repository.Interfaces;
 
 namespace XinRevolution.Manager
 {
@@ -30,11 +33,17 @@ namespace XinRevolution.Manager
             {
                 options.UseSqlServer(Configuration.GetConnectionString("Database"));
             });
+
+            // DI
+            services.AddScoped<StorageService>();
+            services.AddScoped<IUnitOfWork<DbContext>, UnitOfWork>();
+            services.AddScoped<UserService>();
+            services.AddScoped<IssueService>();
         }
 
         public void Configure(IApplicationBuilder app, XinRevolutionDbContext dbContext)
         {
-            app.UseExceptionHandler("/Home/Error");
+            //app.UseExceptionHandler("/Home/Error");
             app.UseHsts();
             app.UseHttpsRedirection();
             app.UseStaticFiles();

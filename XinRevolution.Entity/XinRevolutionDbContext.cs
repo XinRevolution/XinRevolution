@@ -27,6 +27,9 @@ namespace XinRevolution.Entity
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            // Define Primary Key
+            CreateKey(modelBuilder);
+
             // Define Alternate Key & Composite Key
             CreateAlternateKey(modelBuilder);
 
@@ -40,6 +43,33 @@ namespace XinRevolution.Entity
         #endregion
 
         #region General Method
+
+        private void CreateKey(ModelBuilder modelBuilder)
+        {
+            // Users
+            modelBuilder.Entity<UserEntity>().HasKey(x => x.Id);
+
+            // Issue
+            modelBuilder.Entity<IssueEntity>().HasKey(x => x.Id);
+
+            // IssueItem
+            modelBuilder.Entity<IssueItemEntity>().HasKey(x => x.Id);
+
+            // IssueRelativeLink
+            modelBuilder.Entity<IssueRelativeLinkEntity>().HasKey(x => x.Id);
+
+            // Tag
+            modelBuilder.Entity<TagEntity>().HasKey(x => x.Id);
+
+            // Blog
+            modelBuilder.Entity<BlogEntity>().HasKey(x => x.Id);
+
+            // BlogPost
+            modelBuilder.Entity<BlogPostEntity>().HasKey(x => x.Id);
+
+            // BlogTag
+            modelBuilder.Entity<BlogTagEntity>().HasKey(x => x.Id);
+        }
 
         private void CreateAlternateKey(ModelBuilder modelBuilder)
         {
